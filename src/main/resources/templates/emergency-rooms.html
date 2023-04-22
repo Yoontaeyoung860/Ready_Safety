@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>응급실 목록</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcAJnqW9nAcULal2mEcF0rg3inKtuT27U"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>응급실 목록</h1>
+<ul id="emergency-rooms-list">
+</ul>
+<div id="map" style="width: 100%; height: 400px;"></div>
+<div class="pagination">
+  <button id="prev-page">&lt; 이전</button>
+  <span id="currentpage">1</span>
+  <button id="next-page">다음 &gt;</button>
+</div>
+<script>
+const apiKey = "8Ek2lFFKv0iJm16TOGBd3a19KA65sZoech6w7u9w2WW+xwUZo0RGo521yza3x+RzVifL97AwiIArMvvyxDes6A==";
+const encodedApiKey = encodeURIComponent(apiKey);
+    $(document).ready(function () {
+        fetchEmergencyRooms();
+    });
+function success(data) {
+  const items = data.response.body.items.item;
+  const ul = document.createElement("ul");
+  items.forEach(item => {
+    const li = document.createElement("li");
+    li.innerText = `${item.dutyName} - ${item.dutyAddr}`;
+    ul.appendChild(li);
+  });
+  const target = document.querySelector("#emergency-rooms-list");
+  target.appendChild(ul);
+}
+ function fetchEmergencyRooms() {
+  $.ajax({
+    url: "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytLcinfoInqire",
+    data: {
+      WGS84_LON: "127.085156592737",
+      WGS84_LAT: "37.4881325624879",
+      pageNo: currentPage, // 현재 페이지를 사용하여 API 요청을 보냅니다.
+      numOfRows: "10",
+      serviceKey: apiKey
+    },
+    type: "GET",
+    dataType: "xml",
+    success: function (xmlData) {
+      console.log("Received data:", xmlData);
+      const emergencyRooms = parseXMLData(xmlData);
+      updateEmergencyRoomsList(emergencyRooms);
+
+      // Initialize the map
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.488132562487905, lng: 127.08515659273706 },
+        zoom: 10,
+      });
+
+      // Create markers for each emergency room
+      emergencyRooms.forEach((emergencyRoom) => {
+        const marker = new google.maps.Marker({
+          position: {
+            lat: emergencyRoom.latitude,
+            lng: emergencyRoom.longitude,
+          },
+          map: map,
+        });
+
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <h3>${emergencyRoom.dutyName}</h3>
+            <p>${emergencyRoom.dutyAddr}</p>
+            <p>${emergencyRoom.dutyTel1}</p>
+          `,
+        });
+
+
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
+      });
+    },
+    error: function (error) {
+      console.error("Error fetching emergency rooms:", error);
+      // 에러가 발생한 경우 emergencyRooms 배열을 빈 배열로 초기화
+      const emergencyRooms = [];
+      updateEmergencyRoomsList(emergencyRooms);
+      initMap(emergencyRooms);
+    }
+  });
+}
+function parseXMLData(xmlData) {
+    const emergencyRooms = [];
+    const items = xmlData.getElementsByTagName("item");
+
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const dutyName = item.getElementsByTagName("dutyName")[0]?.textContent || '';
+        const dutyAddr = item.getElementsByTagName("dutyAddr")[0]?.textContent || '';
+        const dutyTel1 = item.getElementsByTagName("dutyTel1")[0]?.textContent || ''; // 추가
+        const latitude = parseFloat(item.getElementsByTagName("WGS84_LAT")[0]?.textContent || 0);
+        const longitude = parseFloat(item.getElementsByTagName("WGS84_LON")[0]?.textContent || 0);
+
+
+        emergencyRooms.push({
+            dutyName: dutyName,
+            dutyAddr: dutyAddr,
+            dutyTel1: dutyTel1, // 추가
+            latitude: latitude,
+            longitude: longitude,
+        });
+    }
+
+    return emergencyRooms;
+}
+
+
+function updateEmergencyRoomsList(emergencyRooms) {
+  const list = $("#emergency-rooms-list");
+  list.empty();
+
+  emergencyRooms.forEach(emergencyRoom => {
+    const listItem = `<li data-lat="${emergencyRoom.latitude}" data-lng="${emergencyRoom.longitude}">${emergencyRoom.dutyName} - ${emergencyRoom.dutyAddr} -  ${emergencyRoom.dutyTel1}</li>`;
+    list.append(listItem);
+  });
+
+ list.find("li").click(function() {
+    const lat = $(this).data("lat");
+    const lng = $(this).data("lng");
+    const title = $(this).text();
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: { lat, lng }
+    });
+
+    const marker = new google.maps.Marker({
+        position: { lat, lng },
+        map: map,
+        title: title
+    });
+});
+}
+
+// 현재 페이지 변수를 추가합니다.
+let currentPage = 1;
+
+$("#prev-page").click(function () {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    fetchEmergencyRooms(currentPage);
+  }
+});
+
+$("#next-page").click(function () {
+  currentPage += 1;
+  fetchEmergencyRooms(currentPage);
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko"
+th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보 수정</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberPwForm.css}">
+  <script defer th:src="@{/js/member/memberPwForm.js}"></script>
+</head>
+
+<body>
+<main>
+
+  <div class="form">
+
+    <form class="infopw" th:action="@{/member/memberpw}" th:method="patch" th:object="${memberPwForm}">
+
+      <div th:if="${errors?.containsKey('global')}">
+        <p th:text="${errors['global']}" class="field-msg">글로벌 오류 메시지</p>
+      </div>
+      <div>
+        <div><label class="pw" for="pw" > 비밀번호를 입력하세요</label></div>
+        <div><input id="pwinput" class="form-control" type="password" th:field="*{pw}" ></div>
+        <div><p style="margin-top: 0px;margin-bottom: 16px;" th:errors="*{pw}" th:errorclass="field-msg"></div>
+        <div class="Btn_container">
+          <button type="submit" class="btn btn-success">내 정보 확인</button>
+        </div>
+      </div>
+    </form>
+
+</div>
+
+</main>
+
+</body>
+</html>

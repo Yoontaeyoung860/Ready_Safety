@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Forecast</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script th:inline="javascript">
+        /*<![CDATA[*/
+        function weather() {
+            jQuery.ajax({
+                url : "/api/weather",
+                type : "get",
+                timeout: 30000,
+                contentType: "application/json",
+                dataType : "json",
+                success : function(data, status, xhr) {
+
+                    let dataHeader = data.result.response.header.resultCode;
+
+                    if (dataHeader == "00") {
+                        console.log("success == >");
+                        console.log(data);
+                        displayWeather(data);
+                    } else {
+                        console.log("fail == >");
+                        console.log(data);
+                    }
+                },
+                error : function(e, status, xhr, data) {
+                    console.log("error == >");
+                    console.log(e);
+                }
+            });
+        }
+
+        function displayWeather(data) {
+            let weatherData = data.result.response.body.items.item;
+            let weatherInfo = "";
+
+            for (let i = 0; i < weatherData.length; i++) {
+                weatherInfo += "<tr>";
+                weatherInfo += "<td>" + weatherData[i].category + "</td>";
+                weatherInfo += "<td>" + weatherData[i].fcstValue + "</td>";
+                weatherInfo += "<td>" + weatherData[i].baseDate + " " + weatherData[i].baseTime + "</td>";
+                weatherInfo += "</tr>";
+            }
+
+            document.getElementById("weatherTableBody").innerHTML = weatherInfo;
+        }
+
+        window.onload = weather;
+        /*]]>*/
+    </script>
+</head>
+<body>
+<h1>Weather Forecast</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Category</th>
+    <th>Value</th>
+    <th>Time</th>
+  </tr>
+  </thead>
+  <tbody id="weatherTableBody">
+  </tbody>
+</table>
+</body>
+</html>

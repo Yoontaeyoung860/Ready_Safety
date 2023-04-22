@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{::script},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 작성</title>
+  <link rel="stylesheet" th:href="@{/css/board/addForm.css}">
+  <script defer th:src="@{/js/common/ckeditor.js}"></script>
+  <script defer th:src="@{/js/board/addForm.js}"></script>
+  <script src="https://kit.fontawesome.com/4ee0f83e5d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--form-->
+<div class="form">
+
+  <!--wrap-->
+  <div class="wrap">
+
+    <h3>게시글 작성</h3>
+    <div id="container">
+      <form class="addForm" th:method="post" th:object="${addForm}" enctype="multipart/form-data">
+        <!--게시글 제목-->
+        <div class="board-title">
+          <div>제목</div>
+          <input class="title" type="text" th:field="*{btitle}" placeholder="제목을 입력하세요(0 ~ 20자)" autofocus>
+          <div class="fieldError" th:errors="*{btitle}"></div>
+        </div>
+        <!--게시글 본문-->
+        <div class="board-content">
+          <div>내용</div>
+          <textarea name="" id="" cols="30" rows="10" th:field="*{bcontent}" placeholder="내용을 입력하세요(0 ~ 1000자)"></textarea>
+          <div class="fieldError" th:errors="*{bcontent}"></div>
+        </div>
+
+        <!--파일첨부-->
+        <div class="board-file">
+          <input type="checkbox" id="checkbox">
+          <div id="accordion"><label for="checkbox"><i class="fa-solid fa-angle-down"></i>파일첨부</label></div>
+          <div id="accordion-item">
+            <input type="file" th:field="*{files}" multiple>
+          </div>
+        </div>
+
+        <!--버튼-->
+        <div class="board-button">
+          <div>
+            <button id="addBtn" type="button">등록</button>
+            <button id="listBtn" type="button">목록</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

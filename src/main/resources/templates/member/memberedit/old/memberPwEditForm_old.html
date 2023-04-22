@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko"
+      th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보 수정</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberPwEditForm.css}">
+  <script defer th:src="@{/js/member/memberPwEditForm.js}"></script>
+</head>
+<body>
+
+<main>
+  <div class="form">
+
+  
+    <div>
+
+      <form  th:method="patch" th:action="@{/member/pwedit}" th:object="${pwEditForm}" >
+
+        <ul>
+          <li class="title"><h1 class="title">회원 수정</h1></li>
+
+          <li><label for="id" class="form-label">아이디</label></li>
+          <li><input id="id" class="form-control" type="text" th:field="*{id}" readonly/></li>
+          <li><label for="pw" class="form-label">비밀번호</label></li>
+          <li><input id="pw" class="form-control" type="password" th:field="*{pw}"/></li>
+          <li th:errors="*{pw}" th:errorclass="field-msg"></li>
+          <li><label class="form-label" for="pwChk">비밀번호 확인</label></li>
+          <li><input id="pwChk" class="form-control" type="password" th:field="*{pwChk}"></li>
+          <li th:errors="*{pwChk}" th:errorclass="field-msg"></li>
+
+          <li class=button>
+            <button class="btn btn-success btn-block" type="submit" onclick="return confirm('정말로 수정 하시겠습니까?')" id="modifyBtn">수정하기</button>
+            <button class="btn btn-success btn-block" type="reset" onclick="location.href='/'">취소</button>
+  <!--          <button class="btn btn-success btn-block" type="submit" th:formaction="@{|/member/${loginMember.id}/out|}" onclick="return confirm('정말로 탈퇴 하시겠습니까?')">탈퇴</button>-->
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <div>
+      <p>
+        비밀번호 비교 오류에 따른 메시지 추가 필요
+      </p>
+    </div>
+
+  </div>
+
+
+</main>
+
+
+</body>
+</html>
+
+

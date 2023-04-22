@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberedit/memberForm.css}">
+  <script defer th:src="@{/js/member/memberedit/memberForm.js}"></script>
+</head>
+<body th:with="loginMember = ${session.loginMember}">
+
+  <div class="form">
+
+  
+
+    <ul>
+
+
+      <li><a th:href="@{|/member/edit|}">회원정보 변경</a></li>
+      <li><a th:href="@{|/member/memberpw|}">비밀번호 변경</a></li>
+    <!--  <li><a th:href="@{|/member/${loginMember.id}/out|}">탈퇴</a></li>-->
+      <li><a th:href="@{|/member/out|}">탈퇴</a></li>
+    </ul>
+
+  </div>
+
+</body>
+</html>

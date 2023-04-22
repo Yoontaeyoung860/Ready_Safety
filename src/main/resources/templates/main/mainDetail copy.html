@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+
+*{
+            font-family: 'NanumAmSeuTeReuDam';
+            font-weight: bold;
+            margin: 0;
+        }        
+
+        .upper {
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #edeeb4;
+        }
+        .upper-left{
+           width: 20%;
+           display: flex;
+           padding: 1px;
+        }
+        .upper-right{
+            width: 20%;
+            display: flex;
+        }
+        .login{
+            width: 50%;
+            background-color: burlywood;
+        }
+        .join{
+            width: 50%;
+            background-color: burlywood;
+        }
+        .head{
+            width: auto;
+            height: 150px;
+            background-image: url("bg.jpg");
+            background-size: 100% 100%;
+            opacity: 70%;
+            text-align: center;
+            font-size: 8.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 1280px;  height: 730px;
+            display: flex;
+        }
+        .footer {
+            height: 35px;
+            background-color: #BDD7EE;
+            text-align: center;
+            text-decoration: black;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav{
+            background-color: #c9c9c9;
+            width: 20%;   height: 100%;
+        }
+
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        li{
+            margin: 30%;
+        }
+
+        li a{
+            display: block;
+            color: black;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;       
+            font-size: 20px; 
+        }
+
+        li a:hover{
+            background-color: slategrey;
+            color: dimgray;
+        }
+
+        .main-item{
+            background-color: ffffff;
+            width: 80%;
+        }
+        .main-item-list1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 6%;
+        }
+        .main-item-list1 > img{
+            width: 100px;
+            height: 130px;
+        }
+        .main-item-list2{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 6%;
+        }
+        .main-item-list2 > img{
+            width: 100px;
+            height: 130px;
+        }
+        .main-item-list3{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 6%;
+        }
+        .main-item-list3 > img{
+            width: 100px;
+            height: 130px;
+        }
+
+    </style>
+</head>
+<!--<body th:with="loginMember = ${session.loginMember}">-->
+
+<!--<ul>-->
+<!--    <li><a th:href="@{|/member/${loginMember.id}/out|}">탈퇴</a></li>-->
+<!--</ul>-->
+
+
+    <div class="upper">
+        <div class="upper-left">
+            <input type="text" name="query" placeholder="도서명" size="50">
+            <button type="submit" onclick="location.href='./bookapi.html'"> 찾기 </button>
+        </div>
+        <div class="upper-right">
+<!--            <span th:if="${!session.isEmpty()}" th:text="${session.loginMember.nickname}"></span>님 환영합니다.-->
+            <span th:if="${!session.isEmpty()}" th:text="${session.loginMember.nickname}"></span>님 환영합니다.
+
+            <button type="button" onclick="location.href='/member/memberinfo'"> 마이페이지 </button>
+            <button type="button" onclick="location.href='/logout'"> 로그아웃 </button>
+<!--            <button type="submit" onclick=location.href=/member/out> 탈퇴 </button>-->
+<!--            <button type="submit" th:onclick="'location.href=/'+ @{/member/${loginMember.id}/out} + '/'"> 탈퇴 </button>-->
+<!--            th:onclick="'location.href=\''+ @{${moveUrl}} + '\''"-->
+<!--            <li><a th:href="@{|/member/${loginMember.id}/out|}">탈퇴</a></li>-->
+
+        </div>
+
+
+
+
+
+
+    </div>
+    <div class="head">리 : 플</div>
+    <main>
+        <div class="container">
+            <div class="nav">
+                <ul>
+                    <li><a href="">책장</a></li>
+                    <li><a href="">달력</a></li>
+                    <li><a href="/board">게시판</a></li>
+                    <li><a href="/notices/all">공지사항</a></li>
+                    <li><a href="">Q&A</a></li>
+                    <li><a href="">지도검색</a></li>
+                </ul>
+            </div>
+            <div class="main-item">
+                <div class="main-item-list1">
+                    <img src="./static/img/inquiry.png">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                </div>
+                <hr align="center" width="100%" size="30" color="darkgrey">
+                <div class="main-item-list2">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                </div>
+                <hr align="center" width="100%" size="30" color="darkgrey">
+                <div class="main-item-list3">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+                    <img src="/static/img/book.jpg">
+
+                </div>
+                <hr align="center" width="100%" size="30" color="darkgrey">
+            </div>
+        </div>
+    </main>
+    <div class="footer">@2022 울산 KH 정보교육원 8기 2팀(장유유서) 팀 프로젝트
+    </div>
+</body>
+</html>

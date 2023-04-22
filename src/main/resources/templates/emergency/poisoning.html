@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재난,안전 예방</title>
+  <link rel="stylesheet" th:href="@{/css/main/main.css}">
+  <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
+  <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+
+
+<body>
+<body>
+<div class="upper">
+  <div class="upper-second">
+    <div class="upper-left">
+      <div class="logo">
+        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
+      </div>
+    </div>
+    <!--로그인시-->
+    <th:block th:if="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+    </th:block>
+    <!--비로그인시-->
+    <th:block th:unless="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+    </th:block>
+  </div>
+</div>
+<header>
+  <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<main>
+<h3>약물중독</h3>
+
+<h4>증세 및 징후</h4>
+<ul class="list_style1">
+  <li>구토, 호흡곤란, 복통, 발한, 의식장애, 경련 등이 나타난다.</li>
+</ul>
+
+<h4>응급처치</h4>
+<ul class="list_style1">
+  <li>의식을 확인하고 기도를 유지합니다.</li>
+  <li>만일 환자가 의식이 없으면 호흡과 맥박을 확인합니다.</li>
+  <li>중독물질을 복용하였을 때는 우유와 물을 마시게 하여 중독 물질을 회석시키거나 구토를 유발시킨다.</li>
+  <li>단, 환자가 의식이 없거나 경련이 있을 경우에는 구토를 시키지 않도록 합니다.</li>
+  <li>중독 가능성이 있는 약물, 화학물질, 약병 등을 수거하여 비닐팩에 담아 병원으로 가져간다.</li>
+  <li>약물복용에 의한 중독환자는 복용초기에 신속한 약물제거가 환자의 생명을 구하는데 지름길이다.</li>
+</ul>
+</main>
+</body>
+
+<div th:replace="fragment/footer :: site-footer"></div>
+
+</html>

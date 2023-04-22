@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/member/login/loginForm.css}">
+  <script defer th:src="@{/js/member/login/loginForm.js}"></script>
+  <title>로그인</title>
+</head>
+<body>
+
+  <!--form-->
+  <div class="form">
+
+    <!--wrap-->
+    <div class="wrap">
+
+      <!--form 태그-->
+      <form th:action method="POST" class="loginForm" th:object="${loginForm}">
+
+        <!--제목-->
+        <h3>로 그 인</h3>
+
+        <!--table-->
+        <table class="loninTableForm">
+          <!--ID-->
+          <tr>
+            <td class="loginTd1"> 아이디 </td>
+            <td class="loginTd2">
+              <div class="textForm">
+                <input name="loginId" type="text" class="id" placeholder="아이디" th:field="*{id}"
+                  th:class="${#fields.hasErrors('id') ? 'fieldError' : 'fieldSuccess'}">
+              </div>
+            </td>
+            <td class="loginTd3">
+              <p th:if="${#fields.hasErrors('${loginForm}')}"></p>
+              <p th:errors="${loginForm}" th:errorclass="globalError"></p>
+
+              <p th:if="${#fields.hasErrors('id')}"></p>
+              <p th:errors="*{id}" th:errorclass="fieldError"></p>
+            </td>
+          </tr>
+          <!--PW-->
+          <tr>
+            <td>비밀번호</td>
+            <td>
+              <div class="textForm">
+                <input name="loginPw" type="password" class="pw" placeholder="비밀번호" th:field="*{pw}"
+                    th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}">
+              </div>
+            </td>
+            <td>
+              <p th:if="${#fields.hasErrors('pw')}"></p>
+              <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+            </td>
+          </tr>
+        </table>
+
+  <!--          <div class="toggle"></div>-->
+  <!--          <label class="switch">-->
+  <!--            <input type="checkbox" name="autologincheck">-->
+  <!--            <span class="slider round"></span>-->
+  <!--          </label>-->
+  <!--          <span class="switch__text">자동 로그인</span>-->
+
+        <!--버튼-->
+        <div class="login_btn_group">
+          <button id="loginBtn" type="submit">로그인</button>
+          <button id="cancelBtn" type="button" onclick="location.href='/'">취소</button>
+          <button id="signupBtn" type="button" onclick="location.href='/signup'">회원가입</button>
+        </div>
+
+        <!--페이지이동-->
+        <div>
+          <a href="#" th:href="@{/find/findidpw/id}">id/</a>
+          <a href="#" th:href="@{/find/findidpw/pw}">pw 찾기</a>
+        </div>
+
+        <!-- <hr>
+        <div class="SNSBtn_container">
+          <button type="button" onclick="kakaoLogin();" ><img src="/img/kakao.png" alt="" id="kakao"></button>
+        </div> -->
+      </form>
+
+    </div>
+
+  </div>
+  
+</body>
+</html>

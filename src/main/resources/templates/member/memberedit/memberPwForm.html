@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보 수정</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberedit/memberPwForm.css}">
+  <script defer th:src="@{/js/member/memberedit/memberPwForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+
+    <form th:action="@{/member/memberpw}" th:method="PATCH" class="editPwForm" th:object="${memberPwForm}">
+
+      <h3>회원정보 수정</h3>
+      <p>
+      </p>
+  
+    
+      <table class="tableForm">
+        <tr>
+          <td class="td1"> 비밀번호 입력 </td>
+          <td class="td2">
+            <div class="textForm">
+              <input name="email" type="password" class="pw" th:field="*{pw}"
+                  th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}">
+            </div>
+          </td>          
+          <td class="td3">
+
+          </td>
+          <td class="td4">
+            <p th:if="${#fields.hasErrors('pw')}"> </p>
+            <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+            <div class="errmsg">
+            
+
+            </div>
+
+          </td>
+        </tr>
+
+
+
+      </table>
+
+    
+
+
+
+        
+
+
+
+
+
+
+
+
+
+      <br>
+      <div class="btn_editpw_group"> 
+        <button id="modifyBtn" type="submit" >확인</button>
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">취소</button>
+
+      </div>
+
+    </form>
+
+
+
+
+
+
+    
+  </div>
+
+
+  
+</body>
+</html>

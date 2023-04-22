@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>booktest 전체목록</title>
+  <link rel="stylesheet" href="" th:href="@{/css/board/listForm.css}">
+</head>
+<body>
+
+<!--form-->
+<div class="form">
+
+  <!--wrap-->
+  <div class="wrap">
+
+    <!--1. 제목-->
+    <h3>booktest 목록</h3>
+    <hr>
+
+    <!--2. 전체목록-->
+    <table>
+      <!--테이블헤드-->
+      <thead>
+        <tr>
+          <!-- <th>no</th> -->
+          <th>isbn</th>
+          <th>제목</th>
+        </tr>
+      </thead>
+      <!--테이블바디-->
+      <tbody>
+        <block th:each="item : ${items}">
+          <tr>
+            <!-- <td th:text="${itemStat.size - itemStat.index}" class="num">NO</td> -->
+            <td><a th:href="@{|/booktest/${item.isbn}/detail|}" th:text="${item.isbn}">isbn</a></td>
+            <td><a th:text="${item.title}">제목</a></td>
+          </tr>
+        </block>
+      </tbody>
+    </table>
+    <hr>
+
+    <!--3. 글쓰기버튼-->
+    <button class="btn" id="writeBtn" type="button" onclick="location.href='/booktest/add'">글쓰기</button>
+
+  </div>
+</div>
+</body>
+</html>

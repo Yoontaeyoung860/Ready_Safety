@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main(title, main_style, main_script, style, script, header, nav, form, footer)"
+      th:with="s_session  = ${session},
+               s_email    = ${session?.loginMember?.email},
+               s_nickname = ${session?.loginMember?.nickname}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+  <title th:replace=${title}>리ː플</title>
+  <link rel="stylesheet" th:href="@{/css/main/mainDetail.css}" th:replace=${main_style}>
+  <script defer src="xxx.js" th:replace=${main_script}></script>
+  <th:block th:replace=${style}></th:block>
+  <th:block th:replace=${script}></th:block>
+</head>
+<body th:with="loginMember = ${session.loginMember}">
+
+<!--upper-->
+<div class="upper">
+  <div class="upper-left">
+    <input type="text" name="query" placeholder="도서명" size="50">
+    <button type="submit" onclick="location.href='./bookapi.html'"> 찾기 </button>
+  </div>
+  <!--로그인시-->
+  <th:block th:if="${!s_session.isEmpty()}">
+    <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+  </th:block>
+  <!--비로그인시-->
+  <th:block th:unless="${!s_session.isEmpty()}">
+    <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+  </th:block>
+</div>
+
+<!--header-->
+<div class="head" th:replace=${header}>리 : 플</div>
+
+<!--main-->
+<main>
+  <div class="container">
+
+    <!--nav-->
+    <nav th:replace=${nav}>
+      <ul>
+        <li><a href="">책장</a></li>
+        <li><a href="">달력</a></li>
+        <li><a href="/board/1">게시판</a></li>
+        <li><a href="/notices/all">공지사항</a></li>
+        <li><a href="/qna/list">Q&A</a></li>
+        <li><a href="">지도검색</a></li>
+      </ul>
+    </nav>
+
+    <!--form-->
+    <div class="main-item" th:replace=${form}>
+      <div class="main-item-list1">
+        <img src="./static/img/inquiry.png">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+      </div>
+      <hr align="center" width="100%" size="30" color="darkgrey">
+      <div class="main-item-list2">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+      </div>
+      <hr align="center" width="100%" size="30" color="darkgrey">
+      <div class="main-item-list3">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+        <img src="/static/img/book.jpg">
+      </div>
+      <hr align="center" width="100%" size="30" color="darkgrey">
+    </div>
+  </div>
+</main>
+
+<!--footer-->
+<div class="footer" th:replace=${footer}>
+  @2022 울산 KH 정보교육원 8기 2팀(장유유서) 팀 프로젝트
+</div>
+
+</body>
+</html>

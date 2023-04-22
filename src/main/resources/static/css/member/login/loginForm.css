@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* input.fieldError{
+  border: 1px solid red;
+}
+.globalError, p.fieldError{
+  color: red;
+  font-size: 0.8em;
+  font-weight: bold;
+} */
+
+/*
+.loginForm {
+  position:relative;
+  width:700px;
+  height:300px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+}
+
+.loninTableForm {
+  width: 700px;
+}
+
+.loninTableForm .loginTd1{
+  width: 20%;
+}
+.loninTableForm .loginTd2{
+  width: 40%;
+}
+
+.loninTableForm .loginTd3{
+  width: auto;
+}
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+.fieldSuccess {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.fieldError {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.pw {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.login_btn_group button {
+
+  width: 60px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-right: 5px;
+
+  border: 1px solid skyblue;
+  background-color: rgba(0,0,0,0);
+  color: skyblue;
+  padding: 5px;
+}
+
+.login_btn_group button:hover {
+  color:white;
+  background-color: skyblue;
+}
+*/
+
+.wrap{
+  padding: 42px;
+  text-align: center;
+}
+
+form>h3{margin-bottom: 60px;}
+
+/*table*/
+.table-wrap{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+table{
+  /*background-color: rgba(135,206,235,0.5);*/
+  box-shadow: 0px 0px 15px rgb(000,000,000,0.3);
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+table p{margin: 0px;}
+
+table span{line-height: 50px;}
+
+td{height: 50px;}
+.loginTd1{width: 80px;}
+.loginTd2{width: 200px;}
+.loginTd3{
+  width: 300px;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*버튼*/
+.login_btn_group{margin-bottom: 20px;}

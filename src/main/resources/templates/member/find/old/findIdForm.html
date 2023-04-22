@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns:th="http://www.thymeleaf.org"
+th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 찾기</title>
+  <link rel="stylesheet" th:href="@{/css/member/find/findIdForm.css}">
+  <script defer th:src="@{/js/member/find/findIdForm.js}"></script>
+
+
+</head>
+
+<body>
+
+<div class="form">
+  <h3>아이디찾기</h3>
+  <hr>
+  <div class="content-findId">
+    <div><label>이름</label></div>
+    <div><input type="text" id="nameTxt"></div>
+    <div><label>email</label></div>
+    <div><input type="text" id="emailTxt"></div>
+    <div><label>아이디</label></div>
+    <div><span id="findedId"></span></div>
+    <div></div><div><button id="findIdBtn">아이디찾기</button></div>
+  </div>
+
+  잘못 입력 할 경우 오류 표기 방법 찾아야 함
+
+</div>
+
+</body>
+</html>

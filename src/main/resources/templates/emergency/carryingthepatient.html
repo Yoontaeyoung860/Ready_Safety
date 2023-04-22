@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+  <title>응급 환자를 운반하는 방법</title>
+  <link rel="stylesheet" th:href="@{/css/main/main.css}">
+  <link rel="stylesheet" th:href="@{/css/emergency/carry.css}">
+  <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+<body>
+<div class="upper">
+  <div class="upper-second">
+    <div class="upper-left">
+      <div class="logo">
+        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
+      </div>
+    </div>
+    <!--로그인시-->
+    <th:block th:if="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+    </th:block>
+    <!--비로그인시-->
+    <th:block th:unless="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+    </th:block>
+  </div>
+</div>
+<header>
+  <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div id="body_content" class="body_content">
+
+
+  <h2 class="hb1 h2">응급 환자를 운반하는 방법</h2>
+  <h3 class="hb1 h3">들 것을 만드는 방법</h3>
+  <div class="box1">
+    <!-- even-grid -->
+    <div class="even-grid evenmix-12 tac">
+      <div class="column c_w30">
+        <h4 class="hb2 h4 mgt0">01. 모포와 막대</h4>
+        <img th:src="@{/img/carry/carry1.gif}" alt="모포와 막대"  />
+      </div>
+      <div class="column">
+        <h4 class="hb2 h4 mgt0">02. 모포만</h4>
+        <img th:src="@{/img/carry/carry2.gif}" alt="모포만"  />
+        <h4 class="hb2 h4">03. 웃옷과 막대</h4>
+        <img th:src="@{/img/carry/carry3.gif}" alt="웃옷과 막대"  />
+        <h4 class="hb2 h4">04. 로프와 막대</h4>
+        <img th:src="@{/img/carry/carry4.gif}" alt="로프와 막대"  />
+      </div>
+    </div>
+    <!-- /even-grid -->
+  </div>
+
+
+  <h4 class="hb1 h4">환자를 싣는 방법</h4>
+  <ol class="bo1">
+    <li>뒷머리나 등에 부상이 있을 때는 옆으로 눕히고, 모포를 대어 몸을 받쳐 준다.</li>
+    <li>가슴 부상시는 상반신을 조금 일으켜, 등에 받칠 것을 넣어 눕힌다.</li>
+    <li>배 부상시는 위로 보게 눕히고 양무릎을 굽혀 무릎밑에 받칠 것을 넣든가, 옆으로 눕혀 무릎을 구부리게 한다.</li>
+  </ol>
+
+  <h3 class="hb1 h3">세 사람이 옮기는 방법</h3>
+
+  <h4 class="hb1 h4">손목을 서로 쥐고 수평으로 나른다.</h4>
+  <ol class="bo1">
+    <li>1사람과 2사람으로 나누어 환자의 목, 허리, 무릎 밑에서 손을 합친다.</li>
+    <li>환자 머리를 수평으로 유지하면서 신호와 함께 동시에 무릎위로 들어 올려 손목을 서로 쥔다.</li>
+    <li>일어나 발쪽으로 나아간다.</li>
+  </ol>
+  <img th:src="@{/img/carry/carry5.gif}"  alt="손목을 서로 쥐고 수평으로 나른다."  />
+  <h4 class="hb1 h4">환자를 나르는  방법</h4>
+  <ol class="bo1">
+    <li>떨어지지 않도록 가운데에 싣는다.</li>
+    <li>환자의 발쪽으로 나아간다.</li>
+    <li>계단을 오를 때는 얼굴쪽을, 내릴 때는 발쪽을 앞으로 한다. 차에 태울 때는 머리를 앞으로 한다.</li>
+    <li>필요할 때, 기도 확보나 지혈을 들 것위에서 계속한다.</li>
+  </ol>
+
+  <ul class="bu">
+    <li><em>머리가 흔들리지 않도록 받쳐 줄 것. 또 몸이 9자처럼 구부러지지 않도록 주의한다.</em></li>
+  </ul>
+
+
+  <h3 class="hb1 h3">두 사람이 옮기는 방법</h3>
+  <!-- even-grid -->
+  <div class="even-grid evenmix-12 tac">
+    <div class="column">
+      <div class="box1 pd2em-rv">
+        <h4 class="hb2 h4">01. 가슴과 양발을 안아 나른다.</h4>
+        <img th:src="@{/img/carry/carry6.gif}"  alt="가슴과 양발을 안아 나른다."  />
+        <p>한사람이 환자를 뒤에서 일으킨다. 겨드랑이 밑에 양손을 넣어 팔을 양손으로 잡는다. 다른 사람은 환자의 발쪽을 옆구리에 끼운다. 뒷사람의 신호로 일어나 발쪽으로 나아간다.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box1 pd2em-rv">
+        <h4 class="hb2 h4">02. 손을 서로 맞붙여 나른다.</h4>
+        <img th:src="@{/img/carry/carry7.gif}"  alt="손을 서로 맞붙여 나른다."  />
+        <p>환자의 손목을 잡아 구조자 두사람의 어깨에 양손을 얹게 하고, 천천히 일어나 구조자들이 어깨를 짜맞추는 형으로 한다 (오른쪽그림 참조).  다른 손은 서로 환자 무릎 밑에 넣어 거머쥐면서 일어선다.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /even-grid -->
+  <ul class="bu">
+    <li><em>경추, 요추 등의 등뼈에 골절이 있을 때는 소수가 나르는 것은 위험. 협력자를 더 모으든가, 구급차를 기다린다.</em></li>
+  </ul>
+
+  <!-- even-grid -->
+  <div class="even-grid evenmix-1 tac">
+    <div class="column">
+      <div class="box1 pd2em-rv">
+        <h4 class="hb2 h4">03. 의자를 사용하여 나른다.</h4>
+        <img th:src="@{/img/carry/carry8.gif}"  alt="의자를 사용하여 나른다."  />
+        <p>환자를 의자에 앉혀서 한 사람은 뒤에서 등받이 양쪽을 잡고, 다른 사람은 앞에서 의자 다리를 쥐고 나른다. <br />계단을 내려갈 때에 좋다. 이 때에는 발쪽을 들고 있는 사람이 먼저 계단을 내려가도록 한다. </p>
+      </div>
+    </div>
+  </div>
+  <!-- /even-grid -->
+
+
+  <h3 class="hb1 h3">한사람이 옮기는 방법</h3>
+
+  <h4 class="hb1 h4">뒤에서 끌어 당긴다.</h4>
+  <div class="box1 pd2em-rv pdt0 pdb0">
+    <!-- even-grid -->
+    <div class="even-grid gap3pct">
+      <div class="small-12 large-6 column">
+        <div class="wrap1 tac">
+          <img th:src="@{/img/carry/carry9.gif}"  alt="뒤에서 끌어 당긴다."  />
+        </div>
+      </div>
+      <div class="small-12 large-6 column">
+        <div class="wrap1">
+          <p class="mgt0">환자 머리쪽에 무릎을 꿇고, 양겨드랑이에 손을 넣는다. 환자의 한 팔을 양손으로 잠고, 환자 허리를 떠받치면서 끌어당긴다. 가스가 가득찬 방, 욕실, 화장실 등에서 쓰러졌을 때, 처치를 할 수 있는 곳까지 옮기는 등, 긴급히 이동할 때 이 방법을 사용한다.</p>
+        </div>
+      </div>
+    </div>
+    <!-- /even-grid -->
+  </div>
+
+  <h4 class="hb1 h4">어깨에 짊어 올린다.</h4>
+
+  <div class="box1 pd2em-rv pdt0 pdb0">
+    <!-- even-grid -->
+    <div class="even-grid gap3pct">
+      <div class="small-12 large-6 column">
+        <div class="wrap1 tac">
+          <img th:src="@{/img/carry/carry10.gif}"  alt="어깨에 짊어 올린다.-본문내용참고"  />
+        </div>
+      </div>
+      <div class="small-12 large-6 column">
+        <div class="wrap1">
+          <p>① 엎드려 눕힌 다음, 환자 머리쪽에 무릎 꿇고 양손을 겨드랑이밑에 넣는다.</p>
+          <p>② 구조자의 무릎을 서서히 일으켜 세우면서, 양 팔을 환자 등으로 넣어 껴안듯이 하면서 들어올린다.</p>
+          <p>③ 환자의 오른쪽 손목을 구조자의 왼손으로 잡고 자기 목 뒤로 넘긴다.</p>
+          <p>④ 허리를 구부린 환자의 몸통이 자기 어깨 위에 오도록 하여,</p>
+          <p>⑤ 일어선다.</p>
+          <p>⑥⑦ 내릴 때에는 무릎을 꿇어 조용히 내린다.</p>
+        </div>
+      </div>
+    </div>
+    <!-- /even-grid -->
+  </div>
+  <h4 class="hb1 h4">등에 업어 나른다.</h4>
+
+  <div class="box1 pd2em-rv pdt0 pdb0">
+    <!-- even-grid -->
+    <div class="even-grid gap3pct">
+      <div class="small-12 large-5 column">
+        <div class="wrap1 tac">
+          <img th:src="@{/img/carry/carry11.gif}" alt="등에 업어 나른다.-본문내용참고"  />
+        </div>
+      </div>
+      <div class="small-12 large-7 column">
+        <div class="wrap1">
+          <p>① 환자 허리위를 끌어안듯이 한다.</p>
+          <p>② 교차시킨 손목을 양손으로 완전히 쥔다.</p>
+          <p>③ 환자 양무릎밑으로 끼운 손으로 환자의 양손목을 잡는다.</p>
+          <p>④ 손목을 교차시켜 잡고 있으면,갑자기 의식을 잃더라도 안전하다.<br />
+            <em>등에 업거나 끌어 안거나 하는 것은 상처 난 부위에 따라서나 위독한 사람을 나르는 데에는, 위험할 수 있으므로 주의해야 한다. </em></p>
+        </div>
+      </div>
+    </div>
+    <!-- /even-grid -->
+  </div>
+
+  <ul class="bu">
+    <li>중증 환자를 보면 놀라서 당황하지 말고, 빨리 119나 병원으로 문의해 본다. 충분한 준비도 하지 않고 허둥대면서 이송하면, 도중에 사망하거나 더욱 상태가 악화되기도 하는 등 불행한 경과를 초래하기도 한다. 구급 처치란 단지 환자의 구출이나 인공호흡 등 처치뿐만 아니라 환자를 빨리 안전한 장소에 옮기거나 병원으로 이송하는 것도 포함한다. 환자 이송도 구급 처치의 하나임을 잊어버리지 말도록.</li>
+    <li>나르는 방법은 환자를 걷게 할 것인가, 실어 나를 것인가, 혼자서 옮길 것인가, 여럿이 나를 것인가  등에 따라서 각각 달라진다. 어느 것을 취하든 간에 환자의 상태, 상처 부위를 생각하여 상태를 악화시키지 않고, 될 수 있는 한 통증을 주지 않는 자세로 하여 옮기는 것이 중요하다.</li>
+  </ul>
+
+
+
+  <!-- -->
+
+</div>
+
+</body>
+
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

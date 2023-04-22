@@ -1,0 +1,107 @@
+@charset "utf-8";
+.wrap{
+  padding: 42px;
+}
+
+/*제목*/
+.board-title+hr{
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+.board-info{
+  margin-right: 20px;
+}
+
+/*본문*/
+.board-content{
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+/* ckeditor style 지정 */
+#bcontent {display:none;}
+.ck-editor__editable{min-height:20rem;}
+.ck-editor__top{display:none;}/*상단툴바 제거*/
+
+/*버튼*/
+.form .board-button{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 40px;/*변경사항 : br을 마진으로 변경*/
+}
+.form .board-button button{
+  margin-left: 10px;
+}
+
+/*------첨부파일 접었다 펴기------*/
+.board-file{
+  margin: 0px 10px;
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+#checkbox{
+  display: none;
+}
+
+#accordion>label{
+  cursor:pointer;
+}
+
+#accordion-item{
+  max-height: 0;
+  transition: all .35s;
+  overflow: hidden;
+
+  margin: 0px 20px;
+  background-color: #F3F3F3;
+  border-radius: 5px;
+}
+
+#accordion-item>div{
+  padding: 10px 20px;
+}
+
+#checkbox:checked ~ #accordion-item{
+  max-height: fit-content;
+  min-height: 42px;
+}
+#checkbox:checked + #accordion i{
+  transform: rotate( -180deg );
+}
+
+/*댓글*/
+.comment-textarea{
+  width: 980px;
+  height: 50px;
+}
+
+#addBtn{
+  float: right;
+}
+
+.comment-header{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.comment-header button{
+  margin-left: 10px;
+}
+
+.comment-content{
+  padding: 10px 0px;
+}
+
+.comment-footer{
+  padding: 10px 0px;
+  border-bottom: solid 1px gray;
+}
+
+.btn-right{
+  display: flex;
+  justify-content: end;
+}
+
+.btn-right>button{
+  margin-left: 10px;
+}

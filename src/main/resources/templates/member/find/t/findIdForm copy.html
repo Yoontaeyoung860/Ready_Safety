@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/template/template::main(~{::title},~{::main},~{::script},_)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer></script>
+  <title>아이디 찾기</title>
+</head>
+<body>
+  
+  <main class="main">
+
+    <!-- TODO form전송주소 아이디출력페이지작성-->
+    <form action="/index.html" th:action="@{/member/findId}" class="findId" th:object="${findIdForm}" method="post" th:method="post">
+
+      <h1 class="findId__title">아이디 찾기</h1>
+      
+      <div class="findId__form">
+        <span class="findId__text">이름</span>
+        <input class="findId__input" type="text" placeholder="등록된 이름" th:field="*{name}">
+        
+        <span class="findId__text">이메일</span>
+        <input class="findId__input" type="text" placeholder="등록된 연락가능한 이메일" th:field=*{email}>
+      </div>
+      
+      <button class="findId__btn" type="submit">아이디 찾기</button>
+      
+    </form>
+
+
+  </main>
+
+
+</body>
+</html>

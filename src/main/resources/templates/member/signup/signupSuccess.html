@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입완료</title>
+  <link rel="stylesheet" th:href="@{/css/member/signup/signupSuccess.css}">
+  <script defer th:src="@{/js/member/signup/signupSuccess.js}"></script>
+</head>
+<body>
+
+  <!--form-->
+  <div class="form">
+
+    <!--wrap-->
+    <div class="wrap">
+
+      <!--form 태그-->
+      <form class="signupSuccessForm" >
+
+        <!--제목-->
+        <h3>회원가입완료</h3>
+
+        <!--메세지-->
+        <p class="success">회원가입 처리되었습니다.</p>
+
+        <!--버튼-->
+        <div class="btn_login_success_group">
+          <button id="cancelBtn" type="button" onclick="location.href='/login'">로그인</button>
+          <button id="cancelBtn" type="button" onclick="location.href='/'">취소</button>
+        </div>
+
+        <!--페이지이동-->
+        <div>
+          <a href="#" th:href="@{/find/findidpw/id}">id/</a>
+          <a href="#" th:href="@{/find/findidpw/pw}">pw 찾기</a>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

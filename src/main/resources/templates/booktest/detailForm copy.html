@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{::script},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>booktest 상세</title>
+  <link rel="stylesheet" th:href="@{/css/board/detailForm.css}">
+  <script defer th:src="@{/js/booktest/reviewDetailForm.js}" th:inline="javascript"></script>
+</head>
+<body>
+
+<!--form-->
+<div class="form" th:data-isbn="${detailForm.isbn}" th:data-login-chk="${!session?.isEmpty()}" th:data-id="${session?.loginMember?.id}" th:data-member-chk="${session?.loginMember?.id}==${detailForm?.rid}">
+
+  <!--wrap-->
+  <div class="wrap">
+
+    <!--1. 제목-->
+    <h3>booktest 상세</h3>
+    <hr>
+
+    <!--2. 수정/삭제 버튼-->
+    <div class="button-area">
+      <span>
+        <div><button onclick="location.href='/booktest'">목록</button></div>
+      </span>
+    </div>
+    <hr>
+
+    <!--3. 게시글 제목-->
+    <div class="title-area">
+      <div th:text="${detailForm.title}">제목</div>
+    </div>
+    <hr>
+
+    <!--4. 게시글 본문-->
+    <div id="content" th:text="${detailForm.thumbnail}" style="white-space:pre-wrap;">본문</div>
+    <hr>
+
+    <!--5. 댓글-->
+    <div class="review-area">
+      <div class="review-upper">댓글</div>
+      <div class="review-list">
+  <!--      <div class="review-content">-->
+  <!--        <div class="review-header"><span>닉네임</span><span><a href="">수정</a><a href="">삭제</a></span></div>-->
+  <!--        <div>댓글</div>-->
+  <!--        <div><span>날짜</span><a href="">대댓글쓰기</a></div>-->
+  <!--      </div>-->
+      </div>
+
+      <div class="container review-container">
+        <form action="">
+          <div th:if="${!session?.isEmpty()}" th:text="${session?.loginMember?.nickname}">닉네임</div>
+          <div th:unless="${!session?.isEmpty()}">로그인이 필요한 서비스입니다.</div>
+
+          <!-- <div class="wrap">
+            <textarea id="reply" maxlength="30"></textarea>
+            <span id="counter">###</span>
+        </div> -->
+
+          <textarea id="reply" name="" cols="104" rows="10" placeholder="30자 이내로 입력하세요"></textarea>
+          <button type="submit" id="addBtn" th:data-session="${session?.isEmpty()}">등록</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</body>
+</html>

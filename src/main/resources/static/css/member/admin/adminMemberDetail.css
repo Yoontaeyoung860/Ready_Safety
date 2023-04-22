@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+.adminMemberDetail {
+  position:relative;
+  /* width:500px; */
+  height:300px;
+  background-color:#FFFFFF;
+  text-align:center;
+  /* top:30%; 
+  left:30%;
+  transform: translate(-50%,-50%); */
+  border-radius: 15px;
+
+}
+
+.adminTableForm {
+  width: 800px;
+  
+}
+
+.adminTableForm .td1{
+  width: 20%;
+}
+.adminTableForm .td2{
+  width: 30%;
+}
+
+.adminTableForm .td3{
+  width: 20%;
+}
+
+.adminTableForm .td4{
+  width: 30%;
+}
+
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 5px;
+  padding: 10px 10px;
+}
+
+
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.name {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.email {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.nickname {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.signup_dt {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.leave_dt {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.adminMemberDetail_btn_group button {
+
+  width: 70px;
+  
+
+  border-top-left-radius: 5px; 
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px; 
+  border-bottom-right-radius: 5px; 
+  margin-right: 10px;
+
+  border: 1px solid skyblue; 
+  background-color: rgba(0,0,0,0); 
+  color: skyblue; 
+  padding: 5px;    
+}
+
+.adminMemberDetail_btn_group button:hover {
+  color:white; 
+  background-color: skyblue;
+
+}

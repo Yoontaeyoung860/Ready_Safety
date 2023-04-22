@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보 수정</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberedit/memberEditForm.css}">
+  <script defer th:src="@{/js/member/memberedit/memberEditForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+
+    <form th:action="@{/member/edit}" th:method="PATCH" class="editForm" th:object="${editForm}">
+
+      <h3>회원정보 수정</h3>
+      <p>
+      </p>
+  
+    
+      <table class="tableForm">
+        <tr>
+          <td class="td1"> 아이디 </td>
+          <td class="td2">
+            <div class="textForm">
+              <input name="editId" type="text" class="id" th:field="*{id}" readonly>
+            </div>
+          </td>          
+          <td class="td3">
+
+          </td>
+          <td class="td4">
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>이 름</td>
+          <td>
+            <div class="textForm">
+              <input name="name" type="text" class="name" th:field="*{name}" readonly>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <div class="textForm">
+              <input name="email" type="text" class="email" th:field="*{email}"
+                  th:class="${#fields.hasErrors('email') ? 'fieldError' : 'fieldSuccess'}">
+            </div>
+          </td>
+          <td>
+            
+              <button id="emailDupChk" type="button">중복확인</button>
+            
+          </td>
+          <td>
+            <p th:if="${#fields.hasErrors('email')}"> </p>
+            <p th:errors="*{email}" th:errorclass="fieldError"></p>
+            <div id="email_errmsg"></div>
+
+          </td>
+        </tr>
+        <tr>
+          <td>별칭</td>
+          <td>
+            <div class="textForm">
+              <input name="nickname" type="text" class="nickname" placeholder="별칭" th:field="*{nickname}"
+                  th:class="${#fields.hasErrors('nickname') ? 'fieldError' : 'fieldSuccess'}">
+            </div>
+          </td>
+          <td>
+            
+              <button id="nicknameDupChk" type="button">중복확인</button>
+            
+
+          </td>
+          <td>
+            <p th:if="${#fields.hasErrors('nickname')}"> </p>
+            <p th:errors="*{nickname}" th:errorclass="fieldError"></p>
+            <div id="nickname_errmsg"></div>
+          
+          </td>
+        </tr>
+
+
+
+      </table>
+
+    
+
+
+
+        
+
+
+
+
+
+
+
+
+
+      <br>
+      <div class="btn_edit_group"> 
+        <button id="modifyBtn" type="submit" onclick="return confirm('정말로 수정 하시겠습니까?')" >수정하기</button>
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">취소</button>
+
+      </div>
+
+    </form>
+
+
+
+
+
+
+    
+  </div>
+
+
+  
+</body>
+</html>

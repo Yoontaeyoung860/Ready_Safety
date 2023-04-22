@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns:th="http://www.thymeleaf.org"
+th:replace="~{fragment/mainDetail::main(
+              ~{::title},
+              _,
+              ~{},
+              ~{::link},
+              ~{::script},
+              _,
+              _,
+              ~{::.form},
+              _
+            )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아아디 / 패스워드 찾기</title>
+  <link rel="stylesheet" th:href="@{/css/member/find/findIdPwForm.css}">
+  <script defer th:src="@{/js/member/find/findIdPwForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+    <div class="findIdPwForm">
+
+      <div>
+        <table>
+          <tr>
+            <td>
+              <input type="radio" name="find_id" id="find_id" onclick="div_show('0');" value="아이디 찾기">
+              <label for="find_id"><span>아아디 찾기</span></label>  
+            </td>
+
+            <td>
+              <input type="radio" name="find_pw" id="find_pw" onclick="div_show('1');" value="비밀번호 찾기">
+              <label for="find_pw"><span>비밀번호 찾기</span></label>  
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+      <div id="find_id_form" style="display:none" >
+
+        <form action="#" th:action="@{/find/findida}" th:object="${findIdReq}" th:method="POST" >
+            
+
+          <h3>아이디 찾기</h3>
+                                                                                                  
+          <table class="findTableForm">        
+              <tr>
+                <td class="td1"><label>이름</label></td>
+                <td class="td2">
+                  <div class="textForm">                    
+                    <input type="text" id="nameIdTxt" class="name" placeholder="이름" th:field="*{idname}">
+                  </div>
+                </td>          
+                <td class="td3">
+                  
+                </td>
+              </tr>  
+
+            <tr>
+              <td><label>email</label></td>
+              <td>
+                <div class="textForm">
+                  <input type="text" id="emailIdTxt" class="email" placeholder="이메일" th:field=*{idemail}>
+                </div>
+              </td>
+              <td>
+                
+              </td>
+            </tr>
+
+            <tr>
+              <td> </td>
+              <td><span id="findedId"></span></td>
+              <td>  </td>
+            </tr>
+
+
+          </table>
+
+
+          <br>
+          <div class="find_btn_group"> 
+            <button id="findIdBtn" type="submit">아아디 찾기</button>
+            <button id="cancelBtn" type="button" onclick="location.href='/'">취소</button> 
+            <button id="signupBtn" type="button" onclick="location.href='/signup'">회원가입</button> 
+          </div>     
+
+        </form>
+      
+      </div>
+
+
+      <div id="find_pw_form" style="display:none">
+
+        <form action="#" th:action="@{/find/findpwa}" th:object="${findPwReq}" th:method="post" >
+          
+
+          <h3>비밀번호 찾기</h3>
+                                                                                                  
+          <table class="findTableForm">
+            <tr>
+              <td class="td1"> 아이디 </td>
+              <td class="td2">
+                <div class="textForm">
+                  <input type="text" id="idPwTxt" class="id" placeholder="아이디" th:field="*{pwid}" >
+                </div>
+              </td>          
+              <td class="td3">
+              
+              </td>
+            </tr>
+            <tr>
+              <td><label>이름</label></td>
+              <td>
+                <div class="textForm">
+                  <input type="text" id="namePwTxt" class="name"  placeholder="이름" th:field="*{pwname}">
+                </div>
+              </td>          
+              <td>
+                
+              </td>
+            </tr>        
+            <tr>
+              <td><label>email</label></td>
+              <td>
+                <div class="textForm">
+                  <input type="text" id="emailPwTxt" class="email" placeholder="이메일" th:field="*{pwemail}" >
+                </div>
+              </td>
+              <td>
+                
+              </td>
+            </tr>
+
+            
+          </table>        
+
+          <br>
+          <div class="find_btn_group"> 
+            <button id="findPwBtn" type="submit">비밀번호 찾기</button> 
+            <button id="cancelBtn" type="button" onclick="location.href='/'">취소</button> 
+            <button id="signupBtn" type="button" onclick="location.href='/signup'">회원가입</button> 
+          </div>
+
+        </form>
+      
+      
+      
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+  
+</body>
+</html>

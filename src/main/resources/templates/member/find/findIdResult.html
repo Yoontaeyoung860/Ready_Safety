@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                  ~{::title},
+                  _,
+                  ~{},
+                  ~{::link},
+                  ~{},
+                  _,
+                  _,
+                  ~{::.form},
+                  _
+                )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 찾기</title>
+  <link rel="stylesheet" th:href="@{/css/member/signup/signupForm.css}">
+  
+</head>
+<body>
+
+  <div class="form"> 
+
+    <form >
+
+<!-- <h1 class="findId__title">아이디 찾기 결과</h1>
+      
+      <div class="findedId">
+        <p class="findedId__text">회원님의 아이디는</p>
+        	<p th:text="${findids}" class="findedId__result"></p>
+        <p class="findedId__text">입니다.</p>
+      </div> -->
+
+
+
+
+
+
+
+
+
+      <h3>아이디 찾기 결과</h3>
+      <p>        
+      </p>
+
+      <table>
+
+        <tr>
+          <td>찾으시는 아이디는</td>
+          <td>
+            <div class="textForm">
+
+              <p th:text="*{findids}" th:class="${#fields.hasErrors('findids') ? 'fieldError' : 'fieldSuccess'}"></p>
+          </div>
+
+          </td>
+          <td>
+            입니다
+            <p th:if="${#fields.hasErrors('${findIdReq}')}"></p>
+            <p th:errors="${findIdReq}" th:errorclass="globalError"></p>
+            
+            <p th:if="${#fields.hasErrors('findids')}"></p>
+            <p th:errors="*{findids}" th:errorclass="fieldError"></p>
+          </td>
+        </tr>
+
+      </table>
+
+      <div class="find_btn_group"> 
+        <button id="findPwBtnE" type="button" onclick="location.href='/find/findidpw/id'">비밀번호 찾기</button>
+        <button id="cancelBtn" type="button" onclick="location.href='/'">취소</button> 
+        <button id="signupBtn" type="button" onclick="location.href='/signup'">회원가입</button> 
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <script>
+    function div_show(selectList) {
+        var obj1 = document.getElementById("js_pay_type1"); // 현금영수증 (개인소득공제용)
+        var obj2 = document.getElementById("js_pay_type2"); // 현금영수증 (지출증빙용)
+        // var obj3 = document.getElementById("js_pay_type3"); // 세금계산서
+    
+        if( selectList == "0" ) { // 현금영수증 (개인소득공제용)
+            obj1.style.display = "block";    
+            obj2.style.display = "none";
+            // obj3.style.display = "none";
+            //alert(    obj.style.display ) ;
+        // } else if( selectList == "1" ) { // 현금영수증 (지출증빙용)
+        } else  { // 현금영수증 (지출증빙용)
+            obj1.style.display = "none";    
+            obj2.style.display = "block";
+            // obj3.style.display = "none";
+            //alert(    obj.style.display ) ;
+        // } else if( selectList == "2" ) { // 세금계산서
+        // } else { // 세금계산서
+        //     obj1.style.display = "none";    
+        //     obj2.style.display = "none";
+        //     obj3.style.display = "block";
+            //alert(    obj.style.display ) ;
+        // } else { // 신청안함
+        //     obj1.style.display = "none";
+        //     obj2.style.display = "none";
+        //     obj3.style.display = "none";
+        }
+    }
+    </script>
+    <style>
+        .pay_select  {float:left;width:25%;float:left;padding:5px 0; }
+    </style>
+    
+
+
+  
+</head>
+<body>
+
+
+  <div class=" ">
+    <ul>
+        <li class="pay_select">
+            <input type="radio" name="pay_type1" id="pay_type_1" onclick="div_show('0');" value="개인소득공제용">
+            <label for="pay_type_1"><span></span>현금영수증 (개인소득공제용)</label>
+        </li>
+        <li class="pay_select">
+            <input type="radio" name="pay_type1" id="pay_type_2" onclick="div_show('1');" value="지출증빙용">
+            <label for="pay_type_2"><span></span>현금영수증 (지출증빙용)</label>
+        </li>
+        <!-- <li class="pay_select">
+            <input type="radio" name="pay_type1" id="pay_type_3" onclick="div_show('2');" value="세금계산서">
+            <label for="pay_type_3"><span></span>세금계산서</label>
+        </li> -->
+        <!-- <li class="pay_select">
+            <input type="radio" name="pay_type1" id="pay_type_4" onclick="div_show('3');" value="신청안함">
+            <label for="pay_type_4"><span></span>신청안함</label>
+        </li> -->
+    </ul>
+</div>
+    
+
+<div id="js_pay_type1" style="display:none">
+    <div style="font-size:1.1em;font-weight: bold; padding:20px 0 10px 0;">현금영수증 (개인소득공제용)</div>
+    <div>
+        <select name="">
+            <option value="">휴대폰번호</option>
+        </select>
+        <select name="">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="016">016</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+            <option value="019">019</option>
+        </select> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value=""> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value="">
+    </div>
+
+
+    
+</div>
+
+<div id="js_pay_type2" style="display:none">
+    <div style="font-size:1.1em;font-weight: bold; padding:20px 0 10px 0;">현금영수증 (지출증빙용)</div>
+    <div>
+        <select name="">
+            <option value="">사업자등록번호</option>
+        </select>
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value=""> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value=""> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value="">
+    </div>
+</div>
+
+<!-- <div id="js_pay_type3" style="display:none">
+    <div style="font-size:1.1em;font-weight: bold; padding:20px 0 10px 0;">세금계산서</div>
+    <div style=" padding-left:20px;">
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value=""> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value=""> -
+        <input type="text" name="pay_type2" style="width:90px;" id="pay_type2" value="">
+    </div>
+</div> -->
+
+
+
+  
+</body>
+</html>

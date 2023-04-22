@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{},
+        ~{},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지</title>
+</head>
+<body>
+
+  <div class="form"> 
+    <ul>
+
+      <div>
+        <li><a href="/admin/memberlist">전체 회원 보기</a></li>
+        <li><a href="/admin/memberlist">유지 회원 보기</a></li>
+        <li><a href="/admin/memberlist">탈퇴 회원 보기</a></li>
+      </div>
+
+      <form  th:with="loginMember = ${session.loginMember}" >
+        <form>
+      <li><a th:href="@{|/member/edit|}">회원정보 변경</a></li>
+      <li><a th:href="@{|/member/memberpw|}">비밀번호 변경</a></li>
+        </form>
+
+      <div>
+        <li><a href="/">메인화면 돌아가기</a></li>
+      </div>
+
+        <div>
+          <p>
+            유지, 탈퇴는 추후 방향을 보고 작성 예정
+          </p>
+        </div>
+
+    </ul>
+  </div> 
+  
+</body>
+</html>

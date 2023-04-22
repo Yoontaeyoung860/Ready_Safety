@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main(title, main_style, main_script, style, script, header, nav, form, footer)"
+      th:with="s_session  = ${session},
+               s_email    = ${session?.loginMember?.email},
+               s_nickname = ${session?.loginMember?.nickname}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+  <title th:replace=${title}>Ready_safety</title>
+  <link rel="stylesheet" th:href="@{/css/main/mainDetail.css}" th:replace=${main_style}>
+  <script defer th:src="@{xx.js}" th:replace=${main_script}></script>
+  <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+  <th:block th:replace=${style}></th:block>
+  <th:block th:replace=${script}></th:block>
+</head>
+<body onload="InitializeStaticMenu()" th:with="loginMember = ${session.loginMember}">
+
+<!--upper-->
+<div class="upper">
+  <div class="upper-second">
+    <div class="upper-left">
+      <a th:href="@{/restart}"></a>
+    </div>
+    <div class="upper-center">
+      <input type="text" name="query" placeholder="검색어를 입력 해주세요." size="50">
+      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </div>
+
+    <!--로그인시-->
+    <th:block th:if="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="${session.loginMember != null and session.loginMember.id == 'admin'} ? ~{fragment/uppermost::adminLoginUpm} : ~{fragment/uppermost::afterLoginUpm}"></div>
+    </th:block>
+
+    <!--비로그인시-->
+    <th:block th:unless="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+    </th:block>
+
+  </div>
+</div>
+
+<!--header-->
+<div class="header" th:replace=${header}>
+<!--  <div class="header-inner">-->
+<!--    <div class="main_logo_box">-->
+<!--      <a href="/"><img class="logo" src="/img/main_logo.png"></a>-->
+<!--    </div>-->
+<!--    <div class="snow-container">-->
+<!--      <div class="snow foreground"></div>-->
+<!--      <div class="snow foreground layered"></div>-->
+<!--      <div class="snow middleground"></div>-->
+<!--      <div class="snow middleground layered"></div>-->
+<!--      <div class="snow background"></div>-->
+<!--      <div class="snow background layered"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
+<!--main-->
+<main>
+  <div class="container">
+
+    <!--nav-->
+
+    <!--form-->
+    <div th:replace=${form}>
+    </div>
+  </div>
+</main>
+
+<!--footer-->
+<div class="footer" th:replace=${footer}>
+   @울산 KH정보교육원 윤태영
+</div>
+<script type="text/javascript">
+  var stmnRIGHT = 0; // 오른쪽 여백
+  var stmnGAP1 = 0; // 위쪽 여백
+  var stmnGAP2 = 0; // 스크롤시 브라우저 위쪽과 떨어지는 거리
+  var stmnBASE = 0; // 스크롤 시작위치
+  var stmnActivateSpeed = 35; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+  var stmnScrollSpeed = 20; //스크롤 속도 (클수록 느림)
+  var stmnTimer;
+
+  function RefreshStaticMenu() {
+    var stmnStartPoint, stmnEndPoint;
+    stmnStartPoint = parseInt(document.getElementById('STATICMENU').style.top, 10);
+    stmnEndPoint = Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2;
+    if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1;
+    if (stmnStartPoint != stmnEndPoint) {
+      stmnScrollAmount = Math.ceil( Math.abs( stmnEndPoint - stmnStartPoint ) / 15 );
+      document.getElementById('STATICMENU').style.top = parseInt(document.getElementById('STATICMENU').style.top, 10) + ( ( stmnEndPoint<stmnStartPoint ) ? -stmnScrollAmount : stmnScrollAmount ) + 'px';
+      stmnRefreshTimer = stmnScrollSpeed;
+    }
+    stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed);
+  }
+
+  function InitializeStaticMenu() {
+    document.getElementById('STATICMENU').style.right = stmnRIGHT + 'px';  //처음에 오른쪽에 위치. left로 바꿔도.
+    document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px';
+    RefreshStaticMenu();
+  }
+</script>
+</body>
+</html>

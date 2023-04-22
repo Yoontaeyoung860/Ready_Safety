@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+.editPwForm {
+  position:relative;
+  /* width:500px; */
+  height:300px;
+  background-color:#FFFFFF;
+  text-align:center;
+  /* top:30%; 
+  left:30%;
+  transform: translate(-50%,-50%); */
+  border-radius: 15px;
+
+}
+
+.tableForm {
+  margin-top:150px;
+  margin-left:210px;
+  width: 800px;
+  
+}
+
+.tableForm .td1{
+  width: 20%;
+}
+.tableForm .td2{
+  width: 40%;
+}
+
+.tableForm .td3{
+  width: 5%;
+}
+.tableForm .td4{
+  width: auto;
+}
+
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 5px;
+  padding: 10px 10px;
+}
+
+
+
+.fieldSuccess {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+.fieldError {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+
+
+.pw {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+
+.btn_editpw_group button {
+
+  width: 80px;
+  
+
+  border-top-left-radius: 5px; 
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px; 
+  border-bottom-right-radius: 5px; 
+  margin-right: 10px;
+
+  border: 1px solid skyblue; 
+  background-color: rgba(0,0,0,0); 
+  color: skyblue; 
+  padding: 5px;    
+}
+
+.btn_editpw_group button:hover {
+  color:white; 
+  background-color: skyblue;
+
+}

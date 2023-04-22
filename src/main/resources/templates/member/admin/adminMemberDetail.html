@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원상세</title>
+  <link rel="stylesheet" th:href="@{/css/member/admin/adminMemberDetail.css}">
+
+</head>
+<body>
+
+  <div class="form">
+
+    <form th:action="@{/admin/member/${member.id}}" th:method="GET" class="adminMemberDetail" th:object="${memberdetailForm}">
+
+      <h3>관리자 전용 - 회원상세 정보</h3>
+      <p>
+      </p>
+
+      <table class="adminTableForm">
+        <tr>
+          <td class="td1">아이디</td>
+          <td class="td2">
+            <div class="textForm">
+              <input type="text" name="id" id="id" class="id" th:field="*{id}" readonly="readonly">
+            </div>
+          </td>
+          <td class="td3">이 름</td>
+          <td class="td4">
+            <div class="textForm">
+              <input type="text" name="name" id="name" class="name" th:field="*{name}" readonly="readonly">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td >이메일</td>
+          <td >
+            <div class="textForm">
+              <input type="text" name="email" id="email" class="email" th:field="*{email}" readonly="readonly">
+            </div>
+          </td>
+          <td >닉네임</td>
+          <td >
+            <div class="textForm">
+              <input type="text" name="nickname" id="nickname" class="nickname" th:field="*{nickname}" readonly="readonly">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td >가입일</td>
+          <td >
+            <div class="textForm">
+              <input type="text" name="signup_dt" id="signup_dt" class="signup_dt" th:field="*{signup_dt}" readonly="readonly">
+            </div>
+          </td>
+          <td >탈퇴일</td>
+          <td >
+            <div class="textForm">
+              <input type="text" name="leave_dt" id="leave_dt"class="leave_dt"  th:field="*{leave_dt}" readonly="readonly">
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <pre>
+
+
+      </pre>
+      <div class="adminMemberDetail_btn_group"> 
+        
+        <button id="backBtn" type="button" onclick="location.href='/admin/memberlist'">회원목록</button>
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">메인화면</button>
+
+      </div>
+
+    </form>
+
+
+
+    
+  </div>
+
+
+</body>
+</html>

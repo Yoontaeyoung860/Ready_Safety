@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+  <title>재난,안전 예방</title>
+  <link rel="stylesheet" th:href="@{/css/main/main.css}">
+  <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
+  <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+
+
+<body>
+<div class="upper">
+  <div class="upper-second">
+    <div class="upper-left">
+      <div class="logo">
+        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
+      </div>
+    </div>
+    <!--로그인시-->
+    <th:block th:if="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+    </th:block>
+    <!--비로그인시-->
+    <th:block th:unless="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+    </th:block>
+  </div>
+</div>
+<header>
+  <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+
+<main style="margin-top: 350px;">
+  <section class="sub-content heart-attack-cpr witness">
+    <article>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 01</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+              <img th:src="@{/img/cpr/witness-cpr1.png}" alt="반응의 확인 예시 일러스트">
+              <span>
+									<strong>반응의 확인</strong>
+									<span>
+										현장의 안전을 확인한 뒤에 환자에게 다가가 어깨를 가볍게 두드리며, 큰 목소리로 "여보세요, 괜찮으세요?" 라고 물어본다. 의식이 있다면 환자는 대답을 하거나 움직이거나 또는 신음 소리를 내는 것과 같은 반응을 나타낸다. 반응이 없다면 심정지의 가능성이 높다고 판단해야 한다.
+									</span>
+								</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 02</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+								<span>
+									<strong>119신고</strong>
+									<span>
+										환자의 반응이 없다면 즉시 큰 소리로 주변 사람에게 119 신고를 요청한다.<br/>
+										주변에 아무도 없는 경우에는 직접 119에 신고한다. 만약 주위에 심장충격기(자동제세동기)가 비치되어 있다면 즉시 가져와 사용해야 한다.
+									</span>
+								</span>
+              <img th:src="@{/img/cpr/witness-cpr2.png}" alt="119신고 예시 일러스트">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 03</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+              <img th:src="@{/img/cpr/witness-cpr3.png}" alt="호흡 확인 예시 일러스트">
+              <span>
+									<strong>호흡 확인</strong>
+									<span>
+										쓰러진 환자의 얼굴과 가슴을 10초 이내로 관찰하여 호흡이 있는지를 확인한다.<br/>
+										환자의 호흡이 없거나 비정상적이라면 심정지가 발생한 것으로 판단한다.<br/>
+										일반인은 비정상적인 호흡 상태를 정확히 평가하기 어렵기 때문에 응급 의료 전화상담원의 도움을 받는 것이 바람직하다.
+									</span>
+								</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 04</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+								<span>
+									<strong>가슴압박 30회 시행</strong>
+									<span>
+										환자를 바닥이 단단하고 평평한 곳에 등을 대고 눕힌 뒤에 가슴뼈(흉골)의 아래쪽 절반 부위에 깍지를 낀 두 손의 손바닥 뒤꿈치를 댄다.<br/>
+										손가락이 가슴에 닿지 않도록 주의하면서, 양팔을 쭉 편 상태로 체중을 실어서 환자의 몸과 수직이 되도록 가슴을 압박하고, 압박된 가슴은 완전히 이완되도록 한다. 가슴 압박은 성인에서 분당 100~120회의 속도와 약 5cm 깊이(소아 4~5 cm)로 강하고 빠르게 시행한다. '하나', '둘', '셋', ..., '서른'하고 세어가면서 규칙적으로 시행하며, 압박된 가슴은 완전히 이완되도록 한다.
+									</span>
+								</span>
+              <img th:src="@{/img/cpr/witness-cpr4.png}" alt="가슴압박 30회 시행 예시 일러스트">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 05</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+              <img th:src="@{/img/cpr/witness-cpr5.png}" alt="인공호흡 2회 시행 예시 일러스트">
+              <span>
+									<strong>인공호흡 2회 시행</strong>
+									<span>
+										환자의 머리를 젖히고, 턱을 들어 올려 환자의 기도를 개방시킨다. 머리를 젖혔던 손의 엄지와 검지로 환자의 코를 잡아서 막고, 입을 크게 벌려 환자의 입을 완전히 막은 후 가슴이 올라올 정도로 1초에 걸쳐서 숨을 불어넣는다. 숨을 불어넣을 때에는 환자의 가슴이 부풀어 오르는지 눈으로 확인한다. 숨을 불어넣은 후에는 입을 떼고 코도 놓아주어서 공기가 배출되도록 한다. 인공호흡 방법을 모르거나, 꺼려지는 경우에는 인공호흡을 제외하고 지속적으로 가슴압박만을 시행한다.(가슴압박 소생술)
+									</span>
+								</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 06</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+								<span>
+									<strong>가슴압박과 인공호흡의 반복</strong>
+									<span>
+										이후에는 30회의 가슴압박과 2회의 인공호흡을 119 구급대원이 현장에 도착할 때까지 반복해서 시행한다.<br/>
+										다른 구조자가 있는 경우에는 한 구조자는 가슴압박을 시행하고 다른 구조자는 인공호흡을 맡아서 시행하며, 심폐소생술 5주기(30:2 가슴압박과 인공호흡 5회)를 시행한 뒤에 서로 역할을 교대한다.
+									</span>
+								</span>
+              <img th:src="@{/img/cpr/witness-cpr6.png}" alt="가슴압박과 인공호흡의 반복 예시 일러스트">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cpr-step clearfix">
+        <div class="fl-left step clearfix">
+          <span>step 07</span>
+          <em> </em>
+        </div>
+        <div class="fl-right action">
+          <ul>
+            <li>
+              <img th:src="@{/img/cpr/witness-cpr7.png}" alt="회복자세 예시 일러스트">
+              <span>
+									<strong>회복자세</strong>
+									<span>
+										가슴압박 소생술을 시행하던 중에 환자가 소리를 내거나 움직이면, 호흡도 회복되었는지 확인한다. 호흡이 회복되었다면, 환자를 옆으로 돌려 눕혀 기도(숨길)가 막히는 것을 예방한다.<br/>
+										그 후 환자의 반응과 호흡을 관찰해야 한다. 환자의 반응과 정상적인 호흡이 없어진다면 심정지가 재발한 것이므로 신속히 가슴압박과 인공호흡을 다시 시작한다.
+									</span>
+								</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-align-right" style="margin-top:10px">* 일러스트 출처 : 질병관리청 손상예방관리과 (043-719-7418)</p>
+    </article>
+  </section>
+</div>
+</main>
+</body>
+
+<div th:replace="fragment/footer :: site-footer"></div>
+
+</html>

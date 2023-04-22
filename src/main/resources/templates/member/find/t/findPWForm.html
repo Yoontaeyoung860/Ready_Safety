@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <script defer></script>
+  <title>비밀번호 찾기</title>
+</head>
+<body>
+  
+  <main class="main">
+
+    <!-- TODO form전송주소 비밀번호재발급 링크전송 후 어떤페이지? 및 비번변경페이지 작성 -->
+    <!-- <form action="/index.html" th:action="@{/find/findpwa}" th:object="${findIdReq}" th:method="post" class="findId"> -->
+      <form th:action="@{/find/findpwa}" th:object="${findPwReq}"th:method="post" >
+
+      <h1 class="findId__title">비밀번호 찾기</h1>
+      
+      <div class="findId__form">
+
+        <span class="findId__text">아이디</span>
+        <input class="findId__input" type="text" th:field="*{id}" placeholder="아이디">
+
+        <span class="findId__text">이름</span>
+        <input class="findId__input" type="text" th:field="*{name}" placeholder="등록된 이름">
+        
+        
+
+        <span class="findId__text">이메일</span>
+        <input class="findId__input" type="text" th:field="*{email}" placeholder="등록된 연락가능한 이메일">
+      </div>
+      <button class="findId__btn" type="submit">비밀번호 찾기</button>
+      
+    </form>
+
+  </main>
+
+
+</body>
+</html>

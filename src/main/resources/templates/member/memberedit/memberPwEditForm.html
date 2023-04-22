@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보 수정</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberedit/memberPwEditForm.css}">
+  <script defer th:src="@{/js/member/memberedit/memberPwEditForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+
+    <form th:action="@{/member/pwedit}" th:method="PATCH" class="pwEditForm" th:object="${pwEditForm}">
+
+      <h3>회원정보 수정</h3>
+      <p>
+      </p>
+  
+    
+      <table class="tableForm">
+        <tr>
+          <td class="td1"> 아이디 </td>
+          <td class="td2">
+            <div class="textForm">
+              <input name="editId" type="text" class="id" th:field="*{id}" readonly>
+            </div>
+          </td>          
+          <td class="td3">
+
+          </td>
+          <td class="td4">
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>비밀번호</td>
+          <td>
+            <div class="textForm">
+              <input name="loginPw" type="password" class="pw" th:field="*{pw}"
+                  th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}">
+            </div>
+          </td>
+          <td>
+
+          </td>
+          <td>
+            <p th:if="${#fields.hasErrors('pw')}"></p>
+            <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호 확인</td>
+          <td>
+            <div class="textForm">
+              <input name="loginPwConfirm" type="password" class="pw" th:field="*{pwChk}"
+                  th:class="${#fields.hasErrors('pwChk') ? 'fieldError' : 'fieldSuccess'}">
+                
+
+            </div>
+      
+          </td>
+          <td>
+
+          </td>
+          <td>
+            <p th:if="${#fields.hasErrors('pwChk')}"> </p>
+            <p th:errors="*{pwChk}" th:errorclass="fieldError"></p>
+  
+            <p th:if="${#fields.hasErrors('global')}" > </p>
+            <p th:errors="*{global}" th:errorclass="globalError"></p>
+          </td>
+        </tr>
+
+
+
+      </table>
+
+    
+
+
+
+        
+
+
+
+
+
+
+
+
+
+      <br>
+      <div class="btn_pwEditForm_group"> 
+        <button id="modifyBtn" type="submit" onclick="return confirm('정말로 수정 하시겠습니까?')" >수정하기</button>
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">취소</button>
+
+      </div>
+
+    </form>
+
+
+
+
+
+
+    
+  </div>
+
+
+  
+</body>
+</html>

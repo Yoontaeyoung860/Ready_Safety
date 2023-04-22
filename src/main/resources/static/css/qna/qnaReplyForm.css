@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.wrap {
+  padding: 42px;
+}
+/*제목*/
+.qna-title{
+  margin-bottom: 20px;
+}
+
+.qna-title>input {
+ height: 30px;
+ width: 986px;
+ box-sizing: border-box;
+}
+
+/*본문*/
+.qna-content{
+  margin-bottom: 20px;
+}
+
+/*버튼*/
+.form .qna-button{
+  display: flex;
+  justify-content: end;
+}
+
+.form .qna-button button{
+  margin-left: 10px;
+}
+
+/*에러 메세지 공통*/
+.fieldError{
+    color: skyblue;
+}
+
+/*------첨부파일 접었다 펴기------*/
+.qna-file{
+  margin: 0px 10px;
+  margin-bottom: 20px;
+}
+#checkbox{
+  display: none;
+}
+#accordion>label{
+  cursor:pointer;
+}
+
+#accordion-item{
+  max-height: 0;
+  transition: all .35s;
+  overflow: hidden;
+
+  margin: 0px 20px;
+  background-color: #F3F3F3;
+  border-radius: 5px;
+}
+
+#accordion-item>div{
+  padding: 10px 20px;
+}
+
+#checkbox:checked ~ #accordion-item{
+  max-height: 100px;
+}
+#checkbox:checked + #accordion i{
+  transform: rotate( -180deg );
+}
+
+/* ckeditor style 저장*/
+#qContent {display:none;}
+.ck-editor__editable{min-height:20rem;}

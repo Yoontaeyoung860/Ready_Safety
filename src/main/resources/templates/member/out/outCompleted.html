@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탈퇴완료!</title>
+  <link rel="stylesheet" th:href="@{/css/member/out/outCompleted.css}">
+  <script defer th:src="@{/js/member/out/outCompleted.js}"></script>
+</head>
+
+<body>
+  <div class="form">
+
+
+    <form class="outCompletedForm" >
+
+      <h3>탈퇴 처리가 완료되었습니다.</h3>
+
+      <div class="form_inner">
+        <div class="outCompleted_btn_group">
+          <button id="cancelBtn" type="button" onclick="location.href='/'">메인화면</button>
+          <button id="signupBtn" type="button" onclick="location.href='/signup'">회원가입</button>
+        </div>
+        <br>
+        <div>
+          <a href="#" th:href="@{/memberexist/findid}">아이디찾기</a>
+          <a href="#" th:href="@{/memberexist/findpw}">비밀번호찾기</a>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</body>
+</html>

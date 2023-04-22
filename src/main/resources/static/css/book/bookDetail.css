@@ -1,0 +1,40 @@
+@charset "utf-8";
+.wrap{
+  margin-top: 25px;
+  padding-left: 30px;
+  position: relative;
+}
+.detail-form{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.book-img{
+    width: 230px;
+    height: 270px;
+}
+.detail-right{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.detail-right > div{
+    margin-top: 5px;
+}
+.detail-btngrp{
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.detail-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-list > p{
+    display: inline-block;
+}
+.delBtn{
+   text-align: center;
+}

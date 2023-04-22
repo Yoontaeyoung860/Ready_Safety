@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원탈퇴</title>
+<!--  <link rel="stylesheet" th:href="@{/css/common.css}">-->
+</head>
+
+<body>
+<h3>회원탈퇴</h3>
+<hr>
+<form id="frm" action="/member/out" method="post" th:object="${outForm}">
+  <input type="hidden" th:field="*{id}" th:value="${session.loginMember.id}">
+  <ul>
+    <li>
+      <p>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</p>
+    </li>
+    <li>
+      <label for="">비밀번호</label>
+      <input type="password" name="pw" th:field="*{pw}">
+    </li>
+    <li th:if="${#fields.hasErrors('pw')}">
+<!--      <p th:errors="*{pw}" th:errorclass="fieldError"></p>-->
+    </li>
+    <li>
+      <input type="checkbox" name="agree" id="" th:field="*{agree}">
+      <label for="">안내 사항을 모두 확인하였으며, 이에 동의합니다</label>
+    </li>
+    <li th:if="${#fields.hasErrors('agree')}">
+      <p th:errors="*{agree}" th:errorclass="fieldError"></p>
+    </li>
+    <li>
+      <button type="button" id="outBtn">탈퇴</button>
+    </li>
+  </ul>
+</form>
+<script>
+    outBtn.addEventListener('click',function(e){
+      e.preventDefault(); // 기본이벤트 막기
+      if(window.confirm('정말 탈퇴하시겠습니까?')){
+        document.getElementById('frm').submit();
+      }
+    });
+
+
+  </script>
+</body>
+</html>

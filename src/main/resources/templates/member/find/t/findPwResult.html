@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer></script>
+  <title>아이디 찾기</title>
+</head>
+<body>
+  
+  <main class="main">
+
+      <h1 class="findId__title">아이디 찾기 결과</h1>
+      
+      <div class="findedId">
+        <p class="findedId__text">회원님의 아이디는</p>
+        	<p th:text="${findids}" class="findedId__result"></p>
+        <p class="findedId__text">입니다.</p>
+      </div>
+
+
+
+      <div class="findedId">
+        <p class="findedId__text">회원님의 임시 비밀번호는</p>
+        	<p th:text="${findpws}" class="findedId__result"></p>
+        <p class="findedId__text">입니다.</p>
+      </div>
+
+
+
+
+
+
+
+
+  </main>
+  
+</body>
+</html>

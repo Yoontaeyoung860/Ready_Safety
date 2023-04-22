@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+  <title>드레싱 및 응급처치</title>
+  <link rel="stylesheet" th:href="@{/css/main/main.css}">
+  <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
+  <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+<body>
+<div class="upper">
+  <div class="upper-second">
+    <div class="upper-left">
+      <div class="logo">
+        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
+      </div>
+    </div>
+    <!--로그인시-->
+    <th:block th:if="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+    </th:block>
+    <!--비로그인시-->
+    <th:block th:unless="${!session.isEmpty()}">
+      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+    </th:block>
+  </div>
+</div>
+<header>
+  <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<h3>드레싱 및 붕대이용법</h3>
+<h4>드레싱</h4>
+<p class="pdl10 pdb10">드레싱은 상처를 물리적으로 보호하고, 움직이지 않도록 고정하며, 오염물로부터 차단하고, 분비물을 흡수하는 기능을 목적으로 합니다.</p>
+
+<h4>드레싱 재료의 종류</h4>
+<ul class="list_style1">
+  <li>거즈 : 반드시 소독된 거즈라야 한다. 약국에 가면 살 수 있습니다.</li>
+  <li>소독약 : 베타딘을 기본적으로 준비하고 알코올, 과산화수소수, 클로로헥시딘 중에서 한 가지를 추가로 더 준비 합니다.</li>
+  <li>반창고 : 면 반창고나 종이 반창고가 좋습니다.</li>
+  <li>붕대 : 2인치와 4인치 넓이의 탄력붕대를 준비하면 적당합니다.</li>
+  <li>특수한 드레싱 재료 : 메디폼, 테가덤 (거즈 대신에 사용할 수 있는 최근에 판매되고 있는 드레싱 재료이다. 거즈보다 더 좋다고 하지만 가격이 비쌈)</li>
+  <li>핀셋과 가위 : 이런 기구를 집에서 소독하기란 매우 번거롭다. 냄비에 넣어 물을 붓고 가열하여 5분 이상 삶은 다음, 뜨거운 상태에서 물을 따라내고 건조시켜 사용하면 된다. 핀셋과 가위의 손잡이 부위만 손을 대도록해야 오염을 최소화 할 수 있다. 급히 소독이 필요할 때는 베타딘으로 잘 닦고 사용하면 됩니다.</li>
+</ul>
+
+<!--
+<h4>붕대의 종류</h4>
+<ul class="list_style1">
+	<li>삼각건 : 삼각건의 재료로는 광목이나 부드러운 천이 쓰이며 76~101㎝ 나비의 천을 대각선으로 잘라 두 개의 삼각건을 만드는 것이 일반적입니다. 또한, 삼각건은 반창고가 없어도 드레싱이 잘 붙어 있으며 모든 상처에 손 쉽게 사용할 수가 있기 때문에 가장 많이 사용합니다.</li>
+	<li>권축붕대 : 잘 포장된 멸균 「거어즈」 권축붕대가 가장 이상적이며, 나비가 좁아서 겉이 고르지 못한 신체 부분에 쓰기에 편리합니다.</li>
+	<li>사두붕대</li>
+	<li>넓은붕대 : 배나 가슴에 창상 혹은 화상의 상처에 넓게 드레싱 할 때 사용됩니다. 이 붕대는 30~45㎝, 길이 1~1.6㎝의 네모진 헝겊으로 만듭니다. 상처에 드레싱 한 후 넓은 부상지의 등에 깔아 놓고 신체의 양편을 싸며 신체의 앞에서 잡아 맵니다.</li>
+</ul>
+-->
+
+<h4>탄력 붕대의 사용법</h4>
+<p class="pdl10 pdb10">팔다리에 난 상처를 현장에서 응급처치 하는데 있어서 유용합니다.</p>
+<img th:src="@{/img/dressing.png}" alt="붕대">
+<h4>주의할 점</h4>
+<ul class="list_style1">
+  <li>• 너무 조이면 안 된다.</br>- 약간 느슨하다고 생각되는 정도로 반복해서 감으면 상당한 압박력을 나타낸다. 과한 것은 부족한 것보다 나쁘다는 사실을 기억하세요.</li>
+  <li>• 말단 부위를 같이 감아주어야 합니다.</br>- 팔다리의 중간 부위에 난 상처를 처치하기 위해 탄력 붕대를 감을 때, 반드시 그보다 말단 부위를 같이 감아주어야 한다. 팔다리의 중간부위만 감으면 그 말단 부위에 부종이 심하게 유발되며, 극단적인 경우에는 '구획증후군'을 유발할 수도 있습니다.</li>
+  <li>• 감은 후 정기적으로 말단부의 혈액 순환 상태를 살펴야 합니다.</br>- 피부의 색깔, 동맥의 맥박, 피부 감각 상태, 그리고 손가락 발가락의 움직임을 검진하여 변화가 있으면 압박 붕대를 풀어야 합니다.</li>
+</ul>
+
+
+
+</body>
+
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

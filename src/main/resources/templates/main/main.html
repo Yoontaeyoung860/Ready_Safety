@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+
+
+    <title>재난,안전 예방</title>
+
+</head>
+<body>
+<div class="upper">
+    <div class="upper-second">
+        <div class="upper-left">
+            <div class="logo">
+                <img src="img/readyrogo.png" alt="" width="220" height="160" margin-left="-">
+            </div>
+        </div>
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<main>
+    <!-- 메인 컨텐츠 -->
+    <div class="main-content">
+        <!-- 응급실 찾기 박스 -->
+        <div>
+            <h2>Weather Info</h2>
+            <button onclick="getWeather()">Get Weather Info</button>
+            <div id="weather-info"></div>
+        </div>
+        <div class="emergency-room-box">
+            <h3>
+                <a href="/emergency-rooms">응급실 찾기</a>
+            </h3>
+            <!-- 구글 지도 API -->
+        </div>
+    </div>
+    <!-- 영상 -->
+    <div class="video-container">
+        <iframe width="560" height="415" src="https://www.youtube.com/embed/wPAibHXOHyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <!-- 전국 AED 찾기 박스 -->
+
+
+    </div>
+
+    <!-- 게시물 목록 위치 -->
+    <div class="post-list-container">
+        <!-- Category Name -->
+        <h2 th:text="${categoryName}"></h2>
+
+        <!-- 게시물 목록 -->
+        <table>
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td><a th:href="@{/emergency/post/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
+                <td th:text="${post.author}"></td>
+                <td th:text="${post.date}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Main Container-->
+    <div class="containner">
+        <div class="center">
+            <div class="center-item1">
+                <div class="icon-container">
+                    <a href="http://localhost:9080/emergency-rooms">
+                        <img src="/img/emergency.png" alt="응급실 아이콘">
+                        전국 응급실 찾기
+                    </a>
+                    <a href="#"><img src="icon2.png" alt="아이콘2"></a>
+                    <a href="#"><img src="icon3.png" alt="아이콘3"></a>
+                    <a href="#"><img src="icon4.png" alt="아이콘4"></a>
+                    <a href="#"><img src="icon5.png" alt="아이콘5"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    function getWeather() {
+  $.ajax({
+    url: "/weather",
+    type: "get",
+    timeout: 30000,
+    contentType: "application/json",
+        dataType: "json",
+success: function(data, status, xhr) {
+    console.log(data);
+
+    let dataHeader = data.response.header.resultCode;
+    if (dataHeader == "00") {
+        let weatherData = data.response.body.items.item;
+        let weatherHtml = "<table><thead><tr><th>Category</th><th>Value</th></tr></thead><tbody>";
+        for (let i = 0; i < weatherData.length; i++) {
+            weatherHtml += "<tr><td>" + weatherData[i].category + "</td><td>" + weatherData[i].fcstValue + "</td></tr>";
+        }
+        weatherHtml += "</tbody></table>";
+        $("#weather-info").html(weatherHtml);
+    } else {
+        alert("Failed to get weather information.");
+    }
+},
+    error: function(e, status, xhr, data) {
+      alert("Failed to get weather information.");
+    }
+  });
+}
+</script>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>
+
+
+
+

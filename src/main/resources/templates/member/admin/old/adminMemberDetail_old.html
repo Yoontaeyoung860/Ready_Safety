@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 전용 - 회원상세</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberEditForm.css}">
+  <script defer th:src="@{/js/member/memberEditForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+
+    <form th:action="@{/admin/member/{id}}" th:method="GET" class="memberDetailForm" th:object="${memberDetailForm}">
+
+      <h3>관리자 전용 - 회원상세</h3>
+      <p>
+      </p>
+  
+    
+      <table class="tableForm">
+        <tr>
+          <td class="td1"> 아이디 </td>
+          <td class="td2">
+            <div class="textForm">
+              <input name="editId" type="text" class="id" th:field="*{id}" readonly>
+            </div>
+          </td>          
+          <td class="td3">
+
+          </td>
+          <td class="td4">
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>이 름</td>
+          <td>
+            <div class="textForm">
+              <input name="name" type="text" class="name" th:field="*{name}" readonly>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <div class="textForm">
+              <input name="email" type="text" class="email" th:field="*{email}" readonly>
+            </div>
+          </td>
+          <td>
+            
+          </td>
+          <td>            
+          
+          </td>
+        </tr>
+        <tr>
+          <td>별칭</td>
+          <td>
+            <div class="textForm">
+              <input name="nickname" type="text" class="nickname" th:field="*{nickname}" readonly>
+            </div>
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
+        </tr>
+
+
+
+      </table>
+
+    
+
+
+
+        
+
+
+
+
+
+
+
+
+
+      <br>
+      <div class="btn_edit_group"> 
+
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">취소</button>
+
+      </div>
+
+    </form>
+
+
+
+
+
+
+    
+  </div>
+
+
+  
+</body>
+</html>

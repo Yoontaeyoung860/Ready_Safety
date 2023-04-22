@@ -1,0 +1,29 @@
+/* footer.css */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-bottom: 60px; /* footer의 높이와 동일한 값으로 설정 */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* footer의 높이를 설정 */
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}

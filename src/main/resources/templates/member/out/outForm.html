@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+                    ~{::title},
+                    _,
+                    ~{},
+                    ~{::link},
+                    ~{::script},
+                    _,
+                    _,
+                    ~{::.form},
+                    _
+                  )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원탈퇴</title>
+  <link rel="stylesheet" th:href="@{/css/member/out/outForm.css}">
+  <script defer th:src="@{/js/member/out/outForm.js}"></script>
+</head>
+<body>
+
+  <div class="form">
+
+
+    <form th:action="@{/member/out}" th:method="PATCH" class="outForm" th:object="${outForm}">
+
+      <h3>회원탈퇴</h3>
+      <p>
+      </p>
+  
+    
+      <table class="tableForm">
+        <tr>
+          <td class="td1"> 아이디 </td>
+          <td class="td2">
+            <div class="textForm">
+              <input name="editId" type="text" class="id" th:field="*{id}" readonly>
+            </div>
+          </td>          
+          <td class="td3">
+
+          </td>
+          <td class="td4">
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>이 름</td>
+          <td>
+            <div class="textForm">
+              <input name="name" type="text" class="name" th:field="*{name}" readonly>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <div class="textForm">
+              <input name="email" type="text" class="email" th:field="*{email}" readonly>
+            </div>
+          </td>
+          <td>
+            
+          </td>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>별칭</td>
+          <td>
+            <div class="textForm">
+              <input name="nickname" type="text" class="nickname" th:field="*{nickname}" readonly>
+            </div>
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+          <div class="notice">
+            <p>리플 탈퇴 전에 꼭 확인하세요.</p>
+            <br>
+            <p>
+            리플을 탈퇴하면 이 사이트에서 본인이 등록한 게시판, 댓글, 리뷰 등을 수정/삭제할 수 없게 됩니다.</p>
+            <br>
+            <p>
+            필요한 경우 탈퇴 전에 수정하거나 삭제하시기 바랍니다.</p>
+            <br>
+            <p>
+            리플의 책장과 달력에 등록된 모든 내 기록들이 사라지게 됩니다.</p>
+            <br>
+            <p>
+            또한 기존에 가입하였던 아이디와 이메일로는 재가입이 불가합니다.</p>
+            <br>
+            
+            
+          </div>
+        </td>
+        <tr>
+          <td colspan="2">
+            <input type="checkbox" name="agree" id="" th:field="*{agree}">
+            <label for="">안내 사항을 모두 확인하였으며, 이에 동의합니다</label>
+          </td>
+          <td colspan="2">
+            <p th:if="${#fields.hasErrors('agree')}"></p>
+            <p th:errors="*{agree}" th:errorclass="fieldError"></p>
+          </td>
+        </tr>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td>
+            <div class="textForm">
+              <input name="loginPw" type="password" class="pw" th:field="*{pw}"
+                  th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}">
+            </div>
+          </td>
+          <td>
+
+          </td>
+          <td>
+            <p th:if="${#fields.hasErrors('pw')}"></p>
+            <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+          </td>
+        </tr>
+
+
+
+
+      </table>
+
+    
+
+
+
+        
+
+
+
+
+
+
+
+
+
+      <br>
+      <div class="btn_out_group"> 
+        <button id="outBtn" type="submit" onclick="return confirm('정말로 탈퇴 하시겠습니까?')" >탈퇴</button>
+        <button id="cancelBtn" type="reset" onclick="location.href='/'">취소</button>
+
+      </div>
+
+    </form>
+
+
+
+
+
+
+    
+  </div>
+
+
+  
+</body>
+</html>

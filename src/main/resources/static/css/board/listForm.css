@@ -1,0 +1,103 @@
+@charset "utf-8";
+/*
+.form{
+  width: 1024px;
+  padding: 42px;
+}
+*/
+.wrap{
+  padding: 42px;
+}
+
+table{
+  border-collapse: collapse;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+tr{
+  border-bottom: 1px solid #ebecef;
+  height: 40px;
+}
+
+tbody tr:hover {
+  background-color: #ebecef;
+}
+
+.th1{width: 80px;}
+.th2{width: 500px;}
+.th3{width: 130px;}
+.th4{width: 130px;}
+.th5{width: 80px;}
+.form td,th{padding: 0px;}
+.form td.num{width: 80px; text-align: center;}
+.form td.title{width: 500px;}
+.form td.nickname{width: 130px; text-align: center;}
+.form td.date{width: 130px; text-align: center;}
+.form td.hit{width: 80px; text-align: center;}
+.form a{margin-left: 50px}
+.form .numberOfComment{margin: 0px; padding: 0px;}
+
+.board-button{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.board-page{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.board-page a{
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.bbs-search{
+  display: flex;
+  justify-content: center;
+}
+
+/*
+.form h3{
+  margin: 0px 0px 30px 0px;
+}
+.form .board-wrap{
+  width: 800px;
+  border: 1px solid #ebecef;
+  border-radius: 6px;
+  padding: 29px 29px 0;
+}
+.form hr{
+  border: 1px solid #ebecef;
+}
+.form table{
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+.form tr{
+  border-bottom: 1px solid #ebecef;
+  height: 36.5px;
+}
+.form td.num{width: 50px; text-align: center;}
+.form td.title{width: 500px;}
+.form td.nickname{width: 100px; text-align: center;}
+.form td.date{width: 100px; text-align: center;}
+.form td.hit{width: 50px; text-align: center;}
+.form a{margin-left: 50px}
+.form .board-btn{
+  margin-bottom: 10px;
+}
+.form .btn{
+  cursor: pointer;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 6px;
+  font-weight: bolder;
+  font-size: medium;
+}
+*/

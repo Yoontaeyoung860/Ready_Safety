@@ -1,0 +1,5 @@
+@charset "utf-8";
+.content-findId{
+  display:grid;
+  grid-template-columns: 100px 300px;
+}

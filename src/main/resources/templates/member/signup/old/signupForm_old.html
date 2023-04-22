@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko"
+            th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" th:href="@{/css/signup/signupForm.css}">
+  <script defer th:src="@{/js/signup/signupForm.js}"></script>
+</head>
+<body>
+  <div class="form">
+    <form action="/signup" method="post" th:object="${signupForm}">
+      <ul>
+        <li><h3>회원가입</h3></li>
+        <li>
+          <label for="id" th:for="${#ids.next('id')}">아이디</label>
+          <input type="text" name="id" id="id" th:field="*{id}"
+                th:class="${#fields.hasErrors('id') ? 'fieldError' : 'fieldSuccess'}">
+          <button id="idDupChk" type="button">중복확인</button>
+          <p class="errmsg"></p>
+        </li>
+        <li>
+          <label for="pw" th:for="${#ids.next('pw')}">비밀번호</label>
+          <input type="password" name="pw" id="pw" th:field="*{pw}"
+                th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}">
+        </li>
+        <li th:if="${#fields.hasErrors('pw')}">
+          <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+        </li>
+        <li>
+          <label for="pw" th:for="${#ids.next('pwChk')}">비밀번호 확인</label>
+          <input type="password" name="pwChk" id="pwChk" th:field="*{pwChk}"
+                th:class="${#fields.hasErrors('pwChk') ? 'fieldError' : 'fieldSuccess'}">
+        </li>
+        <li th:if="${#fields.hasErrors('pwChk')}">
+          <p th:errors="*{pwChk}" th:errorclass="fieldError"></p>
+        </li>
+        <li th:if="${#fields.hasErrors('global')}" >
+          <p th:errors="*{global}" th:errorclass="globalError"></p>
+        </li>
+        <li>
+          <label for="email" th:for="${#ids.next('email')}">Email</label>
+          <input type="text" name="email" id="email" th:field="*{email}"
+                th:class="${#fields.hasErrors('email') ? 'fieldError' : 'fieldSuccess'}">
+          <button id="emailDupChk" type="button">중복확인</button>
+          <p class="errmsg"></p>
+        </li>
+        <li th:if="${#fields.hasErrors('email')}">
+          <p th:errors="*{email}" th:errorclass="fieldError"></p>
+        </li>
+        <li>
+          <label for="name" th:for="${#ids.next('name')}">이름</label>
+          <input type="text" name="name" id="name" th:field="*{name}"
+                th:class="${#fields.hasErrors('nickname') ? 'fieldError' : 'fieldSuccess'}">
+        <li>
+          <label for="nickname" th:for="${#ids.next('nickname')}">별칭</label>
+          <input type="text" name="nickname" id="nickname" th:field="*{nickname}"
+                th:class="${#fields.hasErrors('nickname') ? 'fieldError' : 'fieldSuccess'}">
+          <button id="nicknameDupChk" type="button">중복확인</button>
+          <p class="errmsg"></p>
+        </li>
+        <li th:if="${#fields.hasErrors('nickname')}">
+          <p th:errors="*{nickname}" th:errorclass="fieldError"></p>
+        </li>
+        <li>
+          <button type="submit" id="joinBtn">가입</button>
+        </li>
+      </ul>
+
+      <div>
+        <p>
+          중복확인버튼이 사용가능으로 되었을 때에 중복되는 값을 재입력시 사용가능 버튼이 변동이 없음
+        </p>
+      </div>
+
+
+    </form>
+</div>
+
+</body>
+</html>

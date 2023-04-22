@@ -1,0 +1,51 @@
+<!-- fragments.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thymeleaf Fragments</title>
+</head>
+<body>
+<div th:fragment="gnb" id="gnb">
+  <div class="dropdown">
+    <span>재난예방</span>
+    <div class="dropdown-content">
+      <a href="#">재난 이란?</a>
+      <a href="#">자연 재난</a>
+      <a href="#">사회 재난</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span>기상정보</span>
+    <div class="dropdown-content">
+      <button id="weatherBtn" onclick="getWeather()">강우량 정보</button>
+    </div>
+  </div>
+  <div class="dropdown" th:fragment="emergency">
+    <span>응급처치방법</span>
+    <div class="dropdown-content">
+      <a href="#" th:href="@{/emergency/EA}">심폐 소생술</a>
+      <a href="#" th:href="@{/emergency/EB}">드레싱 및 붕대 이용법</a>
+      <a href="#" th:href="@{/emergency/EC}">환자를 옮기는 방법</a>
+      <a href="#" th:href="@{/emergency/ED}">독극물 중독</a>
+      <a href="#" th:href="@{/emergency/EE}">동물, 곤충에게 물렸을 때</a>
+      <a href="#" th:href="@{/emergency/EF}">성인&소아 기도 폐쇄</a>
+    </div>
+
+  </div>
+  <div class="dropdown">
+    <span>생존법</span>
+    <div class="dropdown-content">
+      <a href="#">생존법1</a>
+      <a href="#">생존법2</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span>커뮤니티</span>
+    <div class="dropdown-content">
+      <a th:href="@{/board}">자유 게시판</a>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

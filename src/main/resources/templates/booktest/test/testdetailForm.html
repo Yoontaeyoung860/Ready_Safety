@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{::script},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>booktest 상세</title>
+  <link rel="stylesheet" th:href="@{/css/booktest/booktest.css}">
+  <script defer th:src="@{/js/booktest/test/testdetailForm.js}" th:inline="javascript"></script>
+</head>
+<body>
+
+<!--form-->
+<div class="form" th:data-isbn="${detailForm.isbn}" th:data-login-chk="${!session?.isEmpty()}" th:data-id="${session?.loginMember?.id}" th:data-member-chk="${session?.loginMember?.id}==${detailForm?.rid}">
+
+  <!--wrap-->
+  <div class="wrap">
+
+    <!--1. 제목-->
+    <h3>booktest 상세</h3>
+    <hr>
+
+    <!--2. 수정/삭제 버튼-->
+    <div class="button-area">
+      <span>
+        <div><button onclick="location.href='/booktest'">목록</button></div>
+      </span>
+    </div>
+    <hr>
+
+    <!--3. 게시글 제목-->
+    <div class="title-area">
+      <div th:text="${detailForm.title}">제목</div>
+    </div>
+    <hr>
+
+    <!--4. 게시글 본문-->
+
+    
+    <table border="1px" height="300" width="300">
+      <tr>
+        <td  rowspan="2" width="200">
+          <img id="imgId" th:src="${detailForm.thumbnail}" alt="표지 이미지" height="300" width="200"  th:if="${detailForm.thumbnail != null}" />
+        </td>
+        <td width="100" height="100">
+          책장 추가
+        </td>
+      </tr>
+      <tr>
+        <td>
+          사러가기
+					<div>
+						<a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=291410417">알라딘<img></a><br>
+						<a href="http://www.yes24.com/Product/Goods/108179521">예스24<img></a><br>
+						<a href="https://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?barcode=4801190977594">교보문고<img></a><br>
+						<a href="http://www.ypbooks.co.kr/book.yp?bookcd=101162064">영풍문고<img></a><br>
+						<a>인터파크<img></a>
+					</div>
+        </td>
+      </tr>
+    </table>
+    
+    <hr>
+
+    			<!--리뷰 -->
+				<section class="review__container">
+					<div class="review__cnt" id="review"><i class="far fa-comment-dots"></i><span th:text="|리뷰수 : ${review.size}|"></span></div>
+					<!-- 로그인시에만 리뷰 출력 -->
+		      <section class="review" th:if="${session.loginMember != null}">
+		        <div class="review__row" th:each="review :${review}" th:object="${review}" th:data-rnum="${review.rnum}">
+							<div class="review__column">
+                <input class="rid" type="hidden" value="${review.rid}">
+							
+								<span class="review__nickname" th:text="*{nickname}">닉네임</span>
+							</div>
+							<div class="review__column">
+
+								<div class="review__main-text">
+									<th:block th:switch="*{rscore}">
+										<div class="review__star-score" th:case="1">
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+										</div>
+										<div class="review__star-score" th:case="2">
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+										</div>
+										<div class="review__star-score" th:case="3">
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+										</div>
+										<div class="review__star-score" th:case="4">
+											<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="far fa-star"></i>
+									</div>
+									<div class="review__star-score" th:case="5">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+									</div>
+								</th:block>
+								<p class="review__content" th:text="*{rcontent}">리뷰내용</p>
+								<div th:if="${session.loginMember.id.equals(review.rid)}">
+									<p class="review__userBtns">
+										<span th:data-rnum="*{rnum}" th:data-id="*{rid}" class="review__userBtn review__modi-frm">수정</span>
+										<span>|</span>
+										<span th:data-rnum="*{rnum}" th:data-id="*{rid}" class="review__userBtn review__del">삭제</span>
+									</p>
+								</div>
+
+								<div>
+									<span class="review__date" th:text="|작성일자 : *{rcdate}|">작성일자</span>
+									<span class="review__isUpdate" th:if="${review.rcdate!= null}" th:text="수정됨">수정됨</span>
+								</div>
+							</div>
+
+							</div>
+
+		        </div>
+		      </section>
+				</section>
+				<section class="review__regi-input" th:if="${session!=null && session.loginMember!=null}">
+						<div th:if="${review.size>5}" class="scroll__up" title="첫번째 리뷰로 이동"><i class="fas fa-angle-up"></i></div>
+		        <form name="reviewForm" class="reviewform" method="post" action="#" th:action="@{|/booktest/*{isbn}/detail|}" >
+		            <p class="title_star">별점과 리뷰를 남겨주세요.</p>
+		            <div class="review_rating">
+		                <p class="warning_msg">별점을 선택해 주세요.</p>
+		                <div class="rscore">
+		                    <!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 radio 적용 -->
+		                    <input type="radio" name="rscore" id="point1" value="1" title="1점" hidden>
+		                    <label for="point1"><i class="fas fa-star reviewForm__score one reviewForm__checked"></i></label>
+		                    <input type="radio" name="rscore" id="point2" value="2" title="2점" hidden>
+		                    <label for="point2"><i class="fas fa-star reviewForm__score two reviewForm__checked"></i></label>
+		                    <input type="radio" name="rscore" id="point3" value="3" title="3점" hidden>
+		                    <label for="point3"><i class="fas fa-star reviewForm__score three reviewForm__checked"></i></label>
+		                    <input type="radio" name="rscore" id="point4" value="4" title="4점" hidden>
+		                    <label for="point4"><i class="fas fa-star reviewForm__score four reviewForm__checked"></i></label>
+		                    <input type="radio" name="rscore" id="point5" value="5" title="5점" hidden checked>
+		                    <label for="point5"><i class="fas fa-star reviewForm__score five reviewForm__checked"></i></label>
+		                </div>
+		            </div>
+		            <!-- 리뷰등록란 -->
+		            <div class="review__contents">
+		                <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
+		                <textarea rows="10" class="review__textarea" name="rcontent"></textarea>
+		                <div class="review__contents-btns">
+			                <button class="review__regist" type="button">등록</button>
+		                </div>
+		            </div>   
+		        </form>
+		    </section>
+		      
+	      <section class="review__not-login" th:if="${session == null || session.loginMember == null}">
+	      	<p class="reivew__memberonly">리뷰가 보고싶다면?</p>
+	      	<p>바로 <a class="review__to-login" th:href="@{|/login?redirectUrl=${#httpServletRequest.requestURI}|}">로그인</a>하러 가기!!</p>
+	      	<p><a th:href="@{/member/join}">아직 애니모어 회원이 아니라면?</a></p>
+	      </section> 
+		      
+		      
+		    </div>
+
+      
+
+
+
+
+  
+  </div>
+</div>
+</body>
+</html>

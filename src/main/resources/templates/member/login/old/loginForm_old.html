@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+th:replace="~{fragment/mainDetail::main(
+  ~{::title},
+  _,
+  ~{},
+  ~{::link},
+  ~{::script},
+  _,
+  _,
+  ~{::.form},
+  _
+)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <link rel="stylesheet" th:href="@{/css/login/loginForm.css}">
+  <script defer th:src="@{/js/login/loginForm.js}"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js" defer></script>
+
+</head>
+
+<body>
+
+  <div class="form">
+
+
+    <h3>로그인</h3>
+    <hr>
+    <!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
+    <ul th:if="${#fields.hasErrors('${loginForm}')}">
+      <li th:errors="${loginForm}" th:errorclass="globalError">글로벌 오류</li>
+    </ul>
+    <!--<form action="" th:action="@{/login}" method="post" th:object="${loginForm}">-->
+    <form action=""  method="post" th:object="${loginForm}">
+      <ul>
+        <!-- 글로벌 오류 case2) form태그 안에 있을 때
+        <li th:if="${#fields.hasErrors('global')}" class="globalError">
+          <p th:each="err : ${#fields.errors('global')}" th:text="${err}">글로벌 오류</p>
+        </li>
+        -->
+        <li>
+          <label for="id">아이디</label>
+          <input type="text" name="id" id="id" th:field="*{id}" th:errorclass="fieldError">
+        </li>
+        <li th:if="${#fields.hasErrors('id')}">
+          <p th:errors="*{id}" th:errorclass="fieldError"></p>
+        </li>
+        <li>
+          <label for="pw">비밀번호</label>
+          <input type="password" name="pw" id="pw" th:field="*{pw}" th:errorclass="fieldError">
+        </li>
+        <li th:if="${#fields.hasErrors('pw')}">
+          <p th:errors="*{pw}" th:errorclass="fieldError"></p>
+        </li>
+
+    <!--    <div class="toggle"></div>-->
+    <!--    <label class="switch">-->
+    <!--      <input type="checkbox" name="autologincheck">-->
+    <!--      <span class="slider round"></span>-->
+    <!--    </label>-->
+    <!--    <span class="switch__text">자동 로그인</span>-->
+
+        <li>
+    <!--      <button type="submit" th:text="#{btn.login}">로그인</button>-->
+          <button type="submit" >로그인</button>
+        </li>
+        <li>
+          <a href="#" th:href="@{/memberexist/findid}">아이디찾기</a>
+          <a href="#" th:href="@{/memberexist/findpw}">비밀번호찾기</a>
+          <a href="#" th:href="@{/signup}">회원가입</a>
+        </li>
+      </ul>
+    </form>
+
+
+    <hr>
+    <div class="SNSBtn_container">
+      <button type="button" onclick="kakaoLogin();" ><img src="/img/kakao.png" alt="" id="kakao"></button>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+.wrap {
+  padding: 42px;
+}
+
+/*제목*/
+.notice-title+hr{
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+.notice-info{
+  margin-right: 20px;
+}
+
+/*본문*/
+.notice-content{
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+/*버튼*/
+.form .notice-button{
+  display:flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;/*변경사항 : br을 마진으로 변경*/
+}
+
+.form .notice-button button {
+  margin-left: 10px;
+}
+
+/*------첨부파일 접었다 펴기------*/
+
+.notice-file{
+  margin: 0px 10px;
+  margin-bottom: 20px;/*변경사항 : br을 마진으로 변경*/
+}
+
+#checkbox{
+  display: none;
+}
+#accordion>label{
+  cursor:pointer;
+}
+
+#accordion-item{
+  max-height: 0;
+  transition: all .35s;
+  overflow: hidden;
+
+  margin: 0px 20px;
+  background-color: #F3F3F3;
+  border-radius: 5px;
+}
+
+#accordion-item>div{
+  padding: 10px 20px;
+}
+
+#checkbox:checked ~ #accordion-item{
+  max-height: 100px;
+}
+#checkbox:checked + #accordion i{
+  transform: rotate( -180deg );
+}
+
+/* ckeditor style 지정 */
+#nContent {display:none;}
+.ck-editor__editable{min-height:20rem;}
+.ck-editor__top{display:none;}/*상단툴바 제거*/

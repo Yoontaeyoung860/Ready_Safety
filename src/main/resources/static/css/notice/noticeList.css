@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+.wrap {
+   padding: 42px;
+}
+
+table{
+  border-collapse: collapse;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+tr{
+  border-bottom: 1px solid #ebecef;
+  height: 40px;
+}
+
+tbody tr:hover {
+  background-color: #ebecef;
+}
+
+.form td,th{padding: 0px;}
+.form td.num{width: 80px; text-align: center;}
+.form td.title{width: 500px;}
+.form td.nickname{width: 130px; text-align: center;}
+.form td.date{width: 130px; text-align: center;}
+.form td.hit{width: 80px; text-align: center;}
+.form a{margin-left: 50px}
+
+.th1{width: 80px;}
+.th2{width: 500px;}
+.th3{width: 130px;}
+.th4{width: 130px;}
+.th5{width: 80px;}
+
+.notice-button {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.notice-page {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.notice-page a{
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.notice-search {
+  display: flex;
+  justify-content: center;
+}
+
+.wrap .notice-page .notice-page-item.active{
+  background-color:#87CEEB;
+}

@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+.adminMemberList {
+  position:relative;
+  /* width:500px; */
+  height:300px;
+  background-color:#FFFFFF;
+  text-align:center;
+  /* top:30%; 
+  left:30%;
+  transform: translate(-50%,-50%); */
+  border-radius: 15px;
+
+}
+
+.adminForm {
+  width: 800px;
+  
+  
+  /* border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none; */
+  
+}
+
+.adminForm .td1{
+  width: 5%;
+}
+.adminForm .td2{
+  width: 10%;
+}
+
+.adminForm .td3{
+  width: 5%;
+}
+
+.adminForm .td4{
+  width: 20%;
+}
+
+.adminForm .td5{
+  width: 10%;
+}
+
+.adminForm .td6{
+  width: 25%;
+}
+
+.adminForm .td7{
+  width: 25%;
+}
+
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 5px;
+  padding: 10px 10px;
+}
+
+.first-row {
+  /* width: 100%; */
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.second-row {
+  /* width: 100%; */
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+
+.adminMemberList_btn_group button {
+
+  width: 70px;
+  
+
+  border-top-left-radius: 5px; 
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px; 
+  border-bottom-right-radius: 5px; 
+  margin-right: 10px;
+
+  border: 1px solid skyblue; 
+  background-color: rgba(0,0,0,0); 
+  color: skyblue; 
+  padding: 5px;    
+}
+
+.adminMemberList_btn_group button:hover {
+  color:white; 
+  background-color: skyblue;
+
+}

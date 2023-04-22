@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/mainDetail::main(
+        ~{::title},
+        _,
+        ~{},
+        ~{::link},
+        ~{::script},
+        _,
+        _,
+        ~{::.form},
+        _
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 보기</title>
+  <link rel="stylesheet" th:href="@{/css/board/detailForm.css}">
+  <script defer th:src="@{/js/common/ckeditor.js}"></script>
+  <script defer th:src="@{/js/board/detailForm.js}" th:inline="javascript"></script>
+  <script src="https://kit.fontawesome.com/4ee0f83e5d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--form-->
+<div class="form" th:data-bnum="${detailForm.bnum}" th:data-login-chk="${!session?.isEmpty()}" th:data-id="${session?.loginMember?.id}" th:data-member-chk="${session?.loginMember?.id}==${detailForm?.bid}">
+
+  <!--wrap-->
+  <div class="wrap">
+
+    <!--게시글 제목-->
+    <div class="board-title">
+      <div>게시글 ></div>
+      <h3 th:text="${detailForm.btitle}">제목</h3>
+      <div>
+        <span class="board-info board-nickname" th:text="${detailForm.nickname}">닉네임</span>
+        <span class="board-info board-budate" th:text="|작성일 ${detailForm.budate}|">날짜</span>
+        <span class="board-info board-bhit" th:text="|조회수 ${detailForm.bhit}|">조회수</span>
+      </div>
+    </div>
+    <hr>
+
+    <!--게시글 본문-->
+    <div class="board-content">
+      <textarea name="" id="" cols="30" rows="10" th:field="${detailForm.bcontent}"></textarea>
+    </div>
+
+    <!--파일첨부-->
+    <div class="board-file">
+      <input type="checkbox" id="checkbox">
+      <div id="accordion"><label for="checkbox"><i class="fa-solid fa-angle-down"></i>파일첨부</label></div>
+      <div id="accordion-item">
+<!--        <div th:text="${#lists.size('attachFiles')}">첨부된 파일이 없습니다.</div>-->
+        <div th:each="file : ${attachFiles}">
+          <a href="" th:href="@{|/attach/down/${file.fnum}|}" th:text="${file.upload_filename}"></a>
+          <th:block th:if="${#strings.contains(file.ftype,'image')}" >
+            <img th:src="@{|/attach/view/${file.fnum}|}" th:width="30px" th:height="30px">
+          </th:block>
+        </div>
+      </div>
+    </div>
+
+    <!--수정/삭제 버튼-->
+    <div class="board-button">
+        <th:block th:if="${!session.isEmpty()}">
+          <button id="editBtn" type="button" th:data-bnum="${detailForm.bnum}" th:if="${session.loginMember.id}==${detailForm.bid}">수정</button>
+          <button id="delBtn" type="button" th:data-bnum="${detailForm.bnum}" th:if="${session.loginMember.id}==${detailForm.bid}">삭제</button>
+        </th:block>
+        <button onclick="location.href='/board/1'">목록</button>
+    </div>
+
+    <!--댓글-->
+    <div class="comment-area">
+      <div class="comment-upper">댓글 ></div>
+      <hr>
+      <div class="comment-list">
+  <!--      <div class="comment-content">-->
+  <!--        <div class="comment-header"><span>닉네임</span><span><a href="">수정</a><a href="">삭제</a></span></div>-->
+  <!--        <div>댓글</div>-->
+  <!--        <div><span>날짜</span><a href="">대댓글쓰기</a></div>-->
+  <!--      </div>-->
+      </div>
+
+      <!--댓글 작성란-->
+      <div class="container comment-container">
+        <form action="">
+<!--          <div th:if="${!session?.isEmpty()}" th:text="${session?.loginMember?.nickname}">닉네임</div>-->
+          <div th:text="${!session.isEmpty()} ? ${session?.loginMember?.nickname} : '로그인 후 이용해주세요'">닉네임</div>
+<!--          <div th:unless="${!session?.isEmpty()}">로그인이 필요한 서비스입니다.</div>-->
+          <textarea class="comment-textarea" name="" cols="104" rows="10" placeholder="댓글을 입력하세요"></textarea>
+          <div><button type="submit" id="addBtn" th:data-session="${session?.isEmpty()}">등록</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

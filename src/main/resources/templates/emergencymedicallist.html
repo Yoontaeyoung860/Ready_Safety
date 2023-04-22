@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$Title$</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcAJnqW9nAcULal2mEcF0rg3inKtuT27U&callback=initMap"></script
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STS26RBNRC"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STS26RBNRC');
+</script>
+
+  <!-- external javascripts -->
+  <!-- Add Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Add Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script data-ad-client="ca-pub-3935451468089596" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+<!-- Section: event calendar -->
+<section>
+  <div class="container">
+    <form th:action="@{/emergencymedicallist}" id="frm" name="frm" method="post">
+      <div id="mapModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="map" style="width: 100%; height: 400px;"></div>
+        </div>
+      </div>
+      <input id="s_pagenum" name="s_pagenum" type="hidden" value="1" />
+      <input id="hsis_seq" name="hsis_seq" type="hidden" />
+
+      <div class="row">
+        <div class="form-group col-md-4">
+          <select class="form-control" id="searchField" name="searchField">
+            <option value="">== 검색분류 선택 ==</option>
+            <option value="1">병원명</option>
+            <option value="2">주소</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" id="searchWord" name="searchWord" placeholder="검색어" value="">
+        </div>
+        <div class="form-group col-md-4">
+          <button type="submit" class="btn btn-dark btn-transparent btn-theme-colored btn-lg btn-flat btn-block form-control">
+            <i class="fa fa-search"></i> 검색
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h6 class="text-uppercase">Total <span class="text-theme-colored pl-5">405</span>개</h6>
+        </div>
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+              <colgroup>
+                <col style="width:20%">
+                <col style="width:45%">
+                <col style="width:15%">
+                <col style="width:15%">
+              </colgroup>
+              <thead>
+              <tr class="bg-theme-colored" data-text-color="white">
+                <th class="text-center">의료기관명</th>
+                <th class="text-center">주소</th>
+                <th class="text-center">대표전화</th>
+                <th class="text-center">응급실전화</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal('(의)영문의료재단다보스병원', 37.231536, 127.211389);return false;" class="text-theme-colored">(의)영문의료재단다보스병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal('(의)영문의료재단다보스병원', 37.231536, 127.211389);return false;" class="text-theme-colored">경기도 용인시 처인구 백옥대로1082번길 18, 다보스종합병원 (김량장동)</a>
+                </td>
+                <td>
+                  <a href="tel:031-8021-2000">031-8021-2000</a>
+                </td>
+                <td>
+                  <a href="tel:031-8021-2130">031-8021-2130</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '(의)효심의료재단용인서울병원',  37.240316373, 127.2144914405); return false;">(의)효심의료재단용인서울병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '(의)효심의료재단용인서울병원',  37.240316373, 127.2144914405); return false;">경기도 용인시 처인구 고림로 81 (고림동)</a>
+                </td>
+                <td>
+                  <a href="tel:031-337-0114">031-337-0114</a>
+                </td>
+                <td>
+                  <a href="tel:031-322-0001">031-322-0001</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '(재)미리내천주성삼성직수도회천주성삼병원', 35.84022544517349, 128.70573339664242 ); return false;">(재)미리내천주성삼성직수도회천주성삼병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '(재)미리내천주성삼성직수도회천주성삼병원', 35.84022544517349, 128.70573339664242 ); return false;">대구광역시 수성구 달구벌대로 3190 (신매동, 천주성삼병원)</a>
+                </td>
+                <td>
+                  <a href="tel:053-790-1000">053-790-1000</a>
+                </td>
+                <td>
+                  <a href="tel:053-790-0555">053-790-0555</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '(학)고려대학교의과대학부속병원(안암병원)', 37.58715608002366, 127.02647086385966 ); return false;">(학)고려대학교의과대학부속병원(안암병원)</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '(학)고려대학교의과대학부속병원(안암병원)', 37.58715608002366, 127.02647086385966 ); return false;">서울특별시 성북구 고려대로 73, 고려대병원 (안암동5가)</a>
+                </td>
+                <td>
+                  <a href="tel:1577-0083">1577-0083</a>
+                </td>
+                <td>
+                  <a href="tel:02-920-5374">02-920-5374</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( 'KS병원', 35.197963178976366, 126.83322475289853 ); return false;">KS병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( 'KS병원', 35.197963178976366, 126.83322475289853 ); return false;">광주광역시 광산구 왕버들로 220  (수완동)</a>
+                </td>
+                <td>
+                  <a href="tel:062-975-9000">062-975-9000</a>
+                </td>
+                <td>
+                  <a href="tel:062-975-9119">062-975-9119</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭관동대학교국제성모병원', 37.542372653918065, 126.68360486878781 ); return false;">가톨릭관동대학교국제성모병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭관동대학교국제성모병원', 37.542372653918065, 126.68360486878781 ); return false;">인천광역시 서구 심곡로100번길 25 (심곡동, 인천국제성모병원)</a>
+                </td>
+                <td>
+                  <a href="tel:1600-8291">1600-8291</a>
+                </td>
+                <td>
+                  <a href="tel:032-290-3065">032-290-3065</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교 은평성모병원', 37.633608409726854, 126.91615048739686 ); return false;">가톨릭대학교 은평성모병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교 은평성모병원', 37.633608409726854, 126.91615048739686 ); return false;">서울특별시 은평구 통일로 1021 (진관동)</a>
+                </td>
+                <td>
+                  <a href="tel:1811-7755">1811-7755</a>
+                </td>
+                <td>
+                  <a href="tel:1811-7755">1811-7755</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교 인천성모병원', 37.4845586499062, 126.724708130675 ); return false;">가톨릭대학교 인천성모병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교 인천성모병원', 37.4845586499062, 126.724708130675 ); return false;">인천광역시 부평구 동수로 56 (부평동)</a>
+                </td>
+                <td>
+                  <a href="tel:032-280-6364">032-280-6364</a>
+                </td>
+                <td>
+                  <a href="tel:032-280-6107">032-280-6107</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교부천성모병원', 37.4874477394264, 126.79243459154999 ); return false;">가톨릭대학교부천성모병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교부천성모병원', 37.4874477394264, 126.79243459154999 ); return false;">경기도 부천시 소사로 327 (소사동)</a>
+                </td>
+                <td>
+                  <a href="tel:032-1577-0675">032-1577-0675</a>
+                </td>
+                <td>
+                  <a href="tel:032-340-2100">032-340-2100</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교성빈센트병원', 37.27792234538125, 127.02744945028702 ); return false;">가톨릭대학교성빈센트병원</a>
+                </td>
+                <td>
+                  <a href="#" onclick="showMapModal( '가톨릭대학교성빈센트병원', 37.27792234538125, 127.02744945028702 ); return false;">경기도 수원시 팔달구 중부대로 93 (지동)</a>
+                </td>
+                <td>
+                  <a href="tel:031-1577-8588">031-1577-8588</a>
+                </td>
+                <td>
+                  <a href="tel:031-249-7364">031-249-7364</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-12"> -->
+            <!-- 	<nav> -->
+            <!-- 		<ul class="pagination theme-colored pull-right xs-pull-center mb-xs-40"> -->
+            <!-- 			<li><a href="#" aria-label="Previous"> <span aria-hidden="true">«</span></a></li> -->
+            <!-- 			<li class="active"><a href="#">1</a></li> -->
+            <!-- 			<li><a href="#">2</a></li> -->
+            <!-- 			<li><a href="#">3</a></li> -->
+            <!-- 			<li><a href="#">4</a></li> -->
+            <!-- 			<li><a href="#">5</a></li> -->
+            <!-- 			<li><a href="#">...</a></li> -->
+            <!-- 			<li><a href="#" aria-label="Next"> <span aria-hidden="true">»</span></a> -->
+            <!-- 			</li> -->
+            <!-- 		</ul> -->
+            <!-- 	</nav> -->
+            <!-- </div> -->
+            <div class="board-page">
+              <!--이전페이지-->
+              <th:block th:if="${fc.prev}">
+                <a class="board-page-prev" th:href="@{/emergencymedicallist/1}"><i class="fa-solid fa-angles-left"></i></a>
+                <a class="board-page-prev" th:href="@{/emergencymedicallist/{reqPage}(reqPage=${fc.startPage-1})}"><i class="fa-solid fa-angle-left"></i></a>
+              </th:block>
+              <!--페이지-->
+              <th:block th:each="pnum : ${#numbers.sequence(fc.startPage,fc.endPage)}">
+                <th:block th:if="${pnum != 0}">
+                  <a class="board-page-num" th:classappend="${fc.rc.reqPage == pnum} ? 'active'" th:href="@{/emergencymedicallist/{reqPage}(reqPage=${pnum})}" th:text="${pnum}">1</a>
+                </th:block>
+              </th:block>
+              <!--다음페이지-->
+              <th:block th:if="${fc.next}">
+                <a class="board-page-next" th:href="@{/emergencymedicallist/{reqPage}(reqPage=${fc.endPage+1})}"><i class="fa-solid fa-angle-right"></i></a>
+                <a class="board-page-next" th:href="@{/emergencymedicallist{reqPage}(reqPage=${fc.finalEndPage})}"><i class="fa-solid fa-angles-right"></i></a>
+              </th:block>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- end main-content -->
+</body>
+
+<script src="/js/main.js" type="text/javascript"></script>
+</html>
