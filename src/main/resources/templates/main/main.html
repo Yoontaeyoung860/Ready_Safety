@@ -10,21 +10,13 @@
     <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/main/main.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
-
-
     <title>재난,안전 예방</title>
-
 </head>
 <body>
 <div class="upper">
-    <div class="upper-second">
-        <div class="upper-left">
-            <div class="logo">
-                <img src="img/readyrogo.png" alt="" width="220" height="160" margin-left="-">
-            </div>
-        </div>
+    <a href="/"><img src="img/readyrogo.png" alt="Logo" width="220" height="160" margin-left="-"></a>
+    <div class="nav-wrapper">
         <!--로그인시-->
         <th:block th:if="${!session.isEmpty()}">
             <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
@@ -41,72 +33,50 @@
 <main>
     <!-- 메인 컨텐츠 -->
     <div class="main-content">
-        <!-- 응급실 찾기 박스 -->
-        <div>
-            <h2>Weather Info</h2>
-            <button onclick="getWeather()">Get Weather Info</button>
-            <div id="weather-info"></div>
+        <!-- 기상 정보 박스 -->
+        <div class="weather">
+            <h2>오늘의 날씨 정보</h2>
+            <button class="weather-button" onclick="toggleWeatherInfo();getWeather()">날씨 정보 보기</button>
+            <div id="weather-info" style="display:none;"></div>
         </div>
+        <!-- 영상 -->
+        <div class="video-container">
+            <iframe width="560" height="415" src="https://www.youtube.com/embed/wPAibHXOHyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <!--응급실 찾기 박스-->
         <div class="emergency-room-box">
             <h3>
                 <a href="/emergency-rooms">응급실 찾기</a>
             </h3>
-            <!-- 구글 지도 API -->
         </div>
     </div>
-    <!-- 영상 -->
-    <div class="video-container">
-        <iframe width="560" height="415" src="https://www.youtube.com/embed/wPAibHXOHyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
 
-    <!-- 전국 AED 찾기 박스 -->
-
-
-    </div>
-
-    <!-- 게시물 목록 위치 -->
-    <div class="post-list-container">
-        <!-- Category Name -->
-        <h2 th:text="${categoryName}"></h2>
-
-        <!-- 게시물 목록 -->
-        <table>
-            <thead>
-            <tr>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="post : ${posts}">
-                <td><a th:href="@{/emergency/post/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
-                <td th:text="${post.author}"></td>
-                <td th:text="${post.date}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Main Container-->
     <div class="containner">
         <div class="center">
             <div class="center-item1">
                 <div class="icon-container">
                     <a href="http://localhost:9080/emergency-rooms">
                         <img src="/img/emergency.png" alt="응급실 아이콘">
-                        전국 응급실 찾기
+                        <span>전국 응급실 찾기</span>
                     </a>
-                    <a href="#"><img src="icon2.png" alt="아이콘2"></a>
-                    <a href="#"><img src="icon3.png" alt="아이콘3"></a>
-                    <a href="#"><img src="icon4.png" alt="아이콘4"></a>
-                    <a href="#"><img src="icon5.png" alt="아이콘5"></a>
+                    <a href="#"><img src="icon2.png" alt="아이콘2"><span>텍스트2</span></a>
+                    <a href="#"><img src="icon3.png" alt="아이콘3"><span>텍스트3</span></a>
+                    <a href="#"><img src="icon4.png" alt="아이콘4"><span>텍스트4</span></a>
+                    <a href="#"><img src="icon5.png" alt="아이콘5"><span>텍스트5</span></a>
                 </div>
             </div>
         </div>
     </div>
 </main>
 <script>
+function toggleWeatherInfo() {
+      let weatherDiv = document.getElementById("weather-info");
+      if (weatherDiv.style.display === "none") {
+        weatherDiv.style.display = "block";
+      } else {
+        weatherDiv.style.display = "none";
+      }
+    }
     function getWeather() {
   $.ajax({
     url: "/weather",
@@ -135,6 +105,7 @@ success: function(data, status, xhr) {
     }
   });
 }
+
 </script>
 </body>
 <div th:replace="fragment/footer :: site-footer"></div>

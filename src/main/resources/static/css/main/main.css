@@ -2,7 +2,22 @@
 margin : 0;
 padding : 0;
 }
+ .weather-button {
+        background-color: #87CEFA;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
+    .weather-button:hover {
+        background-color: #ADD8E6;
+    }
 @font-face {
     font-family: 'Cafe24Oneprettynight';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
@@ -10,114 +25,139 @@ padding : 0;
     font-style: normal;
 }
 
+ .upper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .video-container {
+            margin: 0 20px;
+        }
+
+        .weather-emergency {
+            display: flex;
+            align-items: flex-start;
+        }
             @-webkit-keyframes AnimationName{
                 0%{background-position:0% 50%}
                 50%{background-position:100% 50%}
                 100%{background-position:0% 50%}
             }
-
             @-moz-keyframes AnimationName {
                 0%{background-position:0% 50%}
                 50%{background-position:100% 50%}
                 100%{background-position:0% 50%}
             }
-
             @-o-keyframes AnimationName {
                 0%{background-position:0% 50%}
                 50%{background-position:100% 50%}
                 100%{background-position:0% 50%}
             }
-
             @keyframes AnimationName {
                 0%{background-position:0% 50%}
                 50%{background-position:100% 50%}
                 100%{background-position:0% 50%}
             }
-
-
-     body {
-               font-family: Arial, sans-serif;
-               margin: 0;
-               padding: 0;
-              overflow-x: hidden;
-           }
-
-           #gnb {
-               display: flex;
-               justify-content: space-between;
-               background-color: #f1f1f1;
-               padding: 10px;
-               margin-bottom: 20px;
-           }
-
-            .dropdown {
-              position: relative;
-              display: inline-block;
-              margin: 0 125px; /* 간격 조절을 위해 추가 */
+       body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
             }
+          #gnb {
+                display: flex;
+                justify-content: space-between;
+                background-color: #2C3E50;
+                padding: 10px;
+                margin-bottom: 30px;
+              }
 
-           .dropdown-content {
-               display: none;
-               position: absolute;
-               background-color: #f1f1f1;
-               min-width: 160px;
-               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-               z-index: 1;
-               padding: 5px 0;
-           }
+              .dropdown {
+                  position: relative;
+                  display: inline-block;
+                  margin: 0 140px; /* 간격 조절을 위해 추가 */
+              }
 
-           .dropdown:hover .dropdown-content {
-               display: block;
-               animation: fadeIn 0.3s;
-           }
+              .dropdown span {
+                color: white;
+                font-weight: 600;
+              }
 
-           .dropdown-content a {
-               display: block;
-               padding: 5px 10px;
-               text-decoration: none;
-               color: black;
-           }
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 190px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                padding: 5px 0;
+              }
 
-           .dropdown-content a:hover {
-               background-color: #ddd;
-           }
+              .dropdown:hover .dropdown-content {
+                display: block;
+                animation: fadeIn 0.3s;
+              }
 
-           @keyframes fadeIn {
-               from {
-                   opacity: 0;
-               }
-               to {
-                   opacity: 1;
-               }
-           }
+              .dropdown-content a {
+                display: block;
+                padding: 5px 10px;
+                text-decoration: none;
+                color: black;
+              }
 
+              .dropdown-content a:hover {
+                background-color: #ddd;
+              }
+
+              @keyframes fadeIn {
+                from {
+                  opacity: 0;
+                }
+                to {
+                  opacity: 1;
+                }
+              }
            .main-content {
                display: flex;
                justify-content: space-around;
                margin-top: 320px;
            }
-
            .video-container {
                width: 50%;
            }
-
            .video-container iframe {
                width: 100%;
                height: 300px;
            }
-
-           .icon-container {
-               display: flex;
-               justify-content: center;
-               margin-bottom: 20px;
-           }
-
-           .icon-container img {
-               width: 64px;
-               height: 64px;
-               margin-right: 10px;
-           }
-
+          .icon-container {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 120px;
+          }
+          .icon-container a {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-left: 120px;
+              margin-bottom: 60px;
+              text-decoration: none;
+              color: inherit;
+          }
+          .icon-container img {
+              width: 114px;
+              height: 94px;
+          }
             footer {
               background-color: #f1f1f1;
               padding: 10px;
@@ -128,35 +168,70 @@ padding : 0;
               height: 60px; /* Height of the footer */
             }
             .nav-wrapper {
-              background-color: #333;
-              padding: 5px 10px 0px;
-              text-align: center;
-              display: flex;
-              justify-content: right;
+            color: white;
+                       text-align: center;
+                       padding: 10px 20px;
+                       text-decoration: none;
+                       font-size: 16px;
+                       margin: 5px;
+                       cursor: pointer;
+                       border-radius: 3px;
+                       transition: background-color 0.3s;
             }
 
-            .nav__btn {
-              display: inline-block;
-
-              color: white;
-              text-align: center;
-              padding: 10px 20px;
-              text-decoration: none;
-              font-size: 16px;
-              margin: 5px;
-              cursor: pointer;
-              border-radius: 3px;
-              transition: background-color 0.3s;
+            .weather {
+            margin-left: 250px;
+            margin-bottom: 150px;
             }
-
-            .nav__btn a {
-              color: white;
-              text-decoration: none;
+            .emergency-room-box {
+            margin-right: 250px;
+            margin-bottom: 150px;
             }
+                .nav__btn a {
+                        color: white;
+                        text-decoration: none;
+                    }
 
-            .nav__btn:hover {
-              background-color: rosybrown;
-            }
+                    .nav__btn:hover {
+                        background-color: rosybrown;
+                    }
 
+                    .main-content {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex: 1;
+                    }
 
+                    .video-container {
+                        width: 100%;
+                        max-width: 560px;
+                        position: relative;
+                        margin: 0 auto;
+                        margin-bottom: 150px;
+                    }
+
+                    .video-container::after {
+                        content: "";
+                        display: block;
+                        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+                    }
+
+                    .video-container iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    footer {
+                        background-color: #f1f1f1;
+                        padding: 10px;
+                        text-align: center;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: 60px; /* Height of the footer */
+                    }
 
