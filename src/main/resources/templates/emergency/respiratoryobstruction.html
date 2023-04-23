@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <title>재난,안전 예방</title>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
+    <link rel="stylesheet" th:href="@{/css/emergency/respiratoryobstruction.css}">
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<h2>호흡장애(기도폐쇄)</h2>
+<div class="conBox">
+    <h3>기도폐쇄의 원인</h3>
+
+    <div class="conBox">
+        <ul>
+            <li>덜 씹은 음식물의 큰 덩어리를 삼키려고 할 때</li>
+            <li>식사 전, 식사 중 술을 마신 경우</li>
+            <li>의치를 하고 있는 경우(의치는 음식물 크기의 판별이 어렵습니다)</li>
+            <li>흥분해서 말하거나 먹을 때(너무 빨리 먹는 경우)</li>
+            <li>입안에 물건을 넣고 걸어다닌다든가 놀거나 뛰는 경우</li>
+            <li>의식없는 환자의 경우(혀와 목구멍을 구성하고 있는 근육이완으로 기도가 폐쇄될 수 있습니다)</li>
+            <li>위 내용물의 구토나 역류, 응고된 혈액, 뼈 조각, 상해 후 손상 받은 조직, 치아, 이물 등에 의한 폐쇄</li>
+        </ul>
+    </div>
+
+    <h3>증세와 징후</h3>
+
+    <div class="conBox">
+        <ul>
+            <li>기침을 합니다. 그러나 심할 경우 기침을 잘하지 못합니다.</li>
+            <li>숨을 쉬면서 그르렁 거립니다(심한 천명음이 들립니다)</li>
+            <li>두 손으로 목부분을 감쌉니다.</li>
+            <li>호흡이 곤란해 집니다.</li>
+            <li>입술 주위에 청색증이 나타납니다.</li>
+            <li>기도가 완전히 막힌 경우 3&sim;4분 이내에 의식을 잃게 되고, 5&sim;6분이 경과하면 사망하게 됩니다.</li>
+        </ul>
+    </div>
+
+    <h3>응급처치</h3>
+
+    <div class="conBox">
+        <ul>
+            <li><strong>의식이 있는 경우</strong>
+
+                <ul>
+                    <li>환자가 기침을 하도록 유도해야 합니다. 환자의 뒤에 위치한 상태에서 하임리히법을 시행합니다.<br />
+                        (환자를 세우고 뒤로부터 갈비뼈 밑에 양팔을 두르고 두 손을 환자의 배꼽 위 부위에 잡고서 안쪽으로 세게 당겨주기를 몇차례 실시합니다)</li>
+                </ul>
+            </li>
+            <li><strong>의식이 없는 경우</strong>
+                <ul>
+                    <li>환자를 눕힌 상태에서 변형된 하임리히법을 시행합니다(한 손꿈치를 환자의 배꼽과 흉골 하단에 놓고 다른 손을 먼저 손위에 바꿔 얹습니다.<br />
+                        구조자의 어깨가 환자의 배 바로 위에 있도록 앞으로 몸을 이동하고 환자의 머리를 향해 빠르게 윗쪽으로 눌러 밉니다.</li>
+                    <li><strong>작은 소아의 경우</strong> 환자의 머리를 아래쪽으로 향하게 한 후 등을 두드립니다</li>
+                    <li><strong>30개월 미만의 아이, 심한 비만, 임산부 등과 같이 복부를 압박할 수 없는 경우</strong> 에는 흉부압박법을 시행해야 합니다<br />
+                        (영아나 30개월 미만의 아이인 경우 손으로 밀기(흉부압박) 빠른 속도로 네 번 윗쪽으로 아이의 가슴을 손가락으로 눌러 밉니다)</li>
+                    <li><strong>30개월 이상의 어린이</strong>는 복부타격법을 시행합니다.</li>
+                </ul>
+            </li>
+            <li><strong>응급처치</strong>
+                <ul>
+                    <li><strong>입안의 이물질이 육안으로 관찰되는 경우 </strong>
+                        <p>요구조자를 옆으로 뉘인 후 수지교차법이나 혀와 턱을 들어올리는 방법으로 입을 연후에 손가락을 넣어서 이물질을 직접 제거해야 합니다.</p>
+                    </li>
+                    <li><strong>입안의 이물질이 육안으로 관찰되는 경우 </strong>
+                        <p>요구조자를 횡이나 상반신을 아래도 향하게 한 후 등가운데의 중앙부에서 약간 위의 부분을 손바닥으로 강하게 두드립니다.<br />
+                            상기한 하임리히법을 실시합니다.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

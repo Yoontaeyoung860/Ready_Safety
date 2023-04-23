@@ -86,8 +86,12 @@ public class WebConfig implements WebMvcConfigurer {
                     "/emergency/EB",
                     "/emergency/EC",
                     "/emergency/ED",
+                        "/emergency/EE",
+                        "/emergency/EF",
                         "/emergencymedicallist",
                         "/emergency-rooms",
+                        "/beready/RA",
+                        "/beready/RB",
             "/api/emergency-rooms",
                     "/emergency-rooms/api",
                         "/map"                        //지도 검색

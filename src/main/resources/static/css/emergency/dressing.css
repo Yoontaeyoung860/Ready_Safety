@@ -1,0 +1,38 @@
+ main {
+      font-family: 'Nanum AmSeuTeReuDam', sans-serif;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 40px;
+      color: #333;
+    }
+    h3, h4 {
+      margin-bottom: 20px;
+      color: #5a5a5a;
+    }
+
+    h4 {
+      font-size: 1.4em;
+      margin-top: 40px;
+    }
+
+    p.pdl10, p.pdb10 {
+      padding: 10px 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    ul.list_style1 {
+      padding-left: 20px;
+    }
+
+    ul.list_style1 > li {
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }

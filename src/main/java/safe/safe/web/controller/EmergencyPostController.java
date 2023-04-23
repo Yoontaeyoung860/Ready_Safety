@@ -55,7 +55,7 @@ public class EmergencyPostController {
         list.add(new Code("EB","드레싱 및 붕대 이용법"));
         list.add(new Code("EC","환자를 옮기는 방법"));
         list.add(new Code("ED","독극물 중독"));
-        list.add(new Code("EC","동물, 곤충에게 물렸을 때"));
+        list.add(new Code("EE","동물, 곤충에게 물렸을 때"));
         list.add(new Code("EF","성인&소아 기도 폐쇄"));
         return list;
     }
@@ -85,7 +85,14 @@ public class EmergencyPostController {
         model.addAttribute("fc",fc);
         return "emergency/eAddForm";
     }
-
+    @GetMapping("/EE")
+    public String showbitten()  {
+        return "emergency/bittenbeastinsect";
+    }
+    @GetMapping("/EF")
+    public String showrespiratory()  {
+        return "emergency/respiratoryobstruction";
+    }
 
 
     @GetMapping("/{cate}")

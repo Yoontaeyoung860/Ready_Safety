@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <title>재난,안전 예방</title>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
+    <link rel="stylesheet" th:href="@{/css/emergency/bittenbeastinsect.css}">
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div class="txt0">
+    <div class="titl0">뱀에 물렸을 때</div><br>
+    뱀에 물린 사고가 많지만 독사의 종류는 세 종류 정도이다. 생물학적 분류 상 논란은 있지만 대략 우리나라에는 살모사, 까치살모사, 불독사의 세 가지 독사가 있는 것으로 알려져 있다. 독사는 머리가 위에서 보았을 때 삼각형 모양으로 생겼고 일반적으로 독이 없는 뱀과 구별된다. <br><br>
+    <b>ㆍ처치</b><br><br>
+    <span style="color: rgb(255, 0, 0);">물린 부위를 물로 씻어내고 깨끗한 넓은 천 같은 것으로 물린 부위의 위, 아래쪽에 적당한 압력으로 묶는다.</span> 이 때 너무 꽉 묶어 전혀 피가 통하지 않게 하면 안되고 정맥피는 몸으로 되돌아 가는 것을 막고, 동맥피는 어느 정도 흐를 수 있는 적당한 압력이 좋다. <span style="color: rgb(255, 0, 0);">몸을 고정시키고 손상부위를 심장보다 낮게한 다음 빨리 병원으로 이송한다.</span> <u>단, 입으로 어떤 것도 주지 않는다.</u> 환자를 안정 시키고 움직이지 않게 하는 것이 중요하며 자꾸 움직이면 독이 몸으로 더 퍼질 수 있다. <br><br>
+    <b>ㆍ주의점 </b><br><br>
+    뱀에 물린 상처를 빨아내는 것은 도움을 줄 수도 있지만 아직 확인된 사항은 아니다. <b>특히 입에 상처가 있는 상태에서 시행하면 구조자의 몸에도 독이 흡수될 수 있다는 것을 명심한다. </b><br><br>
+    상처 자체의 처치에는 여러 민간요법이 내려오지만 가능하면 된장 등 다른 물질을 상처에 바르는 것은 결코 도움이 되지 않는다. 오히려 상처를 자극하고 더럽히는 결과가 되기 쉽고, 또한 칼로 상처를 절개하는 경우도 있는데 학문적으로 반드시 도움이 되지 않는다고 이야기되는 부분이므로 이러한 처치를 절대적으로 할 필요는 없다. 오히려 처치 때문에 의료기관으로의 이송시간이 늦어지는 것이 환자에게 해로울 수 있다는 것을 명심하고, 전문가의 처치에 따라야 한다. <br>
+
+    <div class="titl0">개에 물렸을 때</div><br>
+
+    개한테 물린 사고는 겉보기 작은 상처라도 이빨에 찍힌 상처라 좁고 깊은 상처가 생긴다. 개나 동물의 입안은 세균 등으로 파상풍 및 기타 감염에 걸릴 수 있어 주의해야 한다. 파상풍 말고 조심해야 할 질병은 광견병인데 광견병 예방접종을 했는지 알아 보고 만약 확인이 되지 않으면 의료기관에서 향후 치료를 상의한다. <br><br>
+
+
+
+    <b>ㆍ처치 </b><br><br>
+
+    입 속에는 세균이 많으므로 심한 감염이 발생할 수 있으며 <span style="color: rgb(255, 0, 0);">우선 환자를 안심시킨 후 비누나 물로 씻고 난 후 깨끗한 거즈로 덮어주고 병원으로 이송한다. </span><br><br>
+
+
+
+    <b>ㆍ주의점 </b><br><br>
+
+    개의 물린 상처에 된장을 바르거나 피가 난다고 지혈가루를 뿌린다면 상처 치료에 도움이 되지 않으므로 바르지 않는다. <br><br>
+
+    아기들은 피부 조직이 부드럽고 두께가 얇아 개에 심하게 물리면 목숨이 위험할 수도 있다. 따라서 현장에서 얼른 개와 격리하고, 단순한 상처만 보지 말고 숨쉬고 맥박 뒤는 것을 확인하는 것이 급선무이다. <br>
+    <div class="titl0">벌에 쏘였을 때</div><br>
+    벌에 쏘이면 그 부위는 붓고 아프다. 벌에는 꿀벌과 말벌이 있어 침을 쏘는 방식이 다른데 꿀벌은 침이 계속 살에 꽃이는 방면 말벌은 그냥 찌르기만 한다. 어떤 벌이든 쏘인 자리가 붓고, 가렵고, 아픈 경우가 대부분이고 때로는 두통, 어지럼증, 구토, 호흡 곤란 및 심하면 쇽 증세까지 보인다. 물론 이러한 전신 증상까지 보이면 신속히 의료기관으로 이송하여야 한다. <br><br>
+    <b>ㆍ처치</b><br><br>
+    벌에 쏘인 자리는 얼음주머니를 대주면 독에 의한 붓기를 가라앉히고, 아픔이 가시는데 도움이 된다. 꿀벌은 침이 박혔나 살펴 침을 제거해 주는 것이 좋은데 침 제거는 바늘로 살살 긁어 주어 시행한다. <br><br>
+    여러 곳을 쏘인 후 온 몸이 붓고 가렵고 숨쉬기가 힘들어지면 빨리 병원으로 가서 치료를 받는 것이 좋다. <br><br>
+    <b>ㆍ주의점</b> <br><br>
+    <span style="color: rgb(255, 0, 0);">벌침이 박힌 자리는 핀셋이나 손톱으로 제거하다 보면 벌침이 더 들어가는 경우가 많다.</span> 신용카드로 긁어서 제거할 수 있다. <br><br>
+    <u>
+        출처: 서울응급의료정보센터
+    </u>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

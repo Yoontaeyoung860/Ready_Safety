@@ -13,12 +13,10 @@
 </head>
 <body>
 <div class="upper">
-  <div class="upper-second">
-    <div class="upper-left">
-      <div class="logo">
-        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
-      </div>
-    </div>
+  <a href="/">
+    <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+  </a>
+  <div class="nav-wrapper">
     <!--로그인시-->
     <th:block th:if="${!session.isEmpty()}">
       <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
@@ -32,9 +30,8 @@
 <header>
   <div th:replace="fragment/gnb :: gnb"></div>
 </header>
+<main>
 <div id="body_content" class="body_content">
-
-
   <h2 class="hb1 h2">응급 환자를 운반하는 방법</h2>
   <h3 class="hb1 h3">들 것을 만드는 방법</h3>
   <div class="box1">
@@ -53,10 +50,7 @@
         <img th:src="@{/img/carry/carry4.gif}" alt="로프와 막대"  />
       </div>
     </div>
-    <!-- /even-grid -->
   </div>
-
-
   <h4 class="hb1 h4">환자를 싣는 방법</h4>
   <ol class="bo1">
     <li>뒷머리나 등에 부상이 있을 때는 옆으로 눕히고, 모포를 대어 몸을 받쳐 준다.</li>
@@ -80,14 +74,10 @@
     <li>계단을 오를 때는 얼굴쪽을, 내릴 때는 발쪽을 앞으로 한다. 차에 태울 때는 머리를 앞으로 한다.</li>
     <li>필요할 때, 기도 확보나 지혈을 들 것위에서 계속한다.</li>
   </ol>
-
   <ul class="bu">
     <li><em>머리가 흔들리지 않도록 받쳐 줄 것. 또 몸이 9자처럼 구부러지지 않도록 주의한다.</em></li>
   </ul>
-
-
   <h3 class="hb1 h3">두 사람이 옮기는 방법</h3>
-  <!-- even-grid -->
   <div class="even-grid evenmix-12 tac">
     <div class="column">
       <div class="box1 pd2em-rv">
@@ -104,12 +94,9 @@
       </div>
     </div>
   </div>
-  <!-- /even-grid -->
   <ul class="bu">
     <li><em>경추, 요추 등의 등뼈에 골절이 있을 때는 소수가 나르는 것은 위험. 협력자를 더 모으든가, 구급차를 기다린다.</em></li>
   </ul>
-
-  <!-- even-grid -->
   <div class="even-grid evenmix-1 tac">
     <div class="column">
       <div class="box1 pd2em-rv">
@@ -119,14 +106,9 @@
       </div>
     </div>
   </div>
-  <!-- /even-grid -->
-
-
   <h3 class="hb1 h3">한사람이 옮기는 방법</h3>
-
   <h4 class="hb1 h4">뒤에서 끌어 당긴다.</h4>
   <div class="box1 pd2em-rv pdt0 pdb0">
-    <!-- even-grid -->
     <div class="even-grid gap3pct">
       <div class="small-12 large-6 column">
         <div class="wrap1 tac">
@@ -139,13 +121,9 @@
         </div>
       </div>
     </div>
-    <!-- /even-grid -->
   </div>
-
   <h4 class="hb1 h4">어깨에 짊어 올린다.</h4>
-
   <div class="box1 pd2em-rv pdt0 pdb0">
-    <!-- even-grid -->
     <div class="even-grid gap3pct">
       <div class="small-12 large-6 column">
         <div class="wrap1 tac">
@@ -163,12 +141,9 @@
         </div>
       </div>
     </div>
-    <!-- /even-grid -->
   </div>
   <h4 class="hb1 h4">등에 업어 나른다.</h4>
-
   <div class="box1 pd2em-rv pdt0 pdb0">
-    <!-- even-grid -->
     <div class="even-grid gap3pct">
       <div class="small-12 large-5 column">
         <div class="wrap1 tac">
@@ -185,20 +160,13 @@
         </div>
       </div>
     </div>
-    <!-- /even-grid -->
   </div>
-
   <ul class="bu">
     <li>중증 환자를 보면 놀라서 당황하지 말고, 빨리 119나 병원으로 문의해 본다. 충분한 준비도 하지 않고 허둥대면서 이송하면, 도중에 사망하거나 더욱 상태가 악화되기도 하는 등 불행한 경과를 초래하기도 한다. 구급 처치란 단지 환자의 구출이나 인공호흡 등 처치뿐만 아니라 환자를 빨리 안전한 장소에 옮기거나 병원으로 이송하는 것도 포함한다. 환자 이송도 구급 처치의 하나임을 잊어버리지 말도록.</li>
     <li>나르는 방법은 환자를 걷게 할 것인가, 실어 나를 것인가, 혼자서 옮길 것인가, 여럿이 나를 것인가  등에 따라서 각각 달라진다. 어느 것을 취하든 간에 환자의 상태, 상처 부위를 생각하여 상태를 악화시키지 않고, 될 수 있는 한 통증을 주지 않는 자세로 하여 옮기는 것이 중요하다.</li>
   </ul>
-
-
-
-  <!-- -->
-
 </div>
-
+</main>
 </body>
 
 <div th:replace="fragment/footer :: site-footer"></div>
