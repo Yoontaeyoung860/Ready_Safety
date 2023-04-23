@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/ni.css" th:href="@{/css/disaster/ni.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_earthquake">
+    <h4 class="first">지진 발생시 행동요령</h4>
+    <ul class="h7_ul ml12">
+        <li>지진 발생 시 크게 흔들리는 시간은 길어야 1 ~ 2분이므로 이 시간 동안 테이블 <br>등의 밑으로 들어가 몸을 피하고 테이블 등이 없을 때는 방석 등으로 머리를 <br>보호합니다.</li>
+        <li>문을 열어서 출구를 확보하고 가스 ‧ 전기 등을 차단합니다.</li>
+        <li>화재가 났을 때 침착하고 빠르게 불을 꺼야 합니다. 불을 조기에 진화할 수 있는 <br>기회는 3번으로 크게 흔들리기 전, 큰 흔들림이 멈춘 직후, 발화된 직후 화재의 <br>규모가 작을 때입니다.</li>
+        <li>지진 발생 때는 유리창이나 간판 등이 떨어져 대단히 위험하므로 서둘러서 밖으로 뛰어나가면 안 됩니다.</li>
+        <li>지진이나 화재가 발생할 때는 엘리베이터를 사용하지 말아야 하고 타고 있을 때는 모든 버튼을 눌러 신속하게 내린 후 대피합니다. 만일 갇혔을 때는 인터폰으로 구조 요청합니다.</li>
+        <li>큰 진동이 멈춘 후 공터나 공원 등 넓은 공간으로 대피합니다. 또한 블록담, 자동판매기 등 고정되지 않은 물건 등은 넘어질 우려가 있으므로 가까이 가서는 안됩니다.</li>
+    </ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

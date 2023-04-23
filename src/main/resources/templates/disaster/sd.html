@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sd.css" th:href="@{/css/disaster/sd.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 폭발</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_explosion" style="margin-top: 40px; margin-bottom: 40px;">
+    <h4 class="first">폭발사고 예방은</h4>
+    <ul class="h7_ul ml12">
+        <li>가스가 누출되었을 때에는 체류 가스를 밖으로 내보내는 등 즉시 환기를 하고, <br>전기 스위치나 화기 사용을 금지해야 합니다.</li>
+        <li>먼지가 많이 발생하는 밀폐공간 등에서는 집진설비를 설치해야 하며, 화기 사용을 억제해야 합니다.</li>
+        <li>과열이 되기 쉬운 가전제품, 보일러 등은 무리해서 사용하지 말고, 항상 안전밸브 등을 확인 점검해야 합니다.</li>
+        <li>휴대전화, 노트북 등의 축전지는 장시간 또는 고온의 장소에서 사용을 억제하고, 금속물질과 함께 보관하거나 무리한 압력을 가하지 맙시다.</li>
+        <li>휴대용 부탄가스, 헤어스프레이 등 폭발성 용기는 반드시 구멍을 뚫어 잔류가스를 배출한 후 버립시다.</li>
+        <li>여름철에 가스라이터 등 폭발성 위험 물질을 자동차에 두고 내리지 맙시다.</li>
+        <li>의심이 되는 폭발물을 발견 시에는 마음대로 분해하지 말고 가까운 경찰서나 <br>군부대에 신고합시다.</li>
+    </ul>
+<h4>폭발사고 발생했을 때는</h4>
+<ul class="h7_ul ml12">
+    <li>건물 안에서는 2차 폭발에 대비하여, 신속히 밖으로 대피하여야 합니다.</li>
+    <li>폭발사고 때는 굉음으로 청각 장애를 당할 수 있으므로, 귀를 막고 대피합시다.</li>
+    <li>폭발사고 시에는 멀리 떨어진 장소, 차폐 벽이 있는 장소 등 안전한 곳으로 신속히 대피하여야 합니다.</li>
+    <li>연기 · ․가스에 의한 질식 등에 대비 바람이 불어오는 방향으로 파편이나 낙하물에 주의하면서 대피하여야 합니다.</li>
+    <li>부상자는 즉시 안전한 장소로 먼저 옮긴 후에 응급조치를 하여야 합니다.</li>
+    <li>추가 폭발에 대비 전기 스위치와 화기 사용 등을 금하고, 가스 중간밸브를 잠근 후 창문을 열어 자연환기를 시켜야 합니다.</li>
+</ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

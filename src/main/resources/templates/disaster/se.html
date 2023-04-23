@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/se.css" th:href="@{/css/disaster/se.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 교통사고</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_accident" style="margin-top: 50px; margin-bottom: 50px;">
+<h4 class="first">교통사고 발생 때는</h4>
+<ul class="h7_ul ml12">
+    <li>위험 물질 수송차량 사고 시 사고 지점에서 빠져나와 대피합시다.</li>
+    <li>화재가 발생하였을 때 외에는 부상자를 건드리지 맙시다.</li>
+    <li>구조대의 활동이 본격적으로 시작되면 구조에 참여하지 말고 사고 현장에서 물러나야 합니다.</li>
+    <li>사고 현장에서는 유류나 가스가 누출되어 화재가 발생할 위험성이 있으니 담배를 피우지 맙시다.</li>
+</ul>
+<h4>교통사고 예방</h4>
+<ul class="h5_ul"><li>자전거 안전운전 수칙
+        <img alt="자전거 안전운전 수칙 설명사진입니다. 골목길에서 큰길로 나갈 때에는 반드시 정지한 후 자동차와 다른 사람이 있는지 확인해야하고 버스에서 내리는 사람을 주의해야 합니다. 그리고 우측통행을 지키고 차량과 같은 방향으로 주행함을 원칙으로 합니다." th:src="@{/img/img_accident.gif}">
+    <ul class="h7_ul">
+        <li>도로를 횡단할 때에는 반드시 건널목 (횡단보도) 을 이용하여, 오른쪽으로 내려서 천천히 끌고 갑시다.</li>
+        <li>골목길에서 큰길로 나갈 때에는 반드시 정지한 후 자동차가 있는지 확인합시다.</li>
+        <li>우측통행을 지키고 차량과 같은 방향으로 주행함을 원칙으로 합시다.</li>
+        <li>보도나 골목길을 달릴 때 보행자가 우선임을 잊지 말고 천천히 가야 합니다.</li>
+        <li>좌우로 왔다 갔다 하거나 손을 놓고 운전하지 말며, 과속을 하지 맙시다.</li>
+        <li>바지는 아랫부분이 너풀거리지 않도록 하며, 신발은 끈이 풀어지지 않도록 합시다.</li>
+        <li>짐을 지나치게 싣거나, 뒷자리에 다른 사람을 태우면 핸들 조작에 중심을 잃게 되어 위험합니다.</li>
+        <li>우산을 쓰거나 손에 물건을 들고 타지 말며, 슬리퍼를 신고 타는 일이 없도록 합시다.</li>
+        <li>밤에 탈 경우에는 눈에 잘 띄는 밝은 색 계통의 옷을 입거나, 반사체 또는 전조등을 켜야 합니다.</li>
+        <li>내리막길에서 과속으로 주행 때 급정거를 하면 자전거에 무리를 주어 넘어질 염려가 있어 매우 위험합니다.</li>
+    </ul>
+</li>
+    <li>자동차 사고 대비 방법
+        <ul class="h7_ul">
+            <li>"안전한 도로 횡단을 위해서는
+                <ul class="h8_ul">
+                    <li>우선 멈추어 좌우를 살피는 습관을 가져야 합니다.</li>
+                    <li>건널목 (횡단보도) 이 아닌 곳을 무단으로 횡단하는 일은 금해야 합니다.</li>
+                    <li>건널목 (횡단보도) 에서 신호가 바뀌더라도 차량의 진행 유무를 반드시 확인합시다.</li>
+                    <li>어린이나 노약자는 보호자와 함께 건너야 합니다.</li>
+                    <li>처음부터 건너기 시작한 사람이 아니면, 파란 신호가 끝나지 않았더라도 건너지 않아야 합니다.</li>
+                    <li>신호등이 없거나 점멸신호가 있는 건널목 (횡단보도) 에서는 차량이 완전히 멈추었거나 운전자의 수신호가 있을 때 건너도록 <br>합시다.</li>
+                    <li>운전자는 사람이 내리는 차량 옆으로 지나가거나 추월하지 않도록 해야 합니다.</li>
+                    <li>차에서 내리는 사람은 지나가는 자전거, 오토바이, 차량에 주의해야 합니다.</li>
+                    <li>사람은 인도로 다니고 차는 차도로 다녀야 합니다.</li>
+                    <li>인도와 차도가 구분이 안 된 도로의 경우에는 길 가장자리 즉 한쪽으로 다니도록 합시다.</li>
+                    <li>운동은 운동장이나 놀이터와 같은 안전한 장소에서 해야 합니다.</li>
+                    <li>비가 오는 날에 우산을 숙여 쓰면 앞을 살필 수 없으니 똑바로 쓰고 차도에서 떨어진 길의 가장자리로 걷도록 합시다.</li>
+                    <li>운전자의 눈에 잘 띄도록 밝은 색 옷을 입어야 합니다</li>
+                    <li>좁은 길이나 골목길에서 넓은 도로로 나올 때에는 아무리 급한 일이 있더라도 일단 멈추어 서서 좌우를 잘 확인하고 나서야 <br>합니다."</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

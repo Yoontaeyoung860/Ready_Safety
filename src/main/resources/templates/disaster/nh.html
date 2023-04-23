@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nh.css" th:href="@{/css/disaster/nh.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_dust">
+    <h4 class="first">가정 및 식품취급 장소</h4>
+    <ul class="h7_ul ml12">
+        <li>노약자, 호흡기 질환자 등은 실외활동 자제</li>
+        <li>창문을 닫고 가급적 외출을 삼가되, 외출 시에는 보호안경, 마스크 착용</li>
+        <li>노출된 채소, 과일 등 농수산물은 충분히 세척 후 섭취</li>
+        <li>식품제조 ‧ 가동, 조리시 철저한 손씻기</li>
+        <li>기계 ‧ 기구류 세척 등 위생관리 2차 오염 방지</li>
+    </ul>
+    <h4>학교 등 교육기관</h4>
+    <ul class="h7_ul ml12">
+        <li>유치원과 초등학교의 실외활동 자제</li>
+        <li>기상예보를 고려해 지역실정에 맞게 휴업 또는 단축수업 검토</li>
+        <li>학생 비상 연락망 점검 및 연락체계 유지</li>
+        <li>학교 실내외 방역 및 청소, 감기, 안질 등 환자는 조퇴 조치 등 실시</li>
+    </ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

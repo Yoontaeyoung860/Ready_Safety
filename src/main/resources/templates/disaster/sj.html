@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sj.css" th:href="@{/css/disaster/sj.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 산행</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_ma" style="margin-top: 50px; margin-bottom: 50px;">
+<h4 class="first">산에 오를 때는 어떻게 할까?</h4>
+<ul class="h7_ul ml12">
+    <li>산행은 아침 일찍 시작하여 해지기 한두 시간 전에 마친다.</li>
+    <li>하루 8시간을 산행하고, 체력의 30%는 비축한다.</li>
+    <li>일행 중 약한 사람을 기준으로 산행한다.</li>
+    <li>될 수 있으면 30킬로그램 이상의 짐을 지지 않는다.</li>
+    <li>배낭에는 기상이변 등을 대비 랜턴, 우의, 휴대전화 (예비 축전지), 상비약품을 준비하고 손에는 될 수 있으면 물건을 들지 않는다.</li>
+    <li>등산화는 발에 잘 맞고 통기성과 방수성이 좋은 것을 신는다.</li>
+    <li>산행 중에는 한꺼번에 너무 많이 먹지 말고, 조금씩 자주 섭취한다.</li>
+    <li>산에서는 아는 길도 자주 지도를 보고 확인한다.</li>
+    <li>길을 잘못 들었을 때는 당황하지 말고, 아는 위치까지 되돌아가서 다시 확인한다.</li>
+    <li>등반로 외의 산행을 삼가고, 길을 잃었을 때에는 계곡을 피하여 능선으로 올라간다.</li>
+    <li>등산화 바닥 전체로 지면을 밟고 안전하게 걷는다.</li>
+    <li>보폭을 너무 넓게 하지 말고 항상 일정한 속도로 걷는다.</li>
+    <li>발 디딜 곳을 잘 살펴 천천히 걷는다.</li>
+    <li>처음 몇 차례는 15 ~ 20분 정도 걷고 5분간 휴식하고, 차츰 30분 정도 걷고 5 ~ 10분간 휴식한 다음 산행에 적응이 되면 1시간 정도 걷고 10분간 씩 휴식하는 것이 좋다.</li>
+    <li>산행 시에는 수시로 지형과 지도를 대조하여 현재 위치를 소방서에서 설치한 위치판 고유번호와 함께 확인하는 것이 좋다.</li>
+    <li>내려갈 때는 자세를 낮추고 발아래를 잘 살펴 안전하게 디딘다.</li>
+    <li>썩은 나뭇가지 풀, 불안정한 바위를 손잡이로 사용하지 않는다.</li>
+    <li>급경사 등 위험한 곳에서는 보조 자일을 사용하는 것이 좋다.</li>
+</ul>
+<h4>산에서 캠핑할 때는</h4>
+<ul class="h7_ul ml12">
+    <li>야생동물이나 곤충으로부터 피해를 보지 않도록 주의하고, 뱀 등이 나타나면 절대로 공격을 하면 안 된다.</li>
+    <li>계곡에서 캠핑할 때는, 밤사이 집중호우가 내려 물이 갑자기 불어나면서 위험해질 수 있으므로 물 가까이 텐트를 치지 않는다.</li>
+    <li>물을 쉽게 구할 수 있고 바닥이 평평해야 하며, 뒤에 암벽이나 언덕이 없어 산사태 위험이 없는 곳에 텐트를 친다.</li>
+    <li>벌레에 물리면 비눗물로 즉시 씻고, 항히스타민제 연고를 바른다.</li>
+    <li>휴대용 랜턴, 라디오, 밧줄 (로프), 구급약품 등을 준비해둔다.</li>
+    <li>호우주의보 발령 시 라디오에 귀를 기울여 기상상태를 주시한다.</li>
+    <li>등산 중일 때에는 빨리 하산하거나 급히 높은 지대로 피신하되, 물살이 거센 계곡을 절대로 건너지 않는다.</li>
+    <li>야영 중에 물이 밀려들 때에는 절대로 물건에 미련을 두지 말고 신속히 대피한다.</li>
+    <li>집중호우 시 나무로 만들어진 다리 (교량) 는 건너지 않는다.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

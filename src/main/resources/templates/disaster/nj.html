@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nj.css" th:href="@{/css/disaster/nj.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_storm">
+    <h4 class="first">풍랑특보시 행동요령</h4>
+    <ul class="h7_ul ml12">
+        <li>라디오, TV, 인터넷, 스마트폰 등을 통해 풍랑 정보를 수시로 확인하고 재난 <br>예 · 경보를 청취합시다.</li>
+        <li>해안가의 낚시꾼, 야영객, 행락객 등은 인근의 안전한 곳으로 대피합시다.</li>
+        <li>지붕 위나 바깥에서의 작업은 위험하니 피해야 합니다.</li>
+        <li>장애인, 노약자, 어린이는 외출을 자제하고 해안가에 접근하지 맙시다.</li>
+        <li>높은 파도가 발생할 위험이 있는 방파제, 방조제 등에 접근하지 맙시다.</li>
+        <li>해안도로는 유실 등이 예상되므로 통행을 자제합시다.</li>
+        <li>수산 증 · 양식시설을 고정하고 지지대로 보강하여 높은 파도와 강풍에 유실되지 <br>않도록 조치합시다.</li>
+        <li>이동 가능한 양식 자재 · 해상작업대 등은 안전한 장소로 미리 이동 조치합시다.</li>
+    </ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sc.css" th:href="@{/css/disaster/sc.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 붕괴</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_collapse" style="margin-top: 40px; margin-bottom: 40px;">
+    <h4 class="first">건물 붕괴 징조를 느낄 때는</h4>
+    <ul class="h7_ul ml12">
+        <li>건물 바닥이 갈라지거나 함몰될 때</li>
+        <li>벽이나 바닥의 균열 소리가 얼음 깨지듯이 날 때</li>
+        <li>개를 비롯한 동물이 갑자기 크게 짖거나 평소와 달리 불안할 때</li>
+    </ul>
+    <h4>건물 내부에 있을 때는</h4>
+    <ul class="h7_ul ml12">
+        <li>건물이 붕괴한 경우에는 당황하지 말고 주변을 살펴서 대피로를 찾으세요.</li>
+        <li>엘리베이터 홀, 계단실 등과 같이 견디는 힘이 강한 벽체가 있는 안전한 곳으로<br>임시 대피합시다.</li>
+        <li>부상자는 가능한 빨리 안전한 장소로 함께 탈출 후 응급처치를 합니다.</li>
+        <li>평소에 완강기, 밧줄 (로프), 손전등 등 탈출에 필요한 물품이 있는 곳을 확인해 <br>둡시다.</li>
+    </ul>
+<h4>건물 외부에 있을 때는</h4>
+<ul class="h7_ul ml12">
+    <li>건물 밖으로 나오면 추가 붕괴와 가스폭발 등의 위험이 없는 안전한 지역으로 대피합시다.</li>
+    <li>붕괴 건물 밖에 있는 주민들은 추가 붕괴, 가스폭발, 화재 등의 위험이 있으니 피해가 없도록 사고 현장에 접근하지 맙시다.</li>
+    <li>붕괴지역 주변의 보행할 때나 이동 때에는 위험지역 또는 불안정한 물체에서 멀리 떨어지고, 유리 파편 등에 다치지 않도록 가방, 방석, 책 등으로 머리를 보호합시다.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

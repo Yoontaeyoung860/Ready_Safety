@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sf.css" th:href="@{/css/disaster/sf.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 전기(감전)</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_elea" style="margin-top: 50px; margin-bottom: 50px;">
+    <h4 class="first">일반적인 전기사고 예방 </h4>
+    <ul class="h7_ul ml12">
+        <li>전기기기와 배선에 절연 (전류가 통하지 못하도록 하는것) 처리가 되어 있지 않은 부분은 노출하지 맙시다.</li>
+        <li>전기기기는 땅이나 수도관과 전선으로 연결 (접지) 해야 합니다.</li>
+        <li>누전차단기를 설치하여 감전, 화재 등의 사고를 방지합시다.</li>
+        <li>전기기기의 스위치 조작은 아무나 함부로 하지 않도록 합시다.</li>
+        <li>젖은 손으로 전기기기를 만지지 맙시다.</li>
+        <li>수동 개폐기의 퓨즈로 동선이나 철사를 사용하면 매우 위험하므로 반드시 정격 퓨즈를 사용하여야 합니다.</li>
+        <li>자동개폐기 (차단기) 는 정상적으로 작동하는지 정기적으로 테스트 (테스트 버튼을 눌러 차단되는지) 합시다</li>
+        <li>불량제품이나 부분적으로 고장이 나있는 제품을 무리하게 사용하지 맙시다.</li>
+        <li>배선용 전선은 중간에 연결 · 접속하여 사용하지 맙시다.</li>
+    </ul>
+    <h4>침수지역 감전사고 예방</h4>
+    <ul class="h7_ul ml12">
+        <li>늘어진 전선에 접근하거나 만지지 맙시다.</li>
+        <li>누전차단기가 동작하였을 때는 원인을 제거한 후 사용합시다.</li>
+        <li>가옥이 침수되었을 때에는 개폐기를 내려두고 전문 전기공사 업체에 의뢰하여 점검을 받은 후 사용하도록 합시다.</li>
+        <li>침수된 가옥 수리 시 손상된 전선은 교체하도록 하고 가옥과 배선부분이 완전히 건조된 후 사용합시다.</li>
+        <li>넘어진 전주 · 가로등 등 파손된 전기시설물에는 절대 접근하지 말고 한국전력 (국번 없이 123) 에 신고합시다.</li>
+    </ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

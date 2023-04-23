@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sb.css" th:href="@{/css/disaster/sb.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 산불</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_sanfire" style="margin-top: 40px; margin-bottom: 4 0px;">
+<h4 class="first">산불 예방은</h4>
+<ul class="h7_ul ml12">
+    <li>등산을 할 때에는 성냥이나 라이터 등 화기물을 소지하지 맙시다.</li>
+    <li>야영 등 야외에서 취사를 할 때에는 지정된 장소에서 하시고 취사가 끝난 후에는 주변 불씨 단속을 철저히 합시다.</li>
+    <li>입산통제구역에는 출입하지 말고 불씨가 남아있는 담뱃불은 절대 버리지 맙시다.</li>
+    <li>산림과 인접된 곳에서는 논밭 두렁 태우기, 쓰레기 소각 등 화기 취급을 하지 맙시다.</li>
+    <li>달리는 열차나 자동차에서 창밖으로 담뱃불을 버리지 맙시다.</li>
+</ul>
+<h4>산불 발생 후에는</h4>
+<ul class="h5_ul">
+    <li>산불이 발생한 때는
+        <ul class="h7_ul">
+            <li>산불 발견 시 119, 112, 시 · 군 · 구청으로 신고합시다.</li>
+            <li>초기의 작은 산불을 진화하고자 할 경우, 나뭇가지를 사용하여 두드리거나 덮어서 진화합시다.</li>
+            <li>산불은 바람이 불어 가는 쪽으로 확산하므로 풍향을 고려하여 산불의 진행경로에서 벗어납시다.</li>
+            <li>불길에 휩싸이면 당황하지 말고 침착하게 주위를 확인하여 타버린 지역, 저지대, 수풀이 적은 지역, 도로, 바위 뒤 등으로 <br>대피합시다.</li>
+            <li>산불 구역보다 높은 곳으로 가지 않도록 하고 수목이 강하게 타는 곳에서 멀리 떨어집시다.</li>
+            <li>대피할 시간적인 여유가 없을 때에는 낙엽, 나뭇가지 등 탈것이 적은 곳을 골라 낙엽과 마른 풀을 긁어낸 후 얼굴을 가리고 불길이 지나갈 때까지 엎드려있습니다.</li>
+        </ul>
+    </li>
+    <li>
+        주택가로 산불이 확산될 때는
+        <ul class="h7_ul">
+            <li>불이 집으로 옮겨 붙지 못하도록 문과 창문을 닫고 집 주위에는 물을 뿌려주며 가스 · 기름통, 장작 등을 제거합시다.</li>
+            <li>주민 대피령이 발령되면 공무원의 안내에 따라서 침착하고 신속히 대피하되 산림에서 멀리 떨어진 논, 밭, 학교 등 공터로 <br>대피합시다.</li>
+            <li>대피하지 않은 사람이 있을 수 있으므로 이웃집을 확인하고 위험상황을 알려줍시다.</li>
+            <li>가축은 미리 안전한 곳으로 이동시켜 피해를 예방합시다.</li>
+        </ul>
+    </li>
+    <li>산불진화 참여 방법은
+        <ul class="h7_ul">
+            <li>산림과 가까운 지역에 거주하는 주민은 평소 산불진화를 위한 간이 진화 도구 (삽, 톱, 갈고리 등) 와 안전 장구 (긴 팔 면직 옷, <br>안전모, 안전화) 를 준비합시다.</li>
+            <li>산불 진화에는 많은 인력이 필요하므로 가까운 지역에서 산불이 발생하면 건강한 젊은 분들은 자율적으로 진화활동에 참여합시다.</li>
+            <li>산불진화에 참여할 때 현장대책본부의 안내를 받도록 합시다.</li>
+        </ul>
+    </li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

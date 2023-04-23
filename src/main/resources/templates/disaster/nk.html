@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nk.css" th:href="@{/css/disaster/nk.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_ele">
+<h4 class="first">낙뢰 발생 시 행동요령</h4>
+<ul class="h7_ul ml12">
+    <li>스마트폰, 라디오 등을 통하여 기상정보를 파악하고 될 수 있으면 외출을 자제합니다.</li>
+    <li>텔레비전 안테나나 전선을 따라 전류가 흐를 수 있으므로 전자제품의 취급에 주의가 필요합니다.</li>
+    <li>가옥 내에서는 전화기나 전기제품 등의 플러그를 빼어 두고, 전등이나 전기제품으로부터 1m 이상의 거리를 유지합니다.</li>
+    <li>창문을 닫고, 감전 우려가 있으므로 샤워나 설거지 등을 하지 않습니다.</li>
+    <li>갑자기 하늘에 먹구름이 끼면서 돌풍이 몰아칠 때, 특히 바람이 많은 산골짜기 위의 정상 등지에서는 낙뢰 위험이 크므로 신속히 하산합니다.</li>
+    <li>번개를 본 후 30초 이내에 천둥소리를 들었다면 신속히 안전한 장소로 대피하여 즉시 몸을 낮추고 물이 없는 움푹 파인 곳이나 동굴 안으로 대피합니다.</li>
+    <li>벌판이나 평지에서는 몸을 가능한 한 낮게 하고 물이 없는 움푹 파인 곳으로 대피합니다.</li>
+    <li>낙뢰는 대개 산골짜기나 강줄기를 따라 이동하는 성질이 있으므로 하천 주변에서의 야외 활동을 자제합니다.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

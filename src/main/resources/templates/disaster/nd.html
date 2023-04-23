@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nd.css" th:href="@{/css/disaster/nd.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+
+<div class="safety_heat">
+<h4 class="first">사전 준비사항</h4>
+<ul class="h7_ul ml12">
+    <li>라디오나 TV의 무더위 관련 기상상황에 매일 주목하세요.</li>
+    <li>정전에 대비 손전등, 비상 식음료, 부채, 휴대용 라디오 등을 미리 확인해 두세요.</li>
+    <li>집에서 가까운 병원의 연락처를 확인하고 본인과 가족의 열사병 등 증상을 체크하세요.</li>
+    <li>단수에 대비하여 생수를 준비하고 생활용수는 욕조에 미리 받아 두세요.</li>
+    <li>냉방기기 사용 시는 실내 · 외 온도차를 5℃ 내외로 유지하여 냉방병을 예방하세요. (건강 실내 냉방온도는 26℃  ~ 28℃가 적당)</li>
+    <li>변압기의 점검으로 과부하에 사전대비하세요. (특히, 오래된 공동주택은 각별히 주의)</li>
+    <li>창문에 커튼이나 천 등을 이용, 집안으로 들어오는 직사광선을 최대한 차단하세요.</li>
+    <li>차량의 장거리 운행계획이 있다면 도로의 변형 등으로 교통사고 등이 발생할 수 있으므로 신중히 검토하세요.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

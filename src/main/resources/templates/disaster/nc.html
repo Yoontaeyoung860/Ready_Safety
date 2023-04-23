@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nc.css" th:href="@{/css/disaster/nc.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+
+<div class="safety_drought">
+    <h4 class="first">도시지역의 가뭄대비 방법</h4>
+    <ul class="h7_ul ml12">
+        <li>가정에서는 식기류 세척 · 세수 · 샤워 시 물을 받아 사용합시다.</li>
+        <li>가정에서 세탁할 때는 한꺼번에 빨래를 모아서 합시다.</li>
+        <li>식당 등 물을 많이 사용하는 업소는 물을 적게 사용하는 방법으로 영업합시다.</li>
+        <li>정원이나 꽃밭에는 한번 사용한 허드렛물을 재활용합시다.</li>
+        <li>개인소유의 우물 (관정 포함) 은 공동으로 이용합시다.</li>
+    </ul>
+    <h4>농 · 어촌지역의 가뭄대비 방법</h4>
+    <ul class="h7_ul ml12">
+        <li>논 · 밭 토양의 수분 정도와 농작물의 상태를 잘 살펴봅시다.</li>
+        <li>농작물에 피복 (멀칭) 이 가능한 곳에서는 볏짚, 비닐 등으로 토양수분 증발을 최소화합시다.</li>
+        <li>물이 쉽게 고갈되는 곳이나 물이 부족한 지역을 잘 알아둡시다.</li>
+        <li>가뭄이 오기 전에 우물과 같은 용수원을 미리 개발합시다.</li>
+        <li>물을 끌어올 수 있는 시설 (수로) 이나 물을 퍼 올릴 수 있는 장비 (양수기) 를 잘 점검합시다.</li>
+        <li>수리 불안 전답 지역에서는 논물 가두기, 사용한 물 재사용 등 물 관리를 철저히 합시다.</li>
+
+</ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

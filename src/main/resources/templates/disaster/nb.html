@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nb.css" th:href="@{/css/disaster/nb.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난 호우</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_downpour">
+    <h4 class="first">호우특보시 국민행동요령</h4>
+    <ul class="h7_ul ml12">
+        <li>저지대 · 상습 침수지역의 주민은 대피를 준비합시다.</li>
+        <li>대형공사장, 비탈면 등의 관리인은 안전 상태를 미리 확인합시다.</li>
+        <li>가로등이나 신호등 및 고압전선 근처에는 가까이 가지 맙시다.</li>
+        <li>물에 떠내려갈 위험이 있는 물건은 안전한 장소로 사전에 옮깁시다.</li>
+        <li>아파트와 고층건물 옥상이나 지하실 및 하수도 맨홀에 가까이 가지 맙시다.</li>
+        <li>라디오, TV, 인터넷, 스마트폰 등을 통해 기상예보 및 호우 상황을 잘 알아 둡시다.</li>
+        <li>모래주머니 등을 이용하여 하천의 물이 넘치지 않도록 하여 사전에 농경지의 침수를<br>예방합시다.</li>
+        <li>논둑을 점검하거나 물꼬를 조정하러 나가는 것은 위험합니다.</li>
+        <li>산간계곡의 야영객은 미리 대피합시다.</li>
+        <li>침수가 예상되는 건물의 지하공간에는 주차를 하지 말고, 지하에 살고 있는 분은 <br>대피해야 합니다.</li>
+    </ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

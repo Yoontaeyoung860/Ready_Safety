@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sa.css" th:href="@{/css/disaster/sa.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 화재</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_fire" style="margin-top: 40px; margin-bottom: 40px;">
+    <h4 class="first">화재 발생 시 대피방법</h4>
+    <ul class="h7_ul ml12">
+        <li>불을 발견하면 '불이야'하고 큰소리로 외쳐 다른 사람에게 알리고 화재 경보 <br>비상벨을 누릅시다.</li>
+        <li>엘리베이터를 이용하지 말고 계단을 이용하되 아래층으로 대피가 불가능한 때에는 옥상으로 대피합시다.</li>
+        <li>불길 속을 통과할 때에는 물에 적신 담요나 수건 등으로 몸과 얼굴을 감싸주세요.</li>
+        <li>연기가 많을 때는 한 손으로는 코와 입을 젖은 수건 등으로 막고 낮은 자세로 <br>이동합시다.</li>
+        <li>방문을 열기 전에 문 손잡이를 만져 보았을 때 뜨겁지 않으면 문을 조심스럽게 열고 밖으로 나갑시다.</li>
+        <li>출구가 없으면 연기가 방안에 들어오지 못하도록 물을 적셔 문틈을 옷이나 이불로 막고 구조를 기다립니다.</li>
+    </ul>
+<h4>소화기 사용요령</h4>
+<ul class="h7_ul ml12">
+    <li>소화기를 불이 난 곳으로 옮겨 손잡이 부분의 안전핀을 뽑아주세요.</li>
+    <li>바람을 등지고 서서 호스를 불 쪽으로 향하게 합시다.</li>
+    <li>손잡이를 힘껏 움켜쥐고 빗자루로 쓸듯이 뿌립시다.</li>
+    <li>소화기는 잘 보이고 사용하기에 편리한 곳에 두되 햇빛이나 습기에 노출되지 않도록 합니다.</li>
+</ul>
+<h4>화재 시 119 신고요령</h4>
+<ul class="h7_ul ml12">
+    <li>119를 누르고 불이 난 내용을 간단 · 명료하게 설명합니다. (우리 집 주방에 불이 났어요. 2층 집이에요.)</li>
+    <li>주소를 알려 줍니다. (○○구 ○○동 ○○○번지예요 / ○○초등학교 뒤 쪽이에요.)</li>
+    <li>소방서에서 알았다고 할 때까지 전화를 끊지 맙시다.</li>
+    <li>휴대전화의 경우, 사용 제한된 전화나 개통이 안된 전화도 긴급신고가 가능합니다.<p><span class="color_red">※ 119는 화재신고는 물론 인명구조, 응급환자 이송 등을 요청하는 번호입니다.</span></p></li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

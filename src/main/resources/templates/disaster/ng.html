@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/ng.css" th:href="@{/css/disaster/ng.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_cold">
+    <h4 class="first">한파특보시 대비요령</h4>
+    <ul class="h7_ul ml12">
+        <li>자기 기온이 떨어지면 심장과 혈관 계통, 호흡기 계통, 신경계통, 피부병 등은 급격히 악화될 우려가 있으므로, 유아, 노인 또는 환자가 있는 가정에서는 난방에 신경 써야 합니다.</li>
+        <li>혈압이 높거나 심장이 약한 사람은 노출 부위를 따뜻하게 하고 특히, 머리 부분이 <br>따뜻하도록 모자나 귀마개, 목도리 등을 착용해야 합니다.</li>
+        <li>외출 후 손발을 씻고 과도한 음주나 무리한 일로 피로가 누적되지 않도록 하여야 <br>하고, 당뇨환자, 만성폐질환자 등은 반드시 독감 예방접종을 하여야 합니다.</li>
+        <li>운동 전 충분한 스트레칭을 하여 관절의 가동 (稼動) 범위를 넓힘으로써 부상을 <br>방지하여야 합니다.</li>
+        <li>장기간 집을 비우게 될 때는 수도꼭지를 조금 열어 물이 흐르도록 하여 동파사고를 <br>막아야 합니다.</li>
+        <li>수도계량기 보호함 내부는 헌 옷으로 채우고, 외부는 테이프로 빈틈없이 막아 <br>찬 공기가 스며들지 않도록 합시다.</li>
+        <li>복도식 아파트는 수도계량기 동파가 많이 발생하므로 수도계량기 보온에 유의하여야 합니다.</li>
+        <li>수도관이 얼었을 때는 갑자기 뜨거운 열을 가하지 말고, 헤어드라이기 등 온열기를 <br>이용하여 녹이거나, 미지근한 물로 녹여야 합니다.</li>
+    </ul>
+</div>
+
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

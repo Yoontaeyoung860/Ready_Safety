@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/si.css" th:href="@{/css/disaster/si.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 낚시</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_nac" style="margin-top: 50px; margin-bottom: 50px;">
+<h4 class="first">안전한 낚시 방법</h4>
+    <ul class="h7_ul ml12">
+        <li>기상정보에 관심을 기울이고 기상이 나쁠 때는 낚시를 자제합시다.</li>
+        <li>갯바위와 썰물 바위는 추락과 고립 등 위험성을 갖추고 있으니 낚시꾼 어선업자들은 위험장소를 안내하거나 안내 요구도 받지 <br>않도록 합시다.</li>
+        <li>무허가 또는 인명구조장비를 비치하지 않은 낚시어선은 이용하지 말고 곧바로 해양 경찰서에 신고하여야 사고를 미리 방지할 수 <br>있습니다.</li>
+        <li>낚시어선업자와 낚시꾼은 무리한 출항이나 정원 초과는 요구도 승선도 하지 맙시다.</li>
+        <li>출항 시에는 항상 구명조끼를 착용하고 항해 때는 난간에 걸쳐 앉는 일을 삼가야 하며 해난사고에 항상 대비하도록 합시다.</li>
+        <li>해안가 위험요소에 비치된 각종 안내판의 준수사항들을 절대로 지켜야 하며 금지구역은 출입을 하지 말도록 합시다.</li>
+        <li>만일의 사태에 대비 휴대전화 등 긴급 연락이 가능한 통신장비를 휴대하여야 하고 낚시 추는 심각한 바다 오염의 주범으로 추의 <br>철저한 관리가 필요합니다.</li>
+        <li>가족과 주변 사람에게 행선지와 일정을 미리 알려줍시다.</li>
+        <li>야간에는 위치를 알릴 수 있는 랜턴과 체온 보호용 담요를 준비합시다.</li>
+        <li>간 · 만조 시간을 반드시 확인합시다.</li>
+        <li>휴대전화기 예비 축전지 (배터리) 를 준비합시다.</li>
+        <li>휴대용 라디오를 항상 지참하고 일기예보에 항상 신경을 기울입시다.</li>
+    </ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

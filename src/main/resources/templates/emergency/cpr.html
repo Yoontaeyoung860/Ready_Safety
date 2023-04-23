@@ -11,32 +11,27 @@
   <link rel="stylesheet" th:href="@{/css/emergency/emergency.css}">
   <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
 </head>
-
-
 <body>
 <div class="upper">
-  <div class="upper-second">
-    <div class="upper-left">
-      <div class="logo">
-        <img th:src="@{/img/mainDetail_logo.png}" alt="" width="220" height="160">
-      </div>
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
     </div>
-    <!--로그인시-->
-    <th:block th:if="${!session.isEmpty()}">
-      <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
-    </th:block>
-    <!--비로그인시-->
-    <th:block th:unless="${!session.isEmpty()}">
-      <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
-    </th:block>
-  </div>
 </div>
 <header>
-  <div th:replace="fragment/gnb :: gnb"></div>
+    <div th:replace="fragment/gnb :: gnb"></div>
 </header>
 
-
-<main style="margin-top: 350px;">
+<main style="margin-top: 170px;">
   <section class="sub-content heart-attack-cpr witness">
     <article>
       <div class="cpr-step clearfix">

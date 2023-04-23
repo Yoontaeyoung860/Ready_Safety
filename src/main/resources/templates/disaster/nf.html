@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/nf.css" th:href="@{/css/disaster/nf.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+<div class="safety_gale">
+<h4 class="first">강풍특보시 대비요령</h4>
+<ul class="h7_ul ml12">
+    <li>문과 창문을 잘 닫아 움직이지 않도록 하고, 안전을 위해 집 안에 있도록 합니다.</li>
+    <li>낡은 창호는 강풍으로 휘어지거나 파손될 위험이 있으니 미리 교체하거나 창문을 창틀에 단단하게 고정시켜 틈이 생기지 않도록<br>보강해야 합니다.</li>
+    <li>테이프를 붙일 때에는 유리가 창틀에 고정되도록 해 유리가 흔들리지 않도록 합니다.</li>
+    <li>창틀과 유리 사이의 채움재가 손상되거나 벌어져 있으면 유리창이 깨질 위험이 있으므로 틈이 없도록 보강해 주어야 합니다.</li>
+    <li>유리창이 깨졌을 때의 피해를 줄이기 위해서 유리창에 안전 필름을 붙입니다.</li>
+    <li>해안지역에서는 파도에 휩쓸릴 위험이 있으니 해안도로나 바닷가로 나가지 말아야 합니다.</li>
+    <li>라디오, TV, 인터넷, 스마트폰 등을 통해 기상정보를 확인하여 신속하게 대처합니다.</li>
+    <li>간판 등과 같이 바람에 날아갈 위험이 있는 물건은 단단히 고정해 둡니다.</li>
+    <li>비닐하우스는 방풍벽이나 그물 등을 이용하여 단단히 고정합니다.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

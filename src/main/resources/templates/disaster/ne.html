@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/ne.css" th:href="@{/css/disaster/ne.css}">
+    <link rel="stylesheet" href="/css/disaster/naturedisaster.css" th:href="@{/css/disaster/naturedisaster.css}">
+    <title>자연 재난</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div th:replace="fragment/depth_tap :: depth_tap"></div>
+
+<div class="safety_typhoon">
+    <h4 class="first">태풍특보시 대비요령</h4>
+    <ul class="h7_ul ml12">
+        <li>TV나 라디오, 인터넷, 스마트폰 등으로 태풍의 진로와 도달시간을 알아둡니다.</li>
+        <li>하천 근처에 주차된 자동차는 안전한 곳으로 옮깁니다.</li>
+        <li>바람에 날아갈 위험이 있는 지붕, 간판, 창문, 출입문 또는 마당이나 외부에 있는<br>헌 가구, 놀이기구, 자전거 등은 단단히 고정해 둡니다.</li>
+        <li>송전철탑이 넘어졌을 때는 119나 시 · 군 · 구청 또는 한전에 신고합니다.</li>
+        <li>경작지 용 · 배수로를 점검하러 나가는 것은 위험하니 하지 말아야 합니다.</li>
+        <li>노약자나 어린이는 집 밖으로 나가지 말아야 합니다.</li>
+        <li>침수가 예상되는 건물의 지하공간에는 주차를 하지 말고, 지하나 붕괴 우려가 있는<br>노후주택의 주민은 안전한 곳으로 대피합니다.</li>
+        <li>정전 때 사용 가능한 손전등을 준비하시고 가족 간의 비상연락방법과 대피방법을<br>미리 의논합시다.</li>
+        <li>선박을 묶거나 어망 · 어구 등을 옮기는 행위를 하지 맙시다.</li>
+    </ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

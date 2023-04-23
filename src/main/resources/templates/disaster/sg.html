@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="/css/disaster/sg.css" th:href="@{/css/disaster/sg.css}">
+    <link rel="stylesheet" href="/css/disaster/social.css" th:href="@{/css/disaster/social.css}">
+    <title>사회 재난 가스</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+
+<div th:replace="fragment/depth_tap2 :: depth_tap2"></div>
+<div class="safety_gas" style="margin-top: 50px; margin-bottom: 50px;">
+    <h4 class="first">가스사고 시 행동요령</h4>
+    <p>가스를 사용하기 전에 반드시 냄새를 맡아 가스가 누출되지 않았는지 확인하고 점화하는 습관을 길러야 한다. 가스가 누출되면 절대 당황하지 말고 침착히 응급조치하면<br>폭발사고를 막을 수 있다. 먼저 콕크와 중간밸브, 용기밸브를 잠그고 창문과 출입문 등을 활짝 열어 환기를 시켜야 한다.</p>
+    <ul class="h5_ul">
+        <li>LPG의 응급조치
+            <ul class="h7_ul">
+                <li>LPG의 경우에는 공기보다 무겁기 때문에 방바닥으로 가라앉으므로 침착히 빗자루 등으로 쓸어내어야 한다.</li>
+                <li>이때 급하다고 환풍기나 선풍기 등으로 사용하면 스위치 조작 시 발생하는 스파크에 의해 점화될 수 있으므로 전기 기구는 절대 조작해서는 안된다.</li>
+                <li>LPG 판매점이나 도시가스 관리 대행업소에 연락하여 필요한 조치를 받고 안전함을 확인한 후 다시 사용해야 한다.</li>
+                <li>화재 발생시는 일단 가스기구의 콕크를 잠근 후 시간이 있으면 가스용기의 밸브까지 잠가 주도록 해야 한다.</li>
+            </ul>
+        </li>
+        <li>도시가스 (LNG) 의 응급조치
+            <ul class="h7_ul">
+                <li>화재 발생 시 상황을 잘 판단하여 침착하게 콕크와 중간 밸브를 잠가 가스를 차단한 후 상황이 허락하면 메인밸브까지 잠그도록 한다.</li>
+                <li>대형화재일 경우에는 도시가스회사에 전화를 하여 그 지역에 보내지고 있는 가스를 차단하도록 해야 한다.</li>
+            </ul>
+        </li>
+    </ul>
+<h4>가스 사용시 평소 안전점검</h4>
+<ul class="h7_ul ml12">
+    <li>가스가 누출될 위험이 있는 부위에 비눗물이나 점검액을 발라 기포가 일어나는지를 알아본다.</li>
+    <li>호스와 배관의 연결부와 같은 접속 부위를 중점적으로 점검하면 된다.</li>
+    <li>주방용 액체세제를 물과 1 : 1 정도의 비율로 섞어서 비눗방울이 잘 일어나도록 한 다음 붓이나 스펀지에 묻혀서 호스의 연결 부분 주위에 충분히 발라준다.</li>
+    <li>아무런 반응이 없으면 누출이 없는 것이지만, 조금이라도 누출되는 경우에는 비눗방울이 생겨 쉽게 판별할 수 있다.</li>
+    <li>누출되는 것을 발견하면 용기밸브나 메인 밸브를 잠그고 판매점 등에 연락하여 보수를 받은 후 다시 사용해야 한다.</li>
+    <li>이와 같은 비눗물 점검은 점검하는 요일을 정해놓고 수시로 실행하는 습관을 길러두는 것이 좋다.</li>
+</ul>
+<h4>이동식 부탄가스 사용시 안전점검</h4>
+<ul class="h7_ul ml12">
+    <li>이동식 부탄 연소기는 크게 카세트식과 직결식으로 나눠손쉽게 이동 가능하다.</li>
+    <li>이동식 부탄연소기 사고는 지나치게 큰 그릇을 올려놓고 사용하다가 폭발을 일으킨 경우가 가장 많다.</li>
+    <li>대형화재일 경우에는 도시가스회사에 전화를 하여 그 지역에 보내지고 있는 가스를 차단하도록 해야 한다.</li>
+    <li>연소기 쪽에 있는 용기 장착 가이드와 용기 쪽에 나 있는 홈을 정확히 맞춰서 장착하고 삼발이는 반드시 정상적으로 놓은 상태에서 <br>사용해야 한다.</li>
+    <li>사용하고 난 용기는 용기 내에 소량이라도 가스가 남아 있음으로 반드시 용기에 구멍을 뚫어 남은 가스를 완전히 제거한 후 버려야 <br>한다.</li>
+    <li>구멍을 뚫는 방법은 가정에서 사용하는 손톱깎이나 병따개를 이용하여 간단히 뚫을 수 있다.</li>
+    <li>이때 주의할 점은 가스를 다 썼는지 확인하고 바람이 잘 통하는 곳에서 해야 한다.</li>
+</ul>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>

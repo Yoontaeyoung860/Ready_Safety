@@ -30,7 +30,7 @@ public class WeatherApiController {
                 + "&numOfRows=10"             // 페이지 ROWS
                 + "&pageNo=1"                 // 페이지 번호
                 + "&base_date=20230422"       // 발표일자
-                + "&base_time=0800"           // 발표시각
+                + "&base_time=0500"           // 발표시각
                 + "&nx=60"                    // 예보지점 X 좌표
                 + "&ny=127";                  // 예보지점 Y 좌표
 

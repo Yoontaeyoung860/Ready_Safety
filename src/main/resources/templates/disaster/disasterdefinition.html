@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumAmSeuTeReuDam.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ed864a7e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/main/main.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/disaster/dd.css" th:href="@{/css/disaster/dd.css}">
+    <link rel="stylesheet" href="/css/footer.css" th:href="@{/css/footer.css}">
+    <title>재난 이란?</title>
+</head>
+<body>
+<div class="upper">
+    <a href="/">
+        <img th:src="@{/img/readyrogo.png}" alt="Logo" width="220" height="160" style="margin-left: -;">
+    </a>
+    <div class="nav-wrapper">
+        <!--로그인시-->
+        <th:block th:if="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::afterLoginUpm}"></div>
+        </th:block>
+        <!--비로그인시-->
+        <th:block th:unless="${!session.isEmpty()}">
+            <div class="upper-right" th:replace="~{fragment/uppermost::beforeLoginUpm}"></div>
+        </th:block>
+    </div>
+</div>
+<header>
+    <div th:replace="fragment/gnb :: gnb"></div>
+</header>
+<div class="safety_flood">
+<div class="tab_content active">
+    <h3>용어설명</h3>
+    <h4>용어설명1</h4>
+    <div class="box point_text text_left">
+        사전에서는 <em class="em_point4">"뜻밖의 불행한 일, 액화(厄禍), 화해(禍害)"</em> 라고 말하며, 학문적으로는 다양한 이론이 나타나고 있다. 사전에서 "재해"란 재앙으로 말미암아 받은 피해, 지진·태풍·가뭄·해일·화재·전염병 따위에 의해 받게 되는 피해
+    </div>
+    <h4>용어설명2</h4>
+    <p>災難(disaster) 이라는 용어는 원래 별의 불길한 모습을 상징하는 라틴어에서 유래한 것 으로 <em class="em_point4">"하늘로부터 비롯된 인간의 통제가 불가능한 해로운 영향" </em>으로 풀이한다. 재난(disaster)의 어원을 분석하면, dis는 어원상 분리, 파괴, 불일치의 뜻이며, aster는 라틴 어로 astrum 또는 star라는 것을 의미한다. <br>
+        과거의 재난(Disaster)은 홍수, 지진과 같은 대규모의 천재인 자연 재해를 지칭하는 것이었으나, 현대사회에 들어와서는 대규모의 인위적 사고의 결과가 자연재해를 능가함에 따라"Disaster"는 자연 재해와 인위재난을 포괄하는 개념으로 사용되고 있다.
+        <br> 재난(Disaster)은 일반적으로 중앙과 지방정부의 일상적인 절차나 지원을 통하여 관리될 수 없는 심각한 대규모의 사망자, 부상자, 재산손실을 발생시키는 것으로 보통
+        예측가능성이 없이 갑작스럽게 발생하는 것이 특징이다.
+        <br> "재난" 이라 함은 원인이나 규모와 상관없이 자연재해가 아닌 인간의 행위가 원인이 되어 발생 된 사고로 생활환경이 불리한 방향으로 급작스럽게 변화하거나 막대한 인명과 재산 피해로 기존의 질서와 기능이 상실되고, 사회적 파급효과가 큰 현상으로 이해할 수 있다. 다만, 범죄·소요·테러·전쟁 등의 목적으로 발생되는 피해는 제외한다. </p>
+    <br>
+    <p>
+        <span class="warning type2"><span class="skip">안내사항</span>미국의 연방재난관리청(FEMA)의 「災難」개념</span><br />
+        통상적으로 사망과 상해, 재산피해를 가져오고 일상적인 절차나 정부의 자원으로는 관리할 수 없는 심각하고 규모가 큰 사건으로, 보통 돌발적으로 일어나기 때문에 정부와 민간조직이 인간의 기본적 수요를 충족시키고 복구를 신속하게 하고자 할 때 즉각적, 체계적, 효과적인 대처를 하여야 하는 사건
+    </p>
+
+    <h4>현행법상 재난의 정의</h4>
+    <p>재난 및 안전관리기본법 제3조(정의) 제1항 이 법에서 사용하는 용어의 정의는 다음과 같다. </p>
+    <ul class="bu">
+        <li> "재난"이라 함은 국민의 생명 · 신체 및 재산과 국가에 피해를 주거나 줄 수 있는 것으로서 다음 각목의 것을 말한다.
+            <ul>
+                <li>태풍 · 홍수 · 호우(豪雨) · 폭풍 · 해일(海溢) · 폭설 · 가뭄 · 지진 · 황사(黃砂) · 적조 그밖에 이에 준하는 자연현상으로 인하여 발생하는 재해 </li>
+                <li>화재 · 붕괴 · 폭발 · 교통사고 · 화생방사고 · 환경오염사고 그밖에 이와 유사한 사고로 대통령령이 정하는 규모 이상의 피해 </li>
+                <li>.에너지 · 통신 · 교통 · 금융 · 의료 · 수도 등 국가기반체계의 마비와 전염병 확산 등으로 인한 피해 </li>
+            </ul>
+        </li>
+    </ul>
+    <h4>재난 관리 체계</h4>
+    <p>재난관리는 기본적으로 재난유형별 관리방식을 택하고 있다. 재난의 유형은 앞에서 설명한 바와 같이 크게 인위재난, 자연재해, 민방위사태로 구분 하고 각 개별법과 관련조직을 토대로 이를 관리하고 있다. 또한 재난의 유형도 세분화 하여 주무부처(기관)를 정하여 관리 및 수습의 책임을 부여하고 있다. </p>
+    <h4>재난의 특징</h4>
+    <ul class="bu">
+        <li>실질적인 위험이 크더라도 그것을 체감하지 못하거나 방심한다.</li>
+        <li>본인과 가족과의 직접적인 재난피해 외에는 무관심하다.</li>
+        <li>시간과 기술·산업발전에 따라 발생빈도나 피해규모가 다르다.</li>
+        <li>인간의 면밀한 노력이나 철저한 관리에 의해 상당부분 근절시킬 수 있다. </li>
+        <li>발생과정은 돌발적이며 강한 충격을 지니고 있으나 같은 유형의 재난피해라도 형태나 규모,영향범위가 다르다. </li>
+        <li>재난발생 가능성과 상황변화를 예측하기 어렵다. </li>
+        <li>고의나 과실이든 타인에게 끼친 손해는 배상의 책임을 가진다. </li>
+    </ul>
+</div>
+</div>
+</body>
+<div th:replace="fragment/footer :: site-footer"></div>
+</html>
